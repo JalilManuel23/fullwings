@@ -1,0 +1,110 @@
+/* Aplicar estilos generales */
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*  Aplicar estilos al header */
+header{
+    background: url("../img/fondo.jpeg");
+    height: 100vh;
+    background-size: cover;
+}
+
+.contenedor{
+    max-width: 1280px;
+    width: 70%;
+    margin: auto;
+}
+
+.menu{
+    display: flex;
+    width: 60%;
+    margin: auto;
+    justify-content: space-around;
+    align-items: center;
+    height: 150px;
+}
+
+.menu img{
+    height: 80%;
+}
+
+li{
+    list-style: none;
+    margin-right: 50px;
+    font-size: 1.5em;
+}
+
+.menu>img:hover, li:hover{
+    cursor: pointer;
+}
+
+.lista{
+    display: flex;
+    color: white;
+}
+
+#logo{
+    width: 30%;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilos de la sección info */
+.contenedor-info{
+    max-width: 1280px;
+    width: 70%;
+    margin: auto;
+    display: flex;
+}
+
+[class^="info-"] img{
+    width: 50%;
+}
+
+[class^="info-"]{
+    padding: 20px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+[class^="info-"] p{
+    margin-top: 20px;
+    text-align: justify;
+}
+
+/* Estilos de la sección Banner */
+.banner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner h2{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding: 5px 30% 5px 30%;
+    background-color: #EF962D;
+    color: white;
+}
+
+#slides{
+    margin-bottom: 70px;
+}
+
+/* Estilos de la sección footer */
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    background-color: #8A0E0E;
+    color: white;
+}
