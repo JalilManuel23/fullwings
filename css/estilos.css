@@ -42,6 +42,15 @@ header{
     color: #EF962D;
 }
 
+.menu a{
+    color: white;
+}
+
+.menu a:hover{
+    text-decoration: none;
+    color: #EF962D;
+}
+
 .menu>img:hover, li:hover{
     cursor: pointer;
 }
@@ -49,6 +58,10 @@ header{
 .lista{
     display: flex;
     color: white;
+}
+
+#seleccionado{
+    color: #EF962D;
 }
 
 #logo{
@@ -122,4 +135,21 @@ footer{
     height: 90px;
     background-color: #8A0E0E;
     color: white;
+}
+
+/* Menu 2 */
+.menu2{
+    background-color: #473A34;
+    height: 70px;
+    width: 100%;
+    font-size: 0.8em;
+    position: fixed;
+}
+
+.menu2 .lista{
+    margin-top: 20px;
+}
+
+.menu2 img{
+    height: 100%;
 }

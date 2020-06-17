@@ -8,6 +8,10 @@
 
     <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Sriracha&display=swap" rel="stylesheet">    
+
+    <!-- Animaciones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+
     <!-- Bootstrap CSS y JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -39,14 +43,14 @@
     <header>
 
         <div class="contenedor-menu">
-            <div class="menu">
-                <img src="img/tragonauta.png" alt="tragonauta">
+            <div class="menu animate__bounce">
+                <img src="img/tragonauta.png" alt="tragonauta" id="img-menu">
                 <nav>
                     <ul class="lista">
-                        <li>Inicio</li>
-                        <li>Menú</li>
-                        <li>Nosotros</li>
-                        <li>Contacto</li>
+                        <li><a href="plantilla.html" id="seleccionado">Inicio</a></li>
+                        <li><a href="">Menú</a></li>
+                        <li><a href="">Nosotros</a></li>
+                        <li><a href="">Contacto</a></li>
                         <li class="icon-facebook"></li>
                         <li class="icon-whatsapp"></li>
                     </ul>
