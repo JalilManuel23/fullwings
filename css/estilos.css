@@ -55,6 +55,14 @@ header{
     width: 30%;
 }
 
+#slogan{
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
+}
+
 .logo{
     display: flex;
     justify-content: center;
@@ -99,6 +107,7 @@ header{
     padding: 5px 30% 5px 30%;
     background-color: #EF962D;
     color: white;
+    font-family: 'Sriracha', cursive;
 }
 
 #slides{
