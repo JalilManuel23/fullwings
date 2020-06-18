@@ -1,0 +1,156 @@
+/* Aplicar estilos generales */
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    padding: 0px;
+    margin: 0px;
+}
+
+/*  Aplicar estilos al header */
+header{
+    background: url("../img/fondo.jpeg");
+    height: 100vh;
+    background-size: cover;
+}
+
+.contenedor{
+    max-width: 1280px;
+    width: 70%;
+    margin: auto;
+}
+
+.menu{
+    display: flex;
+    width: 60%;
+    margin: auto;
+    justify-content: space-around;
+    align-items: center;
+    height: 150px;
+}
+
+.menu img{
+    height: 80%;
+}
+
+.menu li{
+    list-style: none;
+    margin-right: 50px;
+    font-size: 1.5em;
+}
+
+.menu li:hover{
+    color: #EF962D;
+}
+
+.menu a{
+    color: white;
+}
+
+.menu a:hover{
+    text-decoration: none;
+    color: #EF962D;
+}
+
+.menu>img:hover, li:hover{
+    cursor: pointer;
+}
+
+.lista{
+    display: flex;
+    color: white;
+}
+
+#seleccionado{
+    color: #EF962D;
+}
+
+#logo{
+    width: 30%;
+}
+
+#slogan{
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-info{
+    max-width: 1280px;
+    height: 40vw;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+[class^="info-"] img{
+    width: 50%;
+}
+
+[class^="info-"]{
+    padding: 20px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+[class^="info-"] p{
+    margin-top: 20px;
+    text-align: justify;
+}
+
+/* Estilos de la sección Banner */
+.banner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner h2{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding: 5px 30% 5px 30%;
+    background-color: #EF962D;
+    color: white;
+    font-family: 'Sriracha', cursive;
+}
+
+#slides{
+    margin-bottom: 140px;
+    margin-top: 70px;
+}
+
+/* Estilos de la sección footer */
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    background-color: #8A0E0E;
+    color: white;
+}
+
+/* Menu 2 */
+.menu2{
+    background-color: #473A34;
+    height: 70px;
+    width: 100%;
+    font-size: 0.8em;
+    position: fixed;
+}
+
+.menu2 .lista{
+    margin-top: 20px;
+}
+
+.menu2 img{
+    height: 100%;
+}
