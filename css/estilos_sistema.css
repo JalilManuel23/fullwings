@@ -1,0 +1,77 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Estilos del header */
+header{
+    height: 100px;
+    background-color: #473B34;
+    color: white;
+}
+
+.contenedor-header{
+    width: 94%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contenedor-header img{
+    width: 7%;
+}
+
+.contenedor-header img:hover{
+    cursor: pointer;
+}
+
+.contenedor-header h1{
+    font-size: 1.5em;
+}
+
+.usuario{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+.usuario:hover{
+    color: #EF962D;
+    cursor: pointer;
+}
+
+.icon-user::before{
+    margin-left: 15px;
+    font-size: 25px;
+}
+
+/* Estilos Menú */
+.menu{
+    width: 18%;
+    background-color: #534842;
+    height: 87vh;
+    color: #C0BABA;
+}
+
+.menu li{
+    padding: 20px 20px;
+}
+
+.menu li:hover{
+    cursor: pointer;
+    background-color: #9C5518;
+    color: white;
+}
+
+.menu li::before{
+    padding: 0px 10px;
+    color: white;
+}
+
+#seleccionado{
+    color: white;
+    background-color: #EF962D;
+}

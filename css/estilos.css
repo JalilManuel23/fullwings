@@ -57,11 +57,91 @@ header{
     width: 70%;
     max-width: 1280px;
     margin: auto;
-    height: 80vh;
+   /*CAMBIO*/
+
+    /* Estilos Agregados */
+    display: flex;
+    margin-top: 50px;
+    margin-bottom: 50PX;
 }
 
 /* AQUI VAN TODOS LOS ESTILOS QUE VAYAN A AGREGAR */
 
+#seleccionado{
+    color: #EF962D;
+}
+
+.escribenos{
+    width: 47.5%;
+    margin-right: 5%;
+}
+
+.escribenos h2{
+    color: #473B34;
+    padding: 20px 0px 20x 0px;
+    border-top: #EF962D 1px solid;
+    border-bottom: #EF962D 1px solid;
+    display: inline;
+}
+
+.escribenos li{
+    list-style: none;
+}
+
+.contacto-info{
+    width: 47.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.datos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 20px;
+    background-color: #EF962D;
+    border-radius: 5px;
+    font-size: 1.2em;
+    color: white;
+    width: 80%;
+}
+
+.datos p::before{
+    margin-right: 5px;
+}
+
+#form-escribenos{
+    display: flex;
+    flex-direction: column;
+}
+
+#form-escribenos *{
+    margin-top: 30px;
+    border-radius: 3px;
+}
+
+#form-escribenos input{
+    height: 40px;
+}
+
+.txt{
+    background-color: #F0F0F0;
+    border: 1px solid #707070;
+}
+
+#form-escribenos #msg{
+    height: 250px;
+}
+
+#form-escribenos button{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #b13030;
+    border-color: #b13030;
+}
 
 /* Estilos de Footer*/
 footer{

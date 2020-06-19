@@ -1,0 +1,97 @@
+/* Estilos Header */
+header{
+    height: 150px;
+    background-color: #473B34;
+    color: white;
+}
+
+body{
+    background-color: #ECECEB;
+}
+
+.contenedor_header{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+}
+
+.contenedor_header img{
+    width: 25%;
+}
+
+.contenedor_header img:hover{
+    cursor: pointer;
+}
+
+/* Estilos Formulario */
+.contenedor_logo{
+    width: 120px;
+    height: 120px;
+    background-color: #473B34;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.contenedor{
+    width: 40%;
+    margin: auto;
+    height: 90vh;
+}
+
+.formulario{
+    border: 1px solid gray;
+    border-radius: 30px;
+    border-top: 50px solid #EF962D;
+    width: 100%;
+    margin-top: 20px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario h3{
+    color: #473B34;
+    font-weight: lighter;
+    text-align: center;
+}
+
+.formulario h3,input{
+    width: 90%;
+    justify-content: center;
+}
+
+.formulario *{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formulario a{
+    color: slategray;
+    text-decoration: underline;
+}
+
+.formulario input{
+    background: #D9D8D8;
+    border: 0px;
+    height: 40px;
+    border-radius: 3px;
+}
+
+.espacio_abajo{
+    margin-bottom: 15px;
+}
+
+.formulario a:hover{
+    color: black;
+}
