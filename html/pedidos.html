@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Full Wings | Cambiar Imagenes</title>
+
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Sriracha&display=swap" rel="stylesheet">
+
+    <!-- Animaciones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+
+    <!-- Bootstrap CSS y JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- Scripts Locales -->
+    <script src="../js/menu.js"></script>
+
+    <!-- Normalize -->
+    <link rel="stylesheet" href="../css/normalize.css">
+
+    <!-- Iconos Fontastic -->
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <!-- Hoja de Estilos -->
+    <link rel="stylesheet" href="../css/estilos_sistema.css">
+</head>
+
+<body>
+    <header>
+        <div class="contenedor-header">
+            <a href="../">
+                <img src="../img/fullwings.png" alt="">
+            </a>
+            <h1>Sistema de Full Wings</h1>
+            <div class="usuario">
+                <p>Admin</p>
+                <p class="icon-user"></p>
+            </div>
+        </div>
+    </header>
+    <div class="main">
+        <section class="menu">
+            <nav>
+                <ul>
+                    <li class="icon-picture-streamline-1"><a href="cambiar_imagen.html">Cambiar Imagenes</a></li>
+                    <li class="icon-paint-brush"><a href="apariencia.html">Apariencia</a></li>
+                    <li class="icon-truck" id="seleccionado"><a href="#">Gestionar Pedidos</a></li>
+                    <li class="icon-users"><a href="empleados.html">Gestionar Empleados</a></li>
+                </ul>
+            </nav>
+        </section>
+        <section class="contenido">
+            <h2>Pedidos</h2>
+            <div class="registro-pedidos">
+                <div class="registro">
+                    <p>Registar Pedido</p>
+                    <form action="" class="formulario">
+                        <select name="" id="">
+                            <option value="">Empleado</option>
+                        </select>
+                        <input type="date" placeholder="Fecha">
+                        <textarea name="" id="" cols="30" rows="10" placeholder="Descripción del Pedido"></textarea>
+                        <input type="text" placeholder="Monto Total $">
+                        <button class="btn btn-danger">AGREGAR</button>
+                    </form>
+                </div>
+                <div class="historial">
+                    <p>Historial de Pedidos</p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Empleado</th>
+                                <th>Fecha</th>
+                                <th>Descripción</th>
+                                <th>Monto</th>
+                            </tr>
+                            <tr>
+                                
+                            <tr>
+                                <td>Juan</td>
+                                <td>14/06/2020</td>
+                                <td>Alitas</td>
+                                <td>$120</td>
+                            </tr>
+                            <tr>
+                                <td>Juan</td>
+                                <td>14/06/2020</td>
+                                <td>Alitas</td>
+                                <td>$120</td>
+                            </tr>
+                            <tr>
+                                <td>Juan</td>
+                                <td>14/06/2020</td>
+                                <td>Alitas</td>
+                                <td>$120</td>
+                            </tr>
+                            <tr>
+                                <td>Juan</td>
+                                <td>14/06/2020</td>
+                                <td>Alitas</td>
+                                <td>$120</td>
+                            </tr>
+                            <tr>
+                                <td>Juan</td>
+                                <td>14/06/2020</td>
+                                <td>Alitas</td>
+                                <td>$120</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</body>
+
+</html>

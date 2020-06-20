@@ -42,7 +42,9 @@
 <body>
     <header>
         <div class="contenedor-header">
-            <img src="../img/fullwings.png" alt="">
+            <a href="../">
+                <img src="../img/fullwings.png" alt="">
+            </a>
             <h1>Sistema de Full Wings</h1>
             <div class="usuario">
                 <p>Admin</p>
@@ -50,16 +52,79 @@
             </div>
         </div>
     </header>
-    <section class="menu">
-        <nav>
-            <ul>
-                <li class="icon-picture-streamline-1" id="seleccionado">Cambiar Imagenes</li>
-                <li class="icon-paint-brush">Apariencia</li>
-                <li class="icon-truck">Gestionar Pedidos</li>
-                <li class="icon-users">Gestionar Empleados</li>
-            </ul>
-        </nav>
-    </section>
-</body>
+    <div class="main">
+        <section class="menu">
+            <nav>
+                <ul>
+                    <li class="icon-picture-streamline-1" id="seleccionado"><a href="cambiar_imagen.html">Cambiar Imagenes</a></li>
+                    <li class="icon-paint-brush"><a href="apariencia.html">Apariencia</a></li>
+                    <li class="icon-truck"><a href="pedidos.html">Gestionar Pedidos</a></li>
+                    <li class="icon-users"><a href="empleados.html">Gestionar Empleados</a></li>
+                </ul>
+            </nav>
+        </section>
+        <section class="contenido-imagenes">
 
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre Imagen</th>
+                        <th>Sección</th>
+                        <th>Imagen</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                    <tr>
+                        <td>Nombre Imagen</td>
+                        <td>Sección</td>
+                        <td><img src="../img/boweless.jpg"></td>
+                        <td>
+                            <a href="#" class="estado activo">Activo</a>
+                        </td>
+                        <td>
+                            <a href="" class="icon-pencil"></a>
+                            <a href="" class="icon-trash"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nombre Imagen</td>
+                        <td>Sección</td>
+                        <td><img src="../img/parmesano.jpg"></td>
+                        <td>
+                            <a href="#" class="estado activo">Activo</a>
+                        </td>
+                        <td>
+                            <a href="" class="icon-pencil"></a>
+                            <a href="" class="icon-trash"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nombre Imagen</td>
+                        <td>Sección</td>
+                        <td><img src="../img/hamburguesa.png"></td>
+                        <td>
+                            <a href="#" class="estado inactivo">Inactivo</a>
+                        </td>
+                        <td>
+                            <a href="" class="icon-pencil"></a>
+                            <a href="" class="icon-trash"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Nombre Imagen</td>
+                        <td>Sección</td>
+                        <td><img src="../img/tacos.jpg"></td>
+                        <td>
+                            <a href="#" class="estado activo">Activo</a>
+                        </td>
+                        <td>
+                            <a href="" class="icon-pencil"></a>
+                            <a href="" class="icon-trash"></a>
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </section>
+    </div>
+</body>
 </html>

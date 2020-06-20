@@ -25,17 +25,16 @@ header{
     margin: auto;
     justify-content: space-around;
     align-items: center;
-    height: 150px;
+    height: 105px;
 }
 
 .menu img{
-    height: 80%;
+    height: 8vw;
 }
 
 .menu li{
     list-style: none;
     margin-right: 50px;
-    font-size: 1.5em;
 }
 
 .menu li:hover{
@@ -143,7 +142,7 @@ footer{
     background-color: #473A34;
     height: 70px;
     width: 100%;
-    font-size: 0.8em;
+    font-size: 1em;
     position: fixed;
 }
 
@@ -152,5 +151,5 @@ footer{
 }
 
 .menu2 img{
-    height: 100%;
+    height: 10vh;
 }

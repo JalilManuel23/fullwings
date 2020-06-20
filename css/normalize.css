@@ -20,10 +20,25 @@
    * Remove the margin in all browsers.
    */
   
-  body {
-    margin: 0;
-  }
+body {
+  margin: 0;
+}
   
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+/* AGREGADOS */
+.btn{
+    background-color: #9C5518;
+    border-color: #9C5518;
+}
+
+h2{
+    color: #473B34;
+}
 
 /* ---------------------- */
 

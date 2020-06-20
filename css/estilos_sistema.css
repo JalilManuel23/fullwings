@@ -1,11 +1,8 @@
-*{
-    padding: 0px;
-    margin: 0px;
-}
+
 
 /* Estilos del header */
 header{
-    height: 100px;
+    height: 10vh;
     background-color: #473B34;
     color: white;
 }
@@ -18,9 +15,10 @@ header{
     justify-content: space-between;
 }
 
-.contenedor-header img{
-    width: 7%;
+.contenedor-header a{
+    width: 10vh;
 }
+
 
 .contenedor-header img:hover{
     cursor: pointer;
@@ -45,15 +43,22 @@ header{
 
 .icon-user::before{
     margin-left: 15px;
-    font-size: 25px;
+    font-size: 1em;
+}
+
+/* Estilos Main */
+
+.main{
+    display: flex;
 }
 
 /* Estilos Menú */
 .menu{
-    width: 18%;
+    width: 20vw;
     background-color: #534842;
-    height: 87vh;
     color: #C0BABA;
+    height: 90vh;
+    font-size: 1em;
 }
 
 .menu li{
@@ -74,4 +79,224 @@ header{
 #seleccionado{
     color: white;
     background-color: #EF962D;
+}
+
+.contenido-imagenes{
+    width: 70%;
+    margin: auto;
+    position: relative;
+    max-width: 960px;
+    width: 100%;
+    height: 85vh;
+    background-color: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 4px;
+    padding: 1.8em;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+td{
+    display: block;
+    width: 100%;
+}
+
+th{
+    display: none;
+}
+
+.table{
+    width: 100%;
+    border-spacing: 0;
+}
+
+.table td, .table th{
+    padding: 1em;
+    text-align: left;
+}
+
+.table tr:nth-child(odd){
+    background: #F7F6F5;
+}
+
+.table img{
+    height: 100px;
+}
+
+/* Botones */
+.estado{
+    padding: 5px 15px;
+}
+
+.activo{
+    background-color: #0B8B18;
+}
+
+.inactivo{
+    background-color: #DF2042;
+}
+
+.estado:hover{
+    background-color: gray;
+}
+
+.icon-pencil{
+    padding: 5px 7px;
+    border-radius: 3px;
+    background-color: #F2D61E;
+}
+
+.icon-trash{
+    padding: 5px 7px;
+    border-radius: 3px;
+    background-color: #DF2042;
+}
+
+
+a{
+    color: white;
+    border-radius: 25px;
+}
+
+a:hover{
+    color: white;
+    text-decoration: none;
+}
+
+/* Estilos de la Página Apariencia */
+
+.temas{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tema{
+    width: 30%;
+    text-align: center;
+}
+
+.tema img{
+    border-radius: 15px;
+}
+
+.tema img:hover{
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+.tema-seleccionado{
+    border: 3px solid black;
+}
+
+.contenido{
+    width: 70vw;
+    height: 80vh;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.nombre_tema{
+    font-size: 0.8em;
+}
+
+.vista-previa{
+    margin-top: 50px;
+}
+
+
+.btn_aplicar{
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilos de Secciones de Registro y del Historial de Pedidos y Empleados */
+.registro-pedidos{
+    display: flex;
+    justify-content: space-between;
+}
+
+.registro{
+    width: 30%;
+    height: 70vh;
+}
+
+.historial{
+    width: 65%;
+    height: 70vh;
+}
+
+/* Estilos de Formularios de Registro */
+.contenedor_logo{
+    width: 120px;
+    height: 120px;
+    background-color: #473B34;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.contenedor{
+    width: 40%;
+    margin: auto;
+    height: 90vh;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario *{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px #afadad solid;
+    width: 100%;
+    justify-content: center;
+}
+
+.formulario select,input,textarea{
+    height: 40px;
+    background: #F7F6F5;
+}
+
+.formulario textarea{
+    height: 170px;
+}
+
+@media (min-width: 900px){
+    th{
+        font-size: 1em;
+        display: table-cell;
+    }
+
+    td{
+        width: auto;
+        display: table-cell;
+    }
+
+    td:nth-of-type(1){
+
+    }
+
+    .content{
+        padding: 1.8em;
+    }
+
+    img{
+        /* width: 30%; */
+    }
+}
+
+@media (min-height:550px){
+    .content{
+        height: 500px;
+    }
 }
