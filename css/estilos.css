@@ -1,65 +1,83 @@
 /* Estilos Header */
-header{
+
+header {
     background-color: #473B34;
 }
 
-.contenedor-menu{
+.contenedor-menu {
     max-width: 1280px;
     width: 50%;
     margin: auto;
     height: 10vh;
 }
 
-.menu{
+.menu {
     height: 10vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.menu img{
-    width: 15%;
+.menu img {
+    width: 13%;
 }
 
-.menu img:hover{
+.menu img:hover {
     cursor: pointer;
-} 
+}
 
-.lista{
+.lista {
     display: flex;
     align-items: center;
     justify-content: space-between;
     color: white;
 }
 
-.lista li{
+.lista li {
     list-style: none;
     margin-top: 10px;
     margin-right: 50px;
 }
 
-.lista a{
+.lista a {
     color: white;
     font-size: 1.2em;
 }
 
-.lista li:hover{
+.lista li:hover {
     color: #EF962D;
     cursor: pointer;
 }
 
-.lista a:hover{
+.lista a:hover {
     color: #EF962D;
     text-decoration: none;
 }
 
+
 /* Estilos de Comtenido */
-.contenedor-contenido{
+
+.imagen{
+    display: none;
+}
+
+.log{
+    display: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.log img{
+    display: none;
+    max-width: 100px;
+}
+
+.contenedor-contenido {
     width: 70%;
     max-width: 1280px;
     margin: auto;
-   /*CAMBIO*/
-
+    /*CAMBIO*/
     /* Estilos Agregados */
     display: flex;
     margin-top: 50px;
@@ -67,18 +85,16 @@ header{
     height: 70vh;
 }
 
-/* AQUI VAN TODOS LOS ESTILOS QUE VAYAN A AGREGAR */
-
-#seleccionado{
+#seleccionado {
     color: #EF962D;
 }
 
-.escribenos{
+.escribenos {
     width: 47.5%;
     margin-right: 5%;
 }
 
-.escribenos h2{
+.escribenos h2 {
     color: #473B34;
     padding: 20px 0px 20x 0px;
     border-top: #EF962D 1px solid;
@@ -86,11 +102,11 @@ header{
     display: inline;
 }
 
-.escribenos li{
+.escribenos li {
     list-style: none;
 }
 
-.contacto-info{
+.contacto-info {
     width: 47.5%;
     display: flex;
     flex-direction: column;
@@ -98,11 +114,11 @@ header{
     align-items: center;
 }
 
-.datos{
+.datos {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding-top: 20px;
+    padding-top: 3vmin;
     background-color: #EF962D;
     border-radius: 5px;
     font-size: 1.2em;
@@ -110,45 +126,383 @@ header{
     width: 80%;
 }
 
-.datos p::before{
+.datos p::before {
     margin-right: 5px;
 }
 
-#form-escribenos{
+#form-escribenos {
     display: flex;
     flex-direction: column;
 }
 
-#form-escribenos *{
+#form-escribenos * {
     margin-top: 30px;
     border-radius: 3px;
+    padding: 5px;
 }
 
-#form-escribenos input{
+#form-escribenos input {
     height: 40px;
 }
 
-.txt{
+.txt {
     background-color: #F0F0F0;
     border: 1px solid #707070;
 }
 
-#form-escribenos #msg{
+#form-escribenos #msg {
     height: 250px;
 }
 
-#form-escribenos button{
+#form-escribenos button {
     width: 40%;
     margin-left: auto;
     margin-right: auto;
 }
 
+
 /* Estilos de Footer*/
-footer{
+
+footer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 10vh;
     background-color: #8A0E0E;
     color: white;
+}
+
+
+/* Estilos de Nosotros */
+
+.contenedor-nosotros {
+    width: 60%;
+    margin: auto;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+body{
+    background-color: #ECECEB; /*Estilo Cambiado*/
+}
+
+.descripcion {
+    font-size: 3vmin;
+    text-align: justify;
+}
+
+.nosotros {
+    height: 20%;
+}
+
+.titulo-nosotros {
+    text-align: center;
+}
+
+.header-menu {
+    height: 100vh;
+    background-image: url("../img/Fondo_menu.jpg");
+    background-size: cover;
+}
+
+.contenedor-titulo-menu {
+    width: 60%;
+    height: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contenedor-titulo-menu h2 {
+    font-size: 8vmin;
+    color: white;
+    text-align: center;
+}
+
+.contenedor-titulo-menu button {
+    background-color: #ee3333;
+    border: 0px;
+    font-size: 3.5vmin;
+}
+
+.productos {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 150px;
+}
+
+.productos img {
+    width: 170px;
+    height: 170px;
+}
+
+.productos p {
+    margin-top: 20px;
+    font-size: 4vmin;
+    text-align: center;
+    text-decoration: none;
+    color: #8A0E0E;
+}
+
+.productos a:hover {
+    text-decoration: none;
+    color: #ee3333;
+    transform: scale(1.1);
+}
+
+.contenedor-contenido-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.slide {
+    width: 100%;
+}
+
+.opcion {
+    margin-top: 100px;
+    padding: 100px 0px 50px 0px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.opcion h2{
+    font-size: 4vmin;
+}
+
+.imgs {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.imgs-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    width: 30%;
+    height: 100%;
+}
+
+.imgs-menu img {
+    border-radius: 1em;
+    width: 80%;
+}
+
+.imgs-menu p{
+    font-size: 2.5vmin;
+}
+
+/* Menú responsivo */
+
+#boton-menu {
+    display: none;
+}
+
+header label {
+    display: none;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+}
+
+header label:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    header label {
+        display: block;
+    }
+
+    header{
+        height: 90px;
+    }
+
+    .contenedor-menu{
+        width: 100%;
+    }
+
+    .menu {
+        position: absolute;
+        justify-content: space-between;
+        margin-left: -60%;
+        transition: 0.5s;
+        margin-top: -90px;
+    }
+
+    .menu img{
+        display: none;
+    }
+
+    .log{
+        position: absolute;
+        justify-content: center;
+        margin-top: -10px;
+    }
+
+    .log img{
+        display: block;
+    }
+
+    .lista li a {
+        color: white;
+        display: block;
+        padding: 8px 20px;
+        width: 100%;
+    }
+
+    .lista {
+        padding: 0;
+        flex-direction: column;
+    }
+
+    .lista li {
+        margin: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        display: block;
+        text-align: center;
+        padding: 15px 20px;
+        border-top: 1px solid white;
+        width: 100%;
+    }
+
+    .lista:last-child{
+        border-bottom: 1px solid white;
+    }
+
+    #boton-menu:checked~.menu {
+        margin: 0;
+        margin-top: 260px;
+    }
+
+    #boton-menu:checked~label{
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .contenedor-titulo-menu{
+        font-size: 5vmin;
+        width: 98%;
+        height: 70%;
+    }
+
+    .productos{
+        width: 90%;
+        margin: auto;
+        margin-top: 30px;
+    }
+
+    .imgs{
+        width: 98%;
+    }
+
+    .imgs-menu img{
+        width: 150px;
+    }
+
+    .contenedor-contenido{
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .escribenos, .contacto-info{
+        width: 100%;
+    }
+
+    .contacto-info{
+        margin-top: 50px;
+    }
+
+    .contacto-info iframe, div{
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .contenedor-titulo-menu{
+        height: 40vh;
+    }
+
+    .log{
+        position: absolute;
+        justify-content: space-between;
+        margin-left: 40%;
+    }
+
+    .log img{
+        width: 100%;
+    }
+
+    .contenedor-titulo-menu button{
+        font-size: 6vmin;
+        margin-top: 40px;
+    }
+
+    .contenedor-titulo-menu h2{
+        font-size: 7vmin;
+        width: 98%;
+        height: 60vh;
+        margin-top: 150px;
+    }
+
+    .productos{
+        height: 150px;
+    }
+
+    .productos a>img{
+        max-height: 100%;
+    }
+
+    .opcion h2{
+        font-size: 8vmin;
+    }
+
+    .imgs{
+        flex-direction: column;
+    }
+
+    .imgs-menu{
+        width: 100%;
+    }
+
+    .imgs-menu p{
+        font-size: 5vmin;
+    }
+
+    .opcion{
+        margin-top: 10px;
+    }
+
+    .descripcion{
+        font-size: 5vmin;
+        text-align: center;
+    }
+
+    .titulo-nosotros{
+        font-size: 7vmin;
+    }
+
+    .contenedor-nosotros{
+        height: 100%;
+    }
+
+    .contenedor-contenido{
+        width: 90%;
+    }
+    
+    .datos{
+        flex-direction: column;
+    }
 }

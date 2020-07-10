@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>Full Wings | Menú</title>
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico">
     <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Sriracha&display=swap" rel="stylesheet">
 
@@ -13,18 +14,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
 
     <!-- Bootstrap CSS y JS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!-- Scripts Locales -->
     <script src="../js/menu.js"></script>
@@ -36,159 +30,125 @@
     <link rel="stylesheet" href="../css/styles.css">
 
     <!-- Hoja de Estilos -->
-    <link rel="stylesheet" href="../css/estilos_menu.css">
+    <link rel="stylesheet" href="../css/estilos.css">
 </head>
 
 <body>
-    <header>
+    <header class="header-menu">
         <div class="contenedor-menu">
+            <div class="log">
+                <img src="../img/fullwings.png" alt="">
+            </div>
+            <input type="checkbox" id="boton-menu">
+            <label for="boton-menu"><img src="../img/menu.png" alt=""></label>
             <div class="menu">
                 <img src="../img/fullwings.png" alt="logo_fullwings">
                 <nav>
                     <ul class="lista">
                         <li><a href="../index.html">Inicio</a></li>
-                        <li><a href="">Menú</a></li>
-                        <li><a href="">Nosotros</a></li>
-                        <li><a href="/html/contacto.html">Contacto</a></li>
-                        <li class="icon-facebook"><a href=""></a></li>
-                        <li class="icon-whatsapp"><a href=""></a></li>
+                        <li><a href="menu.html" id="seleccionado">Menú</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                        <li>
+                            <a class="icon-facebook" href="https://www.facebook.com/Fullwingsdgo" target="_blank"></a>
+                        </li>
+                        <li >
+                            <a class="icon-whatsapp" href="https://api.whatsapp.com/send?phone=526181744864&text=Hola,%20me%20ha%20interesado%20la%20página%20de%20Fullwings%20y%20me%20gustaría%20ponerme%20en%20contacto%20para%20solicitar%20información%20de%20una%20reservación,%20pedido%20o%20precios%20y%20sucursales." target="_blank"></a>
+                        </li>
                     </ul>
                 </nav>
             </div>
         </div>
-        <div class="botones">
-            <a class="btn-descarga" href="../pdf/menu.pdf" download> Descargar Carta</a>
-            <a class="btn-menugeneral" href="#titulo-1">Menú General </a>
+        <div class="contenedor-titulo-menu">
+            <h2>EN FULL WINGS TENEMOS LAS MEJORES ALITAS</h2>
+            <button class="btn btn-danger">Descargar Menú</button>
         </div>
-                
-        
     </header>
 
     <section class="contenido">
-        <div class="contenedor-contenido">
-            <div class="menu-alitas">
-                <div id="slides" class="carousel slide" data-ride="carousel">
-                    <div id="slide" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-
-                                <p id="titulo-1"> Alitas y Boneless</p>
-                                <img class="d-block w-100" src="../img/bbq.jpg" alt="First slide">
-                                <p class="titulo-secundario"> Alitas BBQ </p>
-                                <p>Disfruta un clasico sabor de BBQ acompañada de nuestro aderezo.</p>
-                            </div>
-
-                            <div class="carousel-item">
-                                <p id="titulo-1"> Alitas y Boneless</p>                               
-                                <img class="d-block w-100" src="../img/mango-picoso.jpg" alt="Second slide">
-                                <p class="titulo-secundario"> Habanero Cremoso  </p>
-                                <p>Disfruta un clasico sabor de BBQ acompañada de nuestro aderezo.</p>
-                            </div>
-                            <div class="carousel-item">
-                                <p id="titulo-1"> Alitas y Boneless</p>
-                                <img class="d-block w-100" src="../img/parmesano.jpg" alt="Third slide">
-                                <p class="titulo-secundario"> Parmesano  </p>
-                                <p> Disfruta de un buen queso parmesano acompañado de unas papas.  </p>
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#slide" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Anterior</span>
-                        </a>
-                        <a class="carousel-control-next" href="#slide" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Siguiente</span>
-                        </a>
-                    </div>
-                </div>  
+        <div class="contenedor-contenido-menu">
+            <div class="productos">
+                <a href="#alitas">
+                    <img src="../img/alitas.svg" alt="">
+                    <p>Alitas</p>
+                </a>
+                <a href="#bebidas">
+                    <img src="../img/soda.png" alt="">
+                    <p>Bebidas</p>
+                </a>
+                <a href="#snacks">
+                    <img src="../img/snacks.png" alt="">
+                    <p>Snacks</p>
+                </a>
             </div>
 
-            <div class="menu-parrillado">
+            <div id="wings" class="opcion">
+                <h2>ALITAS</h2>
+                <div class="imgs">
 
-                <div id="slides" class="carousel slide" data-ride="carousel">
-                    <div id="slide2" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
+                    <div class="imgs-menu">
+                        <img src="../img/bbq.jpg" alt="">
+                        <p>BBQ</p>
 
-                            <div class="carousel-item active">
-
-                                <p id="titulo-2"> Parrillado </p>
-                                <img class="d-block w-100" src="../img/hamburguesa.png" alt="First slide">
-                                <p class="titulo-secundario"> hamburguesas </p>
-                                <p> Para los amantes de la comida rapida, conoce nuestras opciones para 
-                                    deleitar tu paladar.</p>
-                            </div>
-
-                            <div class="carousel-item">
-                                <p id="titulo-2"> Parrillado </p>
-                                <img class="d-block w-100" src="../img/costilla.jpg" alt="Second slide">
-                                <p class="titulo-secundario"> Costillas </p>
-                                <p> Un sabor unico y verdadero que te dejara con ganas de comerte los huesos.</p>
-                            </div>
-
-                            <div class="carousel-item">
-                                <p id="titulo-2"> Parrillado </p>
-                                <img class="d-block w-100" src="../img/tacos.jpg" alt="Third slide">
-                                <p class="titulo-secundario"> Tacos </p>
-                                <p> Disfruta de una excelente variacion de tacos y puedes combinarlos con nachos. </p>
-                            </div>
-
-                        </div>
-                        <a class="carousel-control-prev" href="#slide2" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Anterior</span>
-                        </a>
-                        <a class="carousel-control-next" href="#slide2" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Siguiente</span>
-                        </a>
                     </div>
-                </div>  
+                    <div class="imgs-menu">
+                        <img src="../img/boweless.jpg" alt="">
+                        <p>Bowless</p>
+
+                    </div>
+                    <div class="imgs-menu">
+                        <img src="../img/mango-picoso.jpg" alt="">
+                        <p>Mango Picoso</p>
+                    </div>
+                </div>
             </div>
-            <div class="menu-bebidas">
-                <div id="slides" class="carousel slide" data-ride="carousel">
-                    <div id="slide3" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
 
-                                <p id="titulo-3"> Bebidas </p>
-                                <img class="d-block w-100" src="../img/coca_cola.jpg" alt="First slide">
-                                <p class="titulo-secundario"> Refrescos </p>
-                                <p> Disfruta de una variedad de refrescos de la familia coca cola</p>
-                            </div>
+            <div id="bebidas" class="opcion">
+                <h2>BEBIDAS</h2>
+                <div class="imgs">
+                    <div class="imgs-menu">
+                        <img src="../img/agua.jpg" alt="">
+                        <p>Agua Natural</p>
 
-                            <div class="carousel-item">
-                                <p id="titulo-3"> Bebidas </p>
-                                <img class="d-block w-100" src="../img/corona.jpg" alt="Second slide">
-                                <p class="titulo-secundario"> Cerveza </p>
-                                <p> Disfruta de una variedad de cerveza de la familia corona</p>
-                            </div>
-
-                            <div class="carousel-item">
-                                <p class="titulo-3"> Bebidas </p>
-                                <img class="d-block w-100" src="../img/agua.jpg" alt="Third slide">
-                                <p id="titulo-secundario"> Agua Refrescante </p>
-                                <p> Disfruta agua natural </p>
-                            </div>
-
-                        </div>
-                        <a class="carousel-control-prev" href="#slide3" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Anterior</span>
-                        </a>
-                        <a class="carousel-control-next" href="#slide3" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Siguiente</span>
-                        </a>
                     </div>
-                </div>  
+                    <div class="imgs-menu">
+                        <img src="../img/coca_cola.jpg" alt="">
+                        <p>Refrescos</p>
+
+                    </div>
+                    <div class="imgs-menu">
+                        <img src="../img/corona.jpg" alt="">
+                        <p>Cerveza</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="snacks" class="opcion">
+                <h2>SNACKS</h2>
+                <div class="imgs">
+                    <div class="imgs-menu">
+                        <img src="../img/agua.jpg" alt="">
+                        <p>Agua Natural</p>
+
+                    </div>
+                    <div class="imgs-menu">
+                        <img src="../img/coca_cola.jpg" alt="">
+                        <p>Refrescos</p>
+
+                    </div>
+                    <div class="imgs-menu">
+                        <img src="../img/corona.jpg" alt="">
+                        <p>Cerveza</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
     <footer>
         <p>
             Full Wings 2020 &copy;
         </p>
+
     </footer>
 </body>
 

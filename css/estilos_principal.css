@@ -1,86 +1,95 @@
 /* Aplicar estilos generales */
-body{
+
+body {
     font-family: Arial, Helvetica, sans-serif;
     background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
     padding: 0px;
     margin: 0px;
 }
 
+
 /*  Aplicar estilos al header */
-header{
+
+header {
     background: url("../img/fondo.jpeg");
     height: 100vh;
     background-size: cover;
 }
 
-.contenedor{
+.contenedor {
     max-width: 1280px;
-    width: 70%;
+    width: 80%;
     margin: auto;
 }
 
-.menu{
+.menu {
     display: flex;
     width: 60%;
     margin: auto;
     justify-content: space-around;
     align-items: center;
     height: 105px;
+    transition: 0.3s;
 }
 
-.menu img{
+.log{
+    display: none;
+}
+
+.menu img {
     height: 8vw;
 }
 
-.menu li{
+.menu li {
     list-style: none;
     margin-right: 50px;
 }
 
-.menu li:hover{
+.menu li:hover {
     color: #EF962D;
 }
 
-.menu a{
+.menu a {
     color: white;
 }
 
-.menu a:hover{
+.menu a:hover {
     text-decoration: none;
     color: #EF962D;
 }
 
-.menu>img:hover, li:hover{
+.menu>img:hover,
+li:hover {
     cursor: pointer;
 }
 
-.lista{
+.lista {
     display: flex;
     color: white;
 }
 
-#seleccionado{
+#seleccionado {
     color: #EF962D;
 }
 
-#logo{
+#logo {
     width: 30%;
 }
 
-#slogan{
+#slogan {
     color: white;
     margin-top: 20px;
     text-align: center;
     font-family: 'Dancing Script', cursive;
-    font-size: 3em;
+    font-size: 8vmin;
 }
 
-.logo{
+.logo {
     display: flex;
     justify-content: center;
 }
 
-.contenedor-info{
+.contenedor-info {
     max-width: 1280px;
     height: 40vw;
     width: 70%;
@@ -89,11 +98,11 @@ header{
     align-items: center;
 }
 
-[class^="info-"] img{
+[class^="info-"] img {
     width: 50%;
 }
 
-[class^="info-"]{
+[class^="info-"] {
     padding: 20px;
     width: 80%;
     display: flex;
@@ -101,19 +110,21 @@ header{
     align-items: center;
 }
 
-[class^="info-"] p{
+[class^="info-"] p {
     margin-top: 20px;
     text-align: justify;
 }
 
+
 /* Estilos de la sección Banner */
-.banner{
+
+.banner {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.banner h2{
+.banner h2 {
     margin-top: 30px;
     margin-bottom: 50px;
     padding: 5px 30% 5px 30%;
@@ -122,34 +133,179 @@ header{
     font-family: 'Sriracha', cursive;
 }
 
-#slides{
+#slides {
     margin-bottom: 140px;
     margin-top: 70px;
 }
 
+
 /* Estilos de la sección footer */
-footer{
+
+footer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 90px;
+    height: 120px;
     background-color: #8A0E0E;
     color: white;
 }
 
+footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: #EF962D;
+}
+
+
 /* Menu 2 */
-.menu2{
+
+.menu2 {
     background-color: #473A34;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     height: 70px;
     width: 100%;
     font-size: 1em;
     position: fixed;
 }
 
-.menu2 .lista{
+.menu2 .lista {
     margin-top: 20px;
 }
 
-.menu2 img{
+.menu2 img {
     height: 10vh;
+}
+
+
+/* Menú responsivo */
+
+#boton-menu {
+    display: none;
+}
+
+header label {
+    display: none;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+}
+
+header label:hover {
+    cursor: pointer;
+}
+
+
+/* Fin de Menú responsivo */
+
+@media screen and (max-width: 768px) {
+    header label {
+        display: block;
+    }
+
+    .menu {
+        position: absolute;
+        justify-content: space-between;
+        margin-left: -60%;
+        transition: 0.5s;
+        margin-top: 250px;
+    }
+
+    .menu img{
+        display: none;
+    }
+    
+    .lista li a {
+        color: white;
+        display: block;
+        padding: 15px 20px;
+        width: 100%;
+    }
+
+    .lista {
+        padding: 0;
+        flex-direction: column;
+    }
+
+    .lista li {
+        margin: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        display: block;
+        text-align: center;
+        padding: 15px 20px;
+        border-top: 1px solid white;
+        width: 100%;
+    }
+
+    .lista:last-child{
+        border-bottom: 1px solid white;
+    }
+
+    #boton-menu:checked~.menu {
+        margin: 0;
+        margin-top: 250px;
+    }
+
+    #boton-menu:checked~label{
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    #logo{
+        width: 50%;
+    }
+
+    .menu2{
+        display: none;
+    }
+
+    .contenedor{
+        display: flex;
+        height: 50%;
+        flex-direction: column;
+    }
+
+    #slogan{
+        margin-top: 300px;
+    }
+
+    .contenedor-info{
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+
+    .contenedor-info p{
+        text-align: center;
+        font-size: 5vmin;
+    }
+
+    .banner h2{
+        padding: 5px 20%;
+    }
+
+    .carousel-item img{
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    #logo{
+        width: 80%;
+    }
+
+    #slogan{
+        margin-top: 165px;
+    }
+
+    .contenedor-info{
+        width: 100%;
+    }
+
+    .carousel-item img{
+        height: 150px;
+    }
 }

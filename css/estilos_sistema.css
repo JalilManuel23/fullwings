@@ -1,13 +1,12 @@
-
-
 /* Estilos del header */
-header{
+
+header {
     height: 10vh;
     background-color: #473B34;
     color: white;
 }
 
-.contenedor-header{
+.contenedor-header {
     width: 94%;
     margin: auto;
     display: flex;
@@ -15,20 +14,19 @@ header{
     justify-content: space-between;
 }
 
-.contenedor-header a{
+.contenedor-header a {
     width: 10vh;
 }
 
-
-.contenedor-header img:hover{
+.contenedor-header img:hover {
     cursor: pointer;
 }
 
-.contenedor-header h1{
-    font-size: 1.5em;
+.contenedor-header h1 {
+    font-size: 4vmin;
 }
 
-.usuario{
+.usuario {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -36,58 +34,60 @@ header{
     margin-top: 15px;
 }
 
-.usuario:hover{
+.usuario:hover {
     color: #EF962D;
     cursor: pointer;
 }
 
-.icon-user::before{
+.icon-user::before {
     margin-left: 15px;
     font-size: 1em;
 }
 
+
 /* Estilos Main */
 
-.main{
+.main {
     display: flex;
 }
 
+
 /* Estilos Menú */
-.menu{
-    width: 20vw;
+
+.menu {
+    width: 30vmin;
     background-color: #534842;
     color: #C0BABA;
     height: 90vh;
-    font-size: 1em;
+    font-size: 2vmin;
 }
 
-.menu li{
+.menu li {
     padding: 20px 20px;
 }
 
-.menu li:hover{
+.menu li:hover {
     cursor: pointer;
     background-color: #9C5518;
     color: white;
 }
 
-.menu li::before{
+.menu li::before {
     padding: 0px 10px;
     color: white;
 }
 
-#seleccionado{
+#seleccionado {
     color: white;
     background-color: #EF962D;
 }
 
-.contenido-imagenes{
-    width: 70%;
+.contenido-imagenes {
+    width: 100%;
     margin: auto;
     position: relative;
     max-width: 960px;
-    width: 100%;
-    height: 85vh;
+    height: 80vh;
     background-color: #fff;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     border-radius: 4px;
@@ -96,99 +96,133 @@ header{
     overflow-x: hidden;
 }
 
-td{
+.tablas-historial{
+    height: 100%;
+}
+
+td {
     display: block;
     width: 100%;
 }
 
-th{
+th {
     display: none;
 }
 
-.table{
+.table {
     width: 100%;
     border-spacing: 0;
 }
 
-.table td, .table th{
-    padding: 1em;
+.table td,
+.table th {
+    padding: 0.5em;
     text-align: left;
 }
 
-.table tr:nth-child(odd){
+.table tr:nth-child(odd) {
     background: #F7F6F5;
 }
 
-.table img{
+.table img {
     height: 100px;
 }
 
+
 /* Botones */
-.estado{
+.verde {
+    color: green;
+}
+
+.rojo {
+    color: rgb(241, 54, 54);
+}
+.estado {
     padding: 5px 15px;
 }
 
-.activo{
+.activo {
     background-color: #0B8B18;
 }
 
-.inactivo{
+.inactivo {
     background-color: #DF2042;
 }
 
-.estado:hover{
+.estado:hover {
     background-color: gray;
 }
 
-.icon-pencil{
+.icon-pencil {
     padding: 5px 7px;
     border-radius: 3px;
     background-color: #F2D61E;
 }
 
-.icon-trash{
+.icon-pencil:hover {
+    background-color: #a79600e3;
+}
+
+
+.icon-trash {
     padding: 5px 7px;
     border-radius: 3px;
     background-color: #DF2042;
 }
 
+.icon-trash:hover {
+    background-color: #88021a;
+}
 
-a{
+a {
     color: white;
     border-radius: 25px;
 }
 
-a:hover{
+a:hover {
     color: white;
     text-decoration: none;
 }
 
+.acciones{
+    display: flex;
+    justify-content: space-around;
+}
+
+.correcto {
+    background-color: green;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
 /* Estilos de la Página Apariencia */
 
-.temas{
+.temas {
     display: flex;
     justify-content: space-between;
 }
 
-.tema{
+.tema {
     width: 30%;
     text-align: center;
 }
 
-.tema img{
+.tema img {
     border-radius: 15px;
 }
 
-.tema img:hover{
+.tema img:hover {
     cursor: pointer;
     border: 2px solid black;
 }
 
-.tema-seleccionado{
+.tema-seleccionado {
     border: 3px solid black;
 }
 
-.contenido{
+.contenido {
     width: 70vw;
     height: 80vh;
     margin-top: 20px;
@@ -198,39 +232,55 @@ a:hover{
     flex-direction: column;
 }
 
-.nombre_tema{
+.nombre_tema {
     font-size: 0.8em;
 }
 
-.vista-previa{
+.vista-previa {
     margin-top: 50px;
 }
 
-
-.btn_aplicar{
+.btn_aplicar {
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
 }
 
+
 /* Estilos de Secciones de Registro y del Historial de Pedidos y Empleados */
-.registro-pedidos{
+
+.registro-pedidos {
     display: flex;
     justify-content: space-between;
 }
 
-.registro{
+.registro {
     width: 30%;
     height: 70vh;
 }
 
-.historial{
+.historial {
     width: 65%;
     height: 70vh;
 }
 
+.editar{
+    width: 80%;
+    margin: auto;
+}
+
+.form-editar *{
+    width: 80%;
+    margin-top: 5px;
+}
+
+.btn-primary{
+    width: 20%;
+}
+
 /* Estilos de Formularios de Registro */
-.contenedor_logo{
+
+.contenedor_logo {
     width: 120px;
     height: 120px;
     background-color: #473B34;
@@ -240,63 +290,173 @@ a:hover{
     margin-top: 50px;
 }
 
-.contenedor{
+.contenedor {
     width: 40%;
     margin: auto;
     height: 90vh;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.formulario *{
-    margin-top: 20px;
+.form-elemento{
+    width: 100%;
+    color: #534842;
+}
+
+.form-elemento label{
+    font-size: 15px;
+}
+
+.form-elemento input,select,textarea {
     margin-left: auto;
+    margin-bottom: 10px;
     margin-right: auto;
     border: 1px #afadad solid;
     width: 100%;
     justify-content: center;
-}
-
-.formulario select,input,textarea{
     height: 40px;
+    padding: 5px;
     background: #F7F6F5;
 }
 
-.formulario textarea{
+.formulario textarea {
     height: 170px;
 }
 
-@media (min-width: 900px){
-    th{
+.wrapper{
+    width: 500px;
+    margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+    th {
         font-size: 1em;
         display: table-cell;
     }
-
-    td{
+    td {
         width: auto;
         display: table-cell;
     }
-
-    td:nth-of-type(1){
-
-    }
-
-    .content{
+    td:nth-of-type(1) {}
+    .content {
         padding: 1.8em;
     }
-
-    img{
+    img {
         /* width: 30%; */
     }
 }
 
-@media (min-height:550px){
-    .content{
+@media (min-height:550px) {
+    .content {
         height: 500px;
+    }
+}
+
+.dropdown-item:active {
+    background-color: darkred;
+}
+
+.modal-footer {
+    color: white;
+}
+
+.modal-footer a:hover {
+    background-color: #DF2042;
+    border: 0px;
+}
+
+.encabezado{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.print{
+    width: 30px;
+}
+
+
+#boton-menu {
+    display: none;
+}
+
+header label {
+    display: none;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+}
+
+header label:hover {
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 768px) {
+    header label {
+        display: block;
+    }
+
+    .user{
+        display: none;
+    }
+
+    .menu {
+        position: absolute;
+        justify-content: space-between;
+        margin-left: -60%;
+        transition: 0.5s;
+        width: 60%;
+        z-index: 1;
+        font-size: 3vmin;
+    }
+
+    .lista {
+        padding: 0;
+        flex-direction: column;
+    }
+
+    #boton-menu:checked~.menu {
+        margin: 0;
+    }
+
+    #boton-menu:checked~label{
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .contenedor-header h1{
+        display: none;
+    }
+
+    .contenido{
+        width: 90%;
+    }
+
+    .registro-pedidos{
+        flex-direction: column;
+    }
+
+    .registro, .historial{
+        width: 100%;
+        height: 100%;
+        margin-bottom: 25px;
+    }
+
+    .contenido-imagenes{
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .menu{
+        width: 70%;
+        margin-left: -70%;
+        font-size: 4vmin;
     }
 }
