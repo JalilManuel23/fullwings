@@ -25,7 +25,7 @@ if(isset($_POST['registrar'])){
             <?php
         }
         else{
-            $query = $conexion->query("INSERT INTO administrador(nom_usuario,contrasenia,nombre,telefono,correo) VALUES ('$usuario','$contrasenia','$nombre','$telefono','$correo')");
+            $query = $conexion->query("INSERT INTO administrador(nom_usuario,contrasenia,nombre,telefono,correo) VALUES ('$usuario',HEX(AES_ENCRYPT('$contrasenia','verpass')),'$nombre','$telefono','$correo')");
             $comprobar = $conexion->query("SELECT * FROM administrador WHERE nom_usuario = '$usuario'");
             $exito = $comprobar ->num_rows;
             if ($exito) {     
@@ -44,7 +44,7 @@ if(isset($_POST['login'])){
     $user = $_POST['usuario'];
     $pass = $_POST['contrasenia'];
 
-    $validar = $conexion->query("select * from administrador where nom_usuario = '$user' and contrasenia = '$pass' ");
+    $validar = $conexion->query("select * from administrador where nom_usuario = '$user' and contrasenia = HEX(AES_ENCRYPT('$pass','verpass')) ");
     $contar = $validar ->num_rows;
 
      if($contar == 1) {

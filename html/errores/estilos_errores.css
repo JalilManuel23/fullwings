@@ -1,0 +1,94 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    background-image:url("../../img/error.jpg") ;
+    height: 100vh;
+    background-size: cover;
+}
+
+ .cont {
+    max-width: 1280px;
+    width: 100%;
+    margin: auto;
+} 
+
+
+.logo{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+
+.logo img{
+    width: 15%;
+    align-items: center;
+    margin-top: 0;
+} 
+
+img{
+    max-width: 100%;
+}
+
+.contenedor{
+    width: 100%;
+    position: absolute;
+    top: 20%;
+    transform: translateY(-30);
+    text-align: center;
+}
+
+.contenedor h2{
+    color: wheat;
+}
+
+.contenedor h1{
+    font-size: 10rem;
+    margin: 0;
+    font-weight: 900;
+    letter-spacing: 1.25px;
+    background-image:url() ;
+    color: wheat;
+}
+
+.contenedor a{
+    text-decoration: none;
+    background-color: #e55039aa;
+    color: #fff;
+    padding: 0.75rem 1.25rem;
+    display: inline-block;
+    border-radius: 1.25rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: 0.4s;
+    margin-top: 1.5rem;
+    /* color: wheat; */
+
+}
+
+.contenedor p{
+    color: white;
+}
+
+.contenedor a:hover{
+    
+    background-color: #e55039;
+}
+
+@media screen and (max-width: 768px){
+
+}
+
+@media screen and (max-width: 360px){
+    .contenedor h1{
+        font-size: 10rem;
+        margin: 0;
+        font-weight: 500;
+        letter-spacing: 1.25px;
+        background-image:url() ;
+        color: wheat;
+    }
+
+   
+}
+

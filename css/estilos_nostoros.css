@@ -1,0 +1,214 @@
+/* Estilos Header */
+header{
+    background-color: #473B34;
+}
+
+.contenedor-menu{
+    max-width: 1280px;
+    width: 50%;
+    margin: auto;
+    height: 10vh;
+}
+
+.menu{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu img{
+    width: 15%;
+}
+
+.menu img:hover{
+    cursor: pointer;
+} 
+
+.lista{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.lista li{
+    list-style: none;
+    margin-top: 10px;
+    margin-right: 50px;
+}
+
+.lista a{
+    color: white;
+    font-size: 1.2em;
+}
+
+.lista li:hover{
+    color: #EF962D;
+    cursor: pointer;
+}
+
+.lista a:hover{
+    color: #EF962D;
+    text-decoration: none;
+}
+
+/* Estilos de Comtenido */
+.contenedor-contenido{
+    width: 70%;
+    max-width: 1280px;
+    margin: auto;
+   /*CAMBIO*/
+
+    /* Estilos Agregados */
+    display: flex;
+    margin-top: 50px;
+    margin-bottom: 50PX;
+    height: 70vh;
+}
+
+/* AQUI VAN TODOS LOS ESTILOS QUE VAYAN A AGREGAR */
+
+#seleccionado{
+    color: #EF962D;
+}
+
+.escribenos{
+    width: 47.5%;
+    margin-right: 5%;
+}
+
+.escribenos h2{
+    color: #473B34;
+    padding: 20px 0px 20x 0px;
+    border-top: #EF962D 1px solid;
+    border-bottom: #EF962D 1px solid;
+    display: inline;
+}
+
+.escribenos li{
+    list-style: none;
+}
+
+.contacto-info{
+    width: 47.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.datos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 20px;
+    background-color: #EF962D;
+    border-radius: 5px;
+    font-size: 1.2em;
+    color: white;
+    width: 80%;
+}
+
+.datos p::before{
+    margin-right: 5px;
+}
+
+#form-escribenos{
+    display: flex;
+    flex-direction: column;
+}
+
+#form-escribenos *{
+    margin-top: 30px;
+    border-radius: 3px;
+}
+
+#form-escribenos input{
+    height: 40px;
+}
+
+.txt{
+    background-color: #F0F0F0;
+    border: 1px solid #707070;
+}
+
+#form-escribenos #msg{
+    height: 250px;
+}
+
+#form-escribenos button{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilos de Footer*/
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    background-color: #8A0E0E;
+    color: white;
+}
+
+/* Estilos contenedor-contenido */
+
+.nosotros{
+    display: flex;
+    height: 260px;
+    background-color: #F6F2F1;
+}
+
+.descripcion{
+    position: absolute;
+    text-align: center;
+    line-height: 40px;
+    top: 150px;
+    left: 300px;
+    font-size: 30px;
+}
+
+.vision_mision{
+    display: flex;
+    height: 270px;
+    background-color:white;
+}
+
+.contenido_vs{
+    position: absolute;
+    height: 270px;
+    width: 100%;
+    background-color: white;
+}
+
+h2{
+    text-align: center;
+}
+
+#slides {
+    margin-bottom: 50px;
+    height: 270px;
+    width: 100%;
+}
+
+.carousel-control-prev-icon{
+    position: absolute;
+    top: 125px;
+    background-color:gray;
+    border-radius: 100%;
+}
+
+.carousel-control-next-icon{
+    position: absolute;
+    top: 125px;
+    background-color: gray;
+    border-radius: 100%;
+}
+
+.descripcion1{
+    text-align: center;
+    font-size: 30px;
+    color: black;
+}

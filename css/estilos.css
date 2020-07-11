@@ -2,6 +2,7 @@
 
 header {
     background-color: #473B34;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .contenedor-menu {
@@ -321,6 +322,12 @@ header label:hover {
     cursor: pointer;
 }
 
+@media screen and (max-width: 1000px){
+    .datos{
+        flex-direction: column;
+    }
+}
+
 @media screen and (max-width: 768px) {
     header label {
         display: block;
@@ -428,6 +435,10 @@ header label:hover {
     .contacto-info iframe, div{
         margin-top: 30px;
     }
+
+    .datos{
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width: 360px) {
@@ -500,9 +511,5 @@ header label:hover {
 
     .contenedor-contenido{
         width: 90%;
-    }
-    
-    .datos{
-        flex-direction: column;
     }
 }

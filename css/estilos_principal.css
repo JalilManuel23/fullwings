@@ -114,6 +114,13 @@ li:hover {
     margin-top: 20px;
     text-align: justify;
 }
+/* Flecha Arriba */
+.flecha_arriba{
+    position: sticky;
+    top: 90vh;
+    width: 50px;
+    z-index: 1;
+}
 
 
 /* Estilos de la sección Banner */

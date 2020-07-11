@@ -13,6 +13,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Borrar Pedido</title>
         <!-- Favicon -->
         <link rel="icon" href="../favicon.ico">
@@ -21,6 +22,12 @@
         .wrapper{
             width: 500px;
             margin: 0 auto;
+        }
+
+        @media screen and (max-width:768px){
+            .wrapper{
+                width: 300px;
+            }
         }
     </style>
 </head>
@@ -38,7 +45,7 @@
                             <p>Está seguro que deseas borrar el registro</p><br>
                             <p>
                                 <input type="submit" value="Si" class="btn btn-danger" name="borrar">
-                                <a href="index.php" class="btn btn-default">No</a>
+                                <a href="../html/pedidos.php" class="btn btn-default">No</a>
                             </p>
                         </div>
                     </form>

@@ -19,6 +19,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar Pedidos</title>
         <!-- Favicon -->
         <link rel="icon" href="../favicon.ico">
@@ -50,6 +51,7 @@
 <body>
 <header>
         <div class="contenedor-header">
+            <label for="boton-menu"><img src="../img/menu.png" alt=""></label>
             <a href="../">
                 <img src="../img/fullwings.png" alt="">
             </a>
@@ -91,6 +93,7 @@
     <!-- Fin de Modal Cerrar Sesión -->
 
     <div class="main">
+        <input type="checkbox" id="boton-menu"> 
         <section class="menu">
             <nav>
                 <ul>
@@ -102,7 +105,7 @@
             </nav>
         </section>
         <section class="contenido">
-            <h2>Editar Registro de Empleado</h2>
+            <h2>Editar Registro de Pedidos</h2>
             <div class="editar">
             <form class="form-editar" action="actualizar.php" method="post">
                 <div >

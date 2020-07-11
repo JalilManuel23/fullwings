@@ -56,7 +56,7 @@
                     </div>
                     <div class="input-icono">
                         <div class="icon-phone"></div>
-                        <input type="text" name="telefono" class="txt" required placeholder="Telefóno">
+                        <input type="tel" minlength="10" maxlength="10" name="telefono" class="txt" required placeholder="Telefóno">
                     </div>
                     <div class="input-icono">
                         <div class="icon-envelope"></div>
@@ -68,7 +68,7 @@
                     </div>
                     <div class="input-icono">
                         <div class="icon-key"></div>
-                        <input id="pass1" type="password" name="contrasenia" required class="txt" placeholder="Contraseña">
+                        <input id="pass1" minlength="8" type="password" name="contrasenia" required class="txt" placeholder="Contraseña">
                     </div>
                     <div class="input-icono">
                         <div class="icon-key"></div>

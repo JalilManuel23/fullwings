@@ -2,7 +2,7 @@
     session_start();
     $usuario = $_SESSION['usuario'];
     if($usuario == null || $usuario = ""){
-        echo "<h2>Acceso no autorizado. Inicie sesión.</h2>";
+        header("Location: errores/iniciar_sesion.html");
         die();
     }    
 ?>
@@ -87,7 +87,6 @@
         ¿Está seguro que desea Cerrar Sesión?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
         <a href="../php/cerrar_sesion.php" class="btn btn-primary">Aceptar</a>
       </div>
     </div>
@@ -114,15 +113,14 @@
                     </div>
                     <div class="form-group">
                         <label for="pass1">Contraseña nueva</label>
-                        <input name="contrasenia" type="password" class="form-control" required id="pass1">
+                        <input name="contrasenia" minlength="8" type="password" class="form-control" required id="pass1">
                     </div>
                     <div class="form-group">
                         <label for="pass2">Confirmar Contraseña</label>
-                        <input name="confirm-contra" type="password" class="form-control" required id="pass2">
+                        <input name="confirm-contra" minlength="8" type="password" class="form-control" required id="pass2">
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <button id="editar" type="submit" class="btn btn-primary" name="editar-usuario" disabled>Aceptar</button>
             </div>
             <p id="mensaje"></p>

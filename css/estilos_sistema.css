@@ -269,13 +269,18 @@ a:hover {
     margin: auto;
 }
 
-.form-editar *{
+.form-editar{
     width: 80%;
+}
+
+.form-editar *{
+    width: 100%;
     margin-top: 5px;
 }
 
 .btn-primary{
     width: 20%;
+    margin-top: 15px;
 }
 
 /* Estilos de Formularios de Registro */
@@ -331,6 +336,10 @@ form {
 .wrapper{
     width: 500px;
     margin: 0 auto;
+}
+
+h2{
+    font-size: 3vmin;
 }
 
 @media (min-width: 900px) {
@@ -449,6 +458,19 @@ header label:hover {
     }
 
     .contenido-imagenes{
+        height: 100%;
+    }
+
+    .form-editar{
+        margin-top: 0;
+        width: 100%;
+    }
+
+    .form-editar input{
+        width: 100%;
+    }
+
+    .editar{
         height: 100%;
     }
 }

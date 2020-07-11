@@ -19,6 +19,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar Registro</title>
     <link rel="icon" href="../favicon.ico"> 
 
@@ -48,8 +49,9 @@
     <link rel="stylesheet" href="../css/estilos_sistema.css">
 </head>
 <body>
-<header>
+    <header>
         <div class="contenedor-header">
+            <label for="boton-menu"><img src="../img/menu.png" alt=""></label>
             <a href="../">
                 <img src="../img/fullwings.png" alt="">
             </a>
@@ -89,8 +91,44 @@
     </div>
     </div>
     <!-- Fin de Modal Cerrar Sesión -->
-
+<!-- Modal de editar cuenta -->
+<form action="../php/editar_usuario.php" method="post">
+    <div class="modal fade" id="editar-cuenta" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Editar Cuenta de Usuario</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        
+            <div class="modal-body">
+                    <div class="form-group">
+                        <label for="usuario">Usuario</label>
+                        <input name="usuario" class="form-control" type="text" id="usuario" required value="<?php echo $usuario; ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="pass1">Contraseña nueva</label>
+                        <input name="contrasenia" type="password" class="form-control"  id="pass1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pass2">Confirmar Contraseña</label>
+                        <input name="confirm-contra" type="password" class="form-control" id="pass2" required>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button id="editar" type="submit" class="btn btn-primary" name="editar-usuario" disabled>Aceptar</button>
+            </div>
+            <p id="mensaje"></p>
+        </div>
+    </div>
+    </div>
+</form>
+<!-- Fin de Modal de editar cuenta -->
     <div class="main">
+        <input type="checkbox" id="boton-menu">
         <section class="menu">
             <nav>
                 <ul>
