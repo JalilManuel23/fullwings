@@ -7,18 +7,8 @@
     <title>Full Wings | Contacto</title>
     <!-- Favicon -->
     <link rel="icon" href="../favicon.ico">
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Sriracha&display=swap" rel="stylesheet">
 
-    <!-- Animaciones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
-
-    <!-- Bootstrap CSS y JS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <?php include("scripts_links.php"); ?>
 
     <!-- Scripts Locales -->
     <script src="../js/menu.js"></script>
@@ -31,24 +21,30 @@
 
     <!-- Hoja de Estilos -->
     <link rel="stylesheet" href="../css/estilos.css">
+
+    <!-- Hoja de estilos del tema -->
+    <?php
+    include("../php/tema.php");
+    echo "<link rel='stylesheet' href='../css/temas/tema" . $tema . ".css'>";
+    ?>
 </head>
 
 <body>
-    <header>
+    <header class="header-nos-con">
         <div class="log">
-            <img src="../img/fullwings.png" alt="">
+            <a href="../"><img src="../img/fullwings.png" alt="logo_fullwings"></a>
         </div>
         <div class="contenedor-menu">
             <input type="checkbox" id="boton-menu">
-            <label for="boton-menu"><img src="../img/menu.png" alt=""></label>
+            <label for="boton-menu"><img src="../img/menu.png" alt="menu"></label>
             <div class="menu">
-                <img src="../img/fullwings.png" alt="logo_fullwings">
+                <a href="../"><img src="../img/fullwings.png" alt="logo_fullwings"></a>
                 <nav>
                     <ul class="lista">
-                        <li><a href="../index.html">Inicio</a></li>
-                        <li><a href="menu.html" >Menú</a></li>
-                        <li><a href="nosotros.html">Nosotros</a></li>
-                        <li><a href="contacto.html" id="seleccionado">Contacto</a></li>
+                        <li><a href="../index.php">Inicio</a></li>
+                        <li><a href="menu.php" >Menú</a></li>
+                        <li><a href="nosotros.php">Nosotros</a></li>
+                        <li><a href="contacto.php" id="seleccionado">Contacto</a></li>
                         <li>
                             <a class="icon-facebook" href="https://www.facebook.com/Fullwingsdgo" target="_blank"></a>
                         </li>
@@ -65,11 +61,11 @@
         <div class="contenedor-contenido">
             <div class="escribenos">
                 <h2>ESCRÍBENOS</h2>
-                <form action="#" id="form-escribenos">
-                    <input type="text" id="name" name="user_name" class="txt" placeholder="Nombre">
-                    <input type="email" id="mail" name="user_mail" class="txt" placeholder="Email">
-                    <textarea id="msg" name="user_message" class="txt" placeholder="Mensaje"></textarea>
-                    <button type="submit" class="btn btn-danger">ENVIAR</button>
+                <form action="../php/mail.php" id="form-escribenos" method="post">
+                    <input type="text" id="name" name="nombre" class="txt" placeholder="Nombre">
+                    <input type="email" id="mail" name="mail" class="txt" placeholder="Email">
+                    <textarea id="msg" name="mensaje" class="txt" placeholder="Mensaje"></textarea>
+                    <button type="submit" class="btn btn-danger" name="enviar-mail">ENVIAR</button>
                 </form>
             </div>
             <div class="contacto-info">

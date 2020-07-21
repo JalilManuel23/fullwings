@@ -16,26 +16,10 @@
     <title>Sistema Full Wings | Cambiar Imagenes</title>
     <!-- Favicon -->
     <link rel="icon" href="../favicon.ico">
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Sriracha&display=swap" rel="stylesheet">
 
-    <!-- Animaciones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
-
-    <!-- Bootstrap CSS y JS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-
+    <!-- Script y links externos -->
+    <?php include("scripts_links.php"); ?>
+    
     <!-- Scripts Locales -->
     <script src="../js/menu.js"></script>
     <script src="../js/validar_contrasenia.js"></script>
@@ -46,12 +30,18 @@
     <!-- Iconos Fontastic -->
     <link rel="stylesheet" href="../css/styles.css">
 
+    <!-- Hoja de estilos del tema -->
+    <?php
+    include("../php/tema.php");
+    echo "<link rel='stylesheet' href='../css/temas/tema" . $tema . ".css'>";
+    ?>
+
     <!-- Hoja de Estilos -->
     <link rel="stylesheet" href="../css/estilos_sistema.css">
 </head>
 
 <body>
-    <header>
+    <header class="header-sis">
         <div class="contenedor-header">
             <label for="boton-menu"><img src="../img/menu.png" alt=""></label>
 
@@ -73,68 +63,22 @@
         </div>
     </header>
 
-<!-- Modal Cerrar Sesión-->
-<div class="modal fade" id="cerrar-sesion" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Cerrar Sesión</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ¿Está seguro que desea Cerrar Sesión?
-      </div>
-      <div class="modal-footer">
-        <a href="../php/cerrar_sesion.php" class="btn btn-primary">Aceptar</a>
-      </div>
+    <!-- Modal Cerrar Sesión-->
+    <div class="modal fade" id="cerrar-sesion" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <?php include("ventanas_modales/cerrar_sesion.php"); ?>
     </div>
-  </div>
-</div>
-<!-- Fin de Modal Cerrar Sesión -->
 
-<!-- Modal de editar cuenta -->
-<form action="../php/editar_usuario.php" method="post">
-    <div class="modal fade" id="editar-cuenta" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Editar Cuenta de Usuario</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        
-            <div class="modal-body">
-                    <div class="form-group">
-                        <label for="usuario">Usuario</label>
-                        <input name="usuario" class="form-control" type="text" id="usuario" required value="<?php echo $usuario; ?>">
-                    </div>
-                    <div class="form-group">
-                        <label for="pass1">Contraseña nueva</label>
-                        <input name="contrasenia" minlength="8" type="password" class="form-control" required id="pass1">
-                    </div>
-                    <div class="form-group">
-                        <label for="pass2">Confirmar Contraseña</label>
-                        <input name="confirm-contra" minlength="8" type="password" class="form-control" required id="pass2">
-                    </div>
-            </div>
-            <div class="modal-footer">
-                <button id="editar" type="submit" class="btn btn-primary" name="editar-usuario" disabled>Aceptar</button>
-            </div>
-            <p id="mensaje"></p>
-        </div>
-    </div>
-    </div>
-</form>
-<!-- Fin de Modal de editar cuenta -->
+    <!-- Modal de editar cuenta -->
+    <form action="../php/editar_usuario.php" method="post">
+        <?php include("ventanas_modales/editar_cuenta.php"); ?>
+    </form>
+
     <div class="main">
-    <input type="checkbox" id="boton-menu">
-        <section class="menu">
+        <input type="checkbox" id="boton-menu">
+        <section class="menu-sis">
             <nav>
                 <ul>
-                    <li class="icon-picture-streamline-1" id="seleccionado"><a href="cambiar_imagen.php">Cambiar Imagenes</a></li>
+                    <li class="icon-picture-streamline-1" id="seleccionado-sis"><a href="cambiar_imagen.php">Cambiar Imagenes</a></li>
                     <li class="icon-paint-brush"><a href="apariencia.php">Apariencia</a></li>
                     <li class="icon-truck"><a href="pedidos.php">Gestionar Pedidos</a></li>
                     <li class="icon-users"><a href="empleados.php">Gestionar Empleados</a></li>
@@ -146,72 +90,44 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Nombre de Imágen</th>
+                        <th>Título</th>
                         <th>Sección</th>
+                        <th>Descripción</th>
                         <th>Imagen</th>
-                        <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
-                    <tr>
-                        <td>Alitas Menú 1</td>
-                        <td>Menú</td>
-                        <td><img src="../img/boweless.jpg"></td>
-                        <td>
-                            <a href="#" class="estado activo">Activo</a>
-                        </td>
-                        <td>
-                            <a href="" class="icon-pencil"></a>
-                            <a href="" class="icon-trash"></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Alitas Menú 2</td>
-                        <td>Menú</td>
-                        <td><img src="../img/parmesano.jpg"></td>
-                        <td>
-                            <a href="#" class="estado activo">Activo</a>
-                        </td>
-                        <td>
-                            <a href="" class="icon-pencil"></a>
-                            <a href="" class="icon-trash"></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Hamburguesa</td>
-                        <td>Index</td>
-                        <td><img src="../img/hamburguesa.png"></td>
-                        <td>
-                            <a href="#" class="estado inactivo">Inactivo</a>
-                        </td>
-                        <td>
-                            <a href="" class="icon-pencil"></a>
-                            <a href="" class="icon-trash"></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Tacos</td>
-                        <td>Menú</td>
-                        <td><img src="../img/tacos.jpg"></td>
-                        <td>
-                            <a href="#" class="estado activo">Activo</a>
-                        </td>
-                        <td>
-                            <a href="" class="icon-pencil"></a>
-                            <a href="" class="icon-trash"></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Orden de tacos</td>
-                        <td>Menú</td>
-                        <td><img src="../img/tacos.jpg"></td>
-                        <td>
-                            <a href="#" class="estado activo">Activo</a>
-                        </td>
-                        <td>
-                            <a href="" class="icon-pencil"></a>
-                            <a href="" class="icon-trash"></a>
-                        </td>
-                    </tr>
+
+                    <?php
+                        $con = 1;
+
+                        include("../php/config.php");
+                        include("../php/imagenes/mostrar.php");
+
+                        while($con < 13){
+
+                            $seccion = "";
+
+                            if($con >= 1 && $con <= 9){
+                                $seccion = "Menú";
+                            }elseif($con >= 10 && $con <= 12){
+                                $seccion = "Inicio";
+                            }
+
+                            $fotos = show($con,$Conserver,$Conuser,$Conpass,$Condb);
+                            echo "<tr>";
+                                echo "<td> ". $fotos['titulo'] . "</td>";
+                                echo "<td>" . $seccion . "</td>";
+                                echo "<td>". $fotos['descripcion'] . "</td>";
+                                echo "<td> <img src='../img/". $fotos['imagen'] . "'></td>";
+                                echo "<td>";
+                                    echo "<a href='../php/imagenes/subir.php?id=" .$con."' class='icon-pencil'></a>";
+                                    echo "<a href='../php/cambiar_img_default.php?id= " .$con."' class='icon-trash'></a>";
+                                echo "</td>";
+                            echo "</tr>";
+
+                            $con++;
+                        }
+                    ?>
                 </thead>
             </table>
         </section>

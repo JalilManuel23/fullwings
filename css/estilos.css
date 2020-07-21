@@ -1,7 +1,6 @@
 /* Estilos Header */
 
 header {
-    background-color: #473B34;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
@@ -20,7 +19,7 @@ header {
 }
 
 .menu img {
-    width: 13%;
+    width: 80px;
 }
 
 .menu img:hover {
@@ -46,12 +45,10 @@ header {
 }
 
 .lista li:hover {
-    color: #EF962D;
     cursor: pointer;
 }
 
 .lista a:hover {
-    color: #EF962D;
     text-decoration: none;
 }
 
@@ -64,9 +61,10 @@ header {
 
 .log{
     display: none;
-    width: 100%;
+    width: 50%;
     display: flex;
     justify-content: center;
+
 }
 
 .log img{
@@ -86,20 +84,13 @@ header {
     height: 70vh;
 }
 
-#seleccionado {
-    color: #EF962D;
-}
-
 .escribenos {
     width: 47.5%;
     margin-right: 5%;
 }
 
 .escribenos h2 {
-    color: #473B34;
     padding: 20px 0px 20x 0px;
-    border-top: #EF962D 1px solid;
-    border-bottom: #EF962D 1px solid;
     display: inline;
 }
 
@@ -120,7 +111,6 @@ header {
     justify-content: space-around;
     align-items: center;
     padding-top: 3vmin;
-    background-color: #EF962D;
     border-radius: 5px;
     font-size: 1.2em;
     color: white;
@@ -169,7 +159,6 @@ footer {
     justify-content: center;
     align-items: center;
     height: 10vh;
-    background-color: #8A0E0E;
     color: white;
 }
 
@@ -289,17 +278,30 @@ body{
 .imgs-menu {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
     margin-top: 10px;
-    width: 30%;
+    width: 25%;
     height: 100%;
+    outline:5px solid rgba(255,255,255,0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transition: 0.5s
+}
+
+.imgs-menu:hover {
+    cursor: pointer;
+    box-shadow: 10px 6px 16px rgba(0, 0, 0, 0.25), 0 3px 6px rgba(0, 0, 0, 0.25);
+    transform: scale(1.03);
+    -webkit-filter: blur(3px);
+    filter: brightness(0.9);
+    transition: 0.5s
 }
 
 .imgs-menu img {
-    border-radius: 1em;
-    width: 80%;
+    width: 100%;
+    height: 300px;
+	margin-bottom: 30px;
 }
+
 
 .imgs-menu p{
     font-size: 2.5vmin;
@@ -414,10 +416,10 @@ header label:hover {
     .imgs{
         width: 98%;
     }
-
+/* 
     .imgs-menu img{
         width: 150px;
-    }
+    } */
 
     .contenedor-contenido{
         flex-direction: column;

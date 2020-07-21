@@ -4,6 +4,7 @@ header {
     height: 10vh;
     background-color: #473B34;
     color: white;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .contenedor-header {
@@ -35,7 +36,6 @@ header {
 }
 
 .usuario:hover {
-    color: #EF962D;
     cursor: pointer;
 }
 
@@ -54,32 +54,30 @@ header {
 
 /* Estilos Menú */
 
-.menu {
+.menu-sis {
     width: 30vmin;
-    background-color: #534842;
     color: #C0BABA;
     height: 90vh;
     font-size: 2vmin;
+    box-shadow: 0px 8px 6px rgba(0, 0, 0, 0.16), 0 8px 6px rgba(0, 0, 0, 0.23);
 }
 
-.menu li {
+.menu-sis li {
     padding: 20px 20px;
 }
 
-.menu li:hover {
+.menu-sis li:hover {
     cursor: pointer;
-    background-color: #9C5518;
     color: white;
 }
 
-.menu li::before {
+.menu-sis li::before {
     padding: 0px 10px;
     color: white;
 }
 
-#seleccionado {
+#seleccionado-sis {
     color: white;
-    background-color: #EF962D;
 }
 
 .contenido-imagenes {
@@ -154,8 +152,9 @@ th {
 }
 
 .icon-pencil {
-    padding: 5px 7px;
+    padding: 5px 5px;
     border-radius: 3px;
+    margin-right: 5px;
     background-color: #F2D61E;
 }
 
@@ -165,7 +164,7 @@ th {
 
 
 .icon-trash {
-    padding: 5px 7px;
+    padding: 5px 5px;
     border-radius: 3px;
     background-color: #DF2042;
 }
@@ -192,15 +191,23 @@ a:hover {
 .correcto {
     background-color: green;
     color: white;
-    text-align: center;
     padding: 12px;
     border-radius: 10px;
-    margin-top: 20px;
+    position: relative;
+    background-color: rgba(0,0,0,.8);
+    position:fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    opacity:0;
+    pointer-events:none;
 }
 /* Estilos de la Página Apariencia */
 
 .temas {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
@@ -209,17 +216,36 @@ a:hover {
     text-align: center;
 }
 
+.temas label {
+    border: none;
+}
+
+.temas input{
+    display: none;
+}
+
 .tema img {
+    border: none;
     border-radius: 15px;
 }
 
 .tema img:hover {
-    cursor: pointer;
-    border: 2px solid black;
+    border: black 3px solid;
+    border-radius: 15px;
 }
 
-.tema-seleccionado {
-    border: 3px solid black;
+.radio{
+    border: none;
+}
+
+.tema:hover{
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.selection {
+    border: 10px solid black;
 }
 
 .contenido {
@@ -246,7 +272,10 @@ a:hover {
     margin-right: auto;
 }
 
-
+#tema1:checked + label, #tema2:checked + label, #tema3:checked + label{
+    border: solid 4px black;
+    border-radius: 20px;
+}
 /* Estilos de Secciones de Registro y del Historial de Pedidos y Empleados */
 
 .registro-pedidos {
@@ -329,7 +358,7 @@ form {
     background: #F7F6F5;
 }
 
-.formulario textarea {
+.formulario-sis textarea {
     height: 170px;
 }
 
@@ -406,6 +435,11 @@ header label:hover {
     cursor: pointer;
 }
 
+/* ESTILOS DE EDITAR IMÁGEN */
+.img_a_editar{
+    max-width: 200px;
+    max-height: 200px;
+}
 
 @media screen and (max-width: 768px) {
     header label {
@@ -416,7 +450,7 @@ header label:hover {
         display: none;
     }
 
-    .menu {
+    .menu-sis {
         position: absolute;
         justify-content: space-between;
         margin-left: -60%;
@@ -424,6 +458,7 @@ header label:hover {
         width: 60%;
         z-index: 1;
         font-size: 3vmin;
+        box-shadow: none;
     }
 
     .lista {
@@ -431,7 +466,7 @@ header label:hover {
         flex-direction: column;
     }
 
-    #boton-menu:checked~.menu {
+    #boton-menu:checked~.menu-sis {
         margin: 0;
     }
 
@@ -476,7 +511,7 @@ header label:hover {
 }
 
 @media screen and (max-width: 360px) {
-    .menu{
+    .menu-sis{
         width: 70%;
         margin-left: -70%;
         font-size: 4vmin;

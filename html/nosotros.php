@@ -5,26 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Full Wings | Nosotros</title>
-        <!-- Favicon -->
-        <link rel="icon" href="../favicon.ico">
 
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Sriracha&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico">
 
-    <!-- Animaciones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
-
-    <!-- Bootstrap CSS y JS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <?php include("scripts_links.php"); ?>
 
     <!-- Scripts Locales -->
     <script src="../js/menu.js"></script>
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/jquery.validate.min.js"></script>
 
     <!-- Normalize -->
     <link rel="stylesheet" href="../css/normalize.css">
@@ -34,24 +22,30 @@
 
     <!-- Hoja de Estilos -->
     <link rel="stylesheet" href="../css/estilos.css">
+
+    <!-- Hoja de estilos del tema -->
+    <?php
+    include("../php/tema.php");
+    echo "<link rel='stylesheet' href='../css/temas/tema" . $tema . ".css'>";
+    ?>
 </head>
 
 <body>
-    <header>
+    <header class="header-nos-con">
+        <div class="log">
+            <a href="../"><img src="../img/fullwings.png" alt="logo_fullwings"></a>
+        </div>
         <div class="contenedor-menu">
-            <div class="log">
-                <img src="../img/fullwings.png" alt="">
-            </div>
             <input type="checkbox" id="boton-menu">
-            <label for="boton-menu"><img src="../img/menu.png" alt=""></label>
+            <label for="boton-menu"><img src="../img/menu.png" alt="menu"></label>
             <div class="menu">
-                <img src="../img/fullwings.png" alt="logo_fullwings">
+                <a href="../"><img src="../img/fullwings.png" alt="logo_fullwings"></a>
                 <nav>
                     <ul class="lista">
-                        <li><a href="../index.html">Inicio</a></li>
-                        <li><a href="menu.html">Menú</a></li>
-                        <li><a href="nosotros.html" id="seleccionado">Nosotros</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="../index.php">Inicio</a></li>
+                        <li><a href="menu.php">Menú</a></li>
+                        <li><a href="nosotros.php" id="seleccionado">Nosotros</a></li>
+                        <li><a href="contacto.php">Contacto</a></li>
                         <li>
                             <a class="icon-facebook" href="https://www.facebook.com/Fullwingsdgo" target="_blank"></a>
                         </li>
@@ -64,7 +58,7 @@
         </div>
     </header>
 
-    <div class="contenedor-nosotros">
+    <section class="contenedor-nosotros">
         <div class="nosotros">
             <h2 class="titulo-nosotros">
                 ¿Quiénes somos?
@@ -84,7 +78,6 @@
                         <p class="descripcion">
                             Ser reconocidos como el mejor restaurante de alitas de la zona, con excelente servicio y calidad en nuestros productos.
                         </p>
-
                     </div>
                     <div class="carousel-item">
                         <h2 class="titulo-nosotros">Visión</h2>
@@ -93,13 +86,9 @@
                         </p>
                     </div>
                 </div>
-
-                </a>
             </div>
-
         </div>
-
-    </div>
+    </section>
     <footer>
         <p>
             Full Wings 2020 &copy;

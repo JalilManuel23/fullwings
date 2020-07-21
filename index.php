@@ -1,3 +1,8 @@
+<?php
+    include("php/config.php");
+
+    mysqli_query($conexion, "INSERT INTO visitas VALUES(null, NOW())");
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -9,18 +14,8 @@
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico">
 
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Sriracha&display=swap" rel="stylesheet">
-
-    <!-- Animaciones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
-
-    <!-- Bootstrap CSS y JS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <?php include("html/scripts_links.php");?>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,600&display=swap" rel="stylesheet"> 
 
     <!-- Scripts Locales -->
     <script src="js/menu.js"></script>
@@ -33,6 +28,12 @@
 
     <!-- Hoja de Estilos -->
     <link rel="stylesheet" href="css/estilos_principal.css">
+
+    <!-- Hoja de estilos del tema -->
+    <?php
+    include("php/tema.php");
+    echo "<link rel='stylesheet' href='css/temas/tema" . $tema . ".css'>";
+    ?>
 </head>
 
 <body>
@@ -41,18 +42,21 @@
             <input type="checkbox" id="boton-menu">
             <label for="boton-menu"><img src="img/menu.png" alt=""></label>
             <div class="menu animate__animated animate__bounce">
-                <img src="img/fullwings.png" alt="logo" id="img-menu">
+                <a href="#"><img src="img/fullwings.png" alt="logo" id="img-menu"></a>
                 <nav>
                     <ul class="lista">
                         <li><a href="#" id="seleccionado">Inicio</a></li>
-                        <li><a href="html/menu.html">Menú</a></li>
-                        <li><a href="html/nosotros.html">Nosotros</a></li>
-                        <li><a href="html/contacto.html">Contacto</a></li>
+                        <li><a href="html/menu.php">Menú</a></li>
+                        <li><a href="html/nosotros.php">Nosotros</a></li>
+                        <li><a href="html/contacto.php">Contacto</a></li>
                         <li>
                             <a class="icon-facebook" href="https://www.facebook.com/Fullwingsdgo" target="_blank"></a>
                         </li>
                         <li >
                             <a class="icon-whatsapp" href="https://api.whatsapp.com/send?phone=526181744864&text=Hola,%20me%20ha%20interesado%20la%20página%20de%20Fullwings%20y%20me%20gustaría%20ponerme%20en%20contacto%20para%20solicitar%20información%20de%20una%20reservación,%20pedido%20o%20precios%20y%20sucursales." target="_blank"></a>
+                        </li>
+                        <li >
+                            <a class="icon-user" href="html/login.php"></a>
                         </li>
                     </ul>
                 </nav>
@@ -91,28 +95,23 @@
     </section>
     <section class="banner">
         <h2>LOS FAVS</h2>
-        <div id="slides" class="carousel slide" data-ride="carousel">
-            <div id="slide" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="img/slide1.jpg" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="img/slide2.jpg  " alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="img/slide3.jpg" alt="Third slide">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#slide" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Anterior</span>
-                </a>
-                <a class="carousel-control-next" href="#slide" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Siguiente</span>
-                </a>
-            </div>
+        <div class="imgs">
+            <?php
+                include("php/config.php");
+                include("php/imagenes/mostrar.php");    
+
+                $i = 10;
+                while($i <= 12){
+                    echo "<a class='imgs-menu'  data-toggle='modal' data-target='#ver-producto-$i'>";
+                        $fotos = show($i,$Conserver,$Conuser,$Conpass,$Condb);
+                        echo "<img class='d-block w-100' src='img/". $fotos['imagen'] . "'>"; 
+                        echo "<p>" . $fotos['titulo'] . "</p>";
+                    echo "</a>";
+                    include("html/ventanas_modales/productos.php");
+                    $i++;
+                }
+            ?>
+
         </div>
     </section>
 

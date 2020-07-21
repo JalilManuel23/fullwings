@@ -5,7 +5,24 @@
         $no = $_POST['id'];
         $sql = "DELETE FROM pedido WHERE No_orden = '$no'";  
         $result = mysqli_query($conexion, $sql);  
-        header("location: ../html/pedidos.php");    
+        
+        include("../html/pedidos.php");
+
+        ?>
+            <script>
+                function alerta(){
+                    swal({
+                        title: "¡Pedido eliminado exitosamente!",
+                        text: "Da click en el botón para continuar",
+                        icon: "success",
+                    }).then(function() {
+                        window.location = "../html/pedidos.php";
+                    });;
+                }
+                alerta();                   
+            </script>
+        <?php
+
     }
 ?>
 

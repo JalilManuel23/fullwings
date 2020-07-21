@@ -1,0 +1,43 @@
+footer{
+    background-color: #8A0E0E;
+}
+
+.menu2, .header-sis, .header-nos-con {
+    background-color: #473A34;
+}
+
+.menu-sis{
+    background-color: #534842;
+}
+
+.menu-sis li:hover {
+    background-color: #9C5518;
+}
+
+#seleccionado-sis {
+    background-color: #EF962D;
+}
+
+.banner h2{
+    background-color: #EF962D;
+}
+
+#seleccionado {
+    color: #EF962D;
+}
+
+.menu li:hover {
+    color: #EF962D;
+}
+
+.menu a:hover {
+    color: #EF962D;
+}
+
+.formulario, .formulario-registro{
+    border-top: 50px solid #EF962D;
+}
+
+.usuario:hover{
+    color: #EF962D;
+}

@@ -1,14 +1,9 @@
 <?php
-
 include("config.php");
 
-$usuario = $_SESSION['usuario'];
-if($usuario == null || $usuario = ""){
-    echo "<h2>Acceso no autorizado. Inicie sesión.</h2>";
-    die();
-}    
-
 if(isset($_POST['agregar-empleado'])){
+    include("../html/empleados.php");
+
     $nombre = $_POST['nombre'];
     $telefono = $_POST['telefono'];
     $puesto = $_POST['puesto'];
@@ -22,14 +17,28 @@ if(isset($_POST['agregar-empleado'])){
     $query = $conexion->query("INSERT INTO empleado(telefono,nombre,puesto,turno,admin) VALUES ('$telefono','$nombre','$puesto','$turno','$admin[0]')");
     $comprobar = $conexion->query("SELECT * FROM empleado WHERE nombre = '$nombre'");
     $exito = $comprobar ->num_rows;
-    if ($exito) {     
+
+    if ($exito) {   
         ?>
-            <p class="correcto" id="correcto">¡El empleado ha sido agregado!</p>
+            <script>
+                function alerta(){
+                    swal({
+                        title: "¡Empleado agregado correctamente!",
+                        text: "Da click en el botón para continuar",
+                        icon: "success",
+                    }).then(function() {
+                        window.location = "../html/empleados.php";
+                    });;
+                }
+                alerta();                   
+            </script>
         <?php
     }
 }
 
 if(isset($_POST['agregar-pedido'])){
+    include("../html/pedidos.php");
+
     $empleado = $_POST['empleado'];
     $fecha = $_POST['fecha'];
     $orden = $_POST['orden'];
@@ -39,8 +48,20 @@ if(isset($_POST['agregar-pedido'])){
 
     $insertar = mysqli_query($conexion,$query);
 
-    echo"<p class='correcto' id='correcto'>¡El pedido ha sido agregado!</p>";
-      
+    ?>
+    <script>
+        function alerta(){
+            swal({
+                title: "¡Pedido agregado correctamente!",
+                text: "Da click en el botón para continuar",
+                icon: "success",
+            }).then(function() {
+                window.location = "../html/pedidos.php";
+            });;
+        }
+        alerta();                   
+    </script>
+<?php   
     
 }
 

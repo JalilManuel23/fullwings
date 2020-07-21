@@ -5,7 +5,22 @@
         $no = $_POST['id'];
         $sql = "DELETE FROM empleado WHERE No_Empleado = '$no'";  
         $result = mysqli_query($conexion, $sql);  
-        header("location: ../html/empleados.php");    
+        include("../html/empleados.php");
+
+        ?>
+            <script>
+                function alerta(){
+                    swal({
+                        title: "¡Empleado eliminado exitosamente!",
+                        text: "Da click en el botón para continuar",
+                        icon: "success",
+                    }).then(function() {
+                        window.location = "../html/empleados.php";
+                    });;
+                }
+                alerta();                   
+            </script>
+        <?php 
     }
 ?>
 

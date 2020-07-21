@@ -12,7 +12,7 @@
 
     $sql = "SELECT * FROM pedido WHERE No_orden = '$id'";
     $result = mysqli_query($conexion, $sql);
-    $row = mysqli_fetch_array($result);
+    $fila = mysqli_fetch_array($result);
 ?>
  
 <!DOCTYPE html>
@@ -21,20 +21,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar Pedidos</title>
-        <!-- Favicon -->
-        <link rel="icon" href="../favicon.ico">
-        <!-- Fuentes -->
-        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Sriracha&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico">
 
-    <!-- Animaciones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
-
-    <!-- Bootstrap CSS y JS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Script y links externos -->
+    <?php include("../html/scripts_links.php"); ?>
 
     <!-- Scripts Locales -->
     <script src="../js/menu.js"></script>
@@ -45,11 +36,16 @@
     <!-- Iconos Fontastic -->
     <link rel="stylesheet" href="../css/styles.css">
 
+    <?php
+        include("../php/tema.php");
+        echo "<link rel='stylesheet' href='../css/temas/tema" . $tema . ".css'>";
+    ?>
+
     <!-- Hoja de Estilos -->
     <link rel="stylesheet" href="../css/estilos_sistema.css">
 </head>
 <body>
-<header>
+<header class="header-sis">
         <div class="contenedor-header">
             <label for="boton-menu"><img src="../img/menu.png" alt=""></label>
             <a href="../">
@@ -72,34 +68,22 @@
 
     <!-- Modal Cerrar Sesión-->
     <div class="modal fade" id="cerrar-sesion" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-         <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Cerrar Sesión</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            ¿Está seguro que desea Cerrar Sesión?
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <a href="../php/cerrar_sesion.php" class="btn btn-primary">Aceptar</a>
-        </div>
-        </div>
+        <?php include("../html/ventanas_modales/cerrar_sesion.php"); ?>
     </div>
-    </div>
-    <!-- Fin de Modal Cerrar Sesión -->
+
+    <!-- Modal de editar cuenta -->
+    <form action="editar_usuario.php" method="post">
+        <?php include("../html/ventanas_modales/editar_cuenta.php"); ?>
+    </form>
 
     <div class="main">
         <input type="checkbox" id="boton-menu"> 
-        <section class="menu">
+        <section class="menu-sis">
             <nav>
                 <ul>
                     <li class="icon-picture-streamline-1"><a href="../html/cambiar_imagen.php">Cambiar Imagenes</a></li>
                     <li class="icon-paint-brush"><a href="../html/apariencia.php">Apariencia</a></li>
-                    <li class="icon-truck" id="seleccionado"><a href="../html/pedidos.php">Gestionar Pedidos</a></li>
+                    <li class="icon-truck" id="seleccionado-sis"><a href="../html/pedidos.php">Gestionar Pedidos</a></li>
                     <li class="icon-users" ><a href="../html/empleados.php">Gestionar Empleados</a></li>
                 </ul>
             </nav>
@@ -119,7 +103,7 @@
                             if($resultado = mysqli_query($conexion, $consulta)){
                                 if(mysqli_num_rows($resultado) > 0){
                                     while($opciones = mysqli_fetch_array($resultado)){
-                                        if ($opciones['No_Empleado'] == $row['Empleado']){
+                                        if ($opciones['No_Empleado'] == $fila['Empleado']){
                                             echo "<option value=" . $opciones['No_Empleado'] ." selected = 'true'>#" . $opciones['No_Empleado'] . " " . $opciones['nombre'] . "</option>";
                                         }else{
                                             echo "<option value=" . $opciones['No_Empleado']. ">#" . $opciones['No_Empleado']. " ". $opciones['nombre'] . "</option>";
@@ -137,15 +121,15 @@
                 </div>
                 <div >
                     <label>Fecha</label>
-                    <input type="date" name="fecha" class="form-control" value="<?php echo $row['fecha']; ?>">
+                    <input type="date" name="fecha" class="form-control" value="<?php echo $fila['fecha']; ?>">
                 </div>
                 <div >
                     <label>Orden</label>
-                    <input type="text" name="orden" class="form-control" value="<?php echo $row['orden']; ?>">
+                    <input type="text" name="orden" class="form-control" value="<?php echo $fila['orden']; ?>">
                 </div>
                 <div >
                     <label>Total</label>
-                    <input type="text" name="total" class="form-control" value="<?php echo $row['Total']; ?>">
+                    <input type="text" name="total" class="form-control" value="<?php echo $fila['Total']; ?>">
                 </div>
                 <input type="hidden" name="id" value="<?php echo $id; ?>"/>
                 <input type="submit" class="btn btn-primary" value="Actualizar" name="actualizar-pedido">

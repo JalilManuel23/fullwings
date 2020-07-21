@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,18 +10,8 @@
     <title>Full Wings | Registro</title>
     <!-- Favicon -->
     <link rel="icon" href="../favicon.ico">
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Sriracha&display=swap" rel="stylesheet">
-
-    <!-- Animaciones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
-
-    <!-- Bootstrap CSS y JS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <?php include("scripts_links.php") ?>
 
     <!-- Scripts Locales -->
     <script src="../js/menu.js"></script>
@@ -34,21 +23,30 @@
     <!-- Iconos Fontastic -->
     <link rel="stylesheet" href="../css/styles.css">
 
+    <!-- Hoja de estilos del tema -->
+    <?php
+        include("../php/tema.php");
+        echo "<link rel='stylesheet' href='../css/temas/tema" . $tema . ".css'>";
+    ?>
+
     <!-- Hoja de Estilos -->
     <link rel="stylesheet" href="../css/estilos_login.css">
+    <link rel="stylesheet" href="ventanas_modales/style.css">
 </head>
 
 <body>
-    <header>
+    <header class="header-sis"> 
         <div class="contenedor_header">
             <a href="../"><img src="../img/fullwings.png" alt=""></a>
             <h1>Sistema de Full Wings</h1>
         </div>
     </header>
+ 
     <section>
         <div class="contenedor-registro">
+
             <div id="formulario-registro" class="formulario">
-                <form id="registro"  method="POST">
+                <form id="registro" action="../php/registro_login.php" method="POST">
                     <h3>REGISTRO</h3>
                     <div class="input-icono">
                         <div class="icon-user icono"></div>
@@ -75,12 +73,9 @@
                         <input id="pass2" type="password" name="contrasenia_confirm" required class="txt" placeholder="Confirmar Contraseña">
                     </div>
                     <p id="mensaje" class="rojo"></p>
-                    <button type="submit" class="btn btn-danger espacio_abajo" name="registrar" value="registrar">REGISTRAR</button>
+                    <button type="submit" class="btn btn-danger espacio_abajo" name="registrar" value="registrar"  data-toggle="modal" data-target="#cerrar-sesion">REGISTRAR</button>
                 </form>
             </div>
-            <?php
-                include("../php/registro_login.php")
-            ?>
         </div>
     </section>
 </body>

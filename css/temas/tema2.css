@@ -1,0 +1,44 @@
+.menu2, .header-sis, .header-nos-con{
+    background: #212529;
+}
+
+.menu-sis{
+    background: #525252;
+}
+
+.menu-sis li:hover, footer{
+    background: #414141
+}
+
+.btn,.btn-primary {
+    background: #ca3e47;
+    border: none;
+}
+
+#seleccionado-sis{
+    background: #343a40
+}
+
+h2, .escribenos h2{
+    color: #343a40;
+}
+
+.escribenos h2{
+    border-color: black
+}
+
+.datos, .banner h2{
+    background-color:  #ca3e47;
+}
+
+.menu li:hover, .usuario:hover, #seleccionado {
+    color: #ca3e47;
+}
+
+.menu a:hover {
+    color: #ca3e47;
+}
+
+.formulario, .formulario-registro{
+    border-top: 50px solid #ca3e47;
+}
