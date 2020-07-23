@@ -12,6 +12,53 @@ if(isset($_POST['registrar'])){
     $contrasenia = $_POST['contrasenia'];
     $confirm_contrasenia = $_POST['contrasenia_confirm'];
 
+    $incorrecto = FALSE;
+    $errores = "";
+
+    if(!empty($nombre)){
+        $nombre = trim($nombre);
+        $nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
+    }else{
+        $incorrecto = TRUE;
+        $errores .= "Ingrese un nombre. ";
+    }
+
+    if(!empty($telefono)){
+        if((!is_numeric($telefono))){
+            $incorrecto = TRUE;
+            $errores .= "Telefono Invalido";
+        } 
+        
+        if(strlen($telefono) != 10){
+            $incorrecto = TRUE;
+            $errores .= "El telefono debe tener 10 digitos";
+        }
+    }else{
+        $incorrecto = TRUE;
+        $errores .= "Ingrese un nombre. ";
+    }
+
+    if(!empty($correo)){
+        $correo = filter_var($correo, FILTER_SANITIZE_STRING);
+
+        if(!filter_var($correo, FILTER_VALIDATE_EMAIL)){
+            $incorrecto = TRUE;
+            $errores .= "Ingrese un correo electrónico valido. ";
+        }
+    }else{
+        $incorrecto = TRUE;
+        $errores .= "Ingrese un correo electrónico. ";
+    }
+
+    if(!empty($usuario)){
+        $usuario = htmlspecialchars($usuario);
+        $usuario = trim($usuario);
+        $usuario = stripslashes($usuario);
+    }else{
+        $incorrecto = TRUE;
+        $errores .= "Ingrese un usuario. ";
+    }
+
     if($contrasenia != $confirm_contrasenia){
         ?>
             <script>
@@ -47,28 +94,46 @@ if(isset($_POST['registrar'])){
                 }
                 alerta();                   
             </script>
-            <?php
+<?php
         }
         else{
-            $query = $conexion->query("INSERT INTO administrador(nom_usuario,contrasenia,nombre,telefono,correo) VALUES ('$usuario',HEX(AES_ENCRYPT('$contrasenia','verpass')),'$nombre','$telefono','$correo')");
-            $comprobar = $conexion->query("SELECT * FROM administrador WHERE nom_usuario = '$usuario'");
-            $exito = $comprobar ->num_rows;
-            
-            if ($exito) {     
-                ?>
-                    <script>
-                        function alerta(){
-                            swal({
-                                title: "¡Cuenta creada con éxito!",
-                                text: "Da click en el botón para iniciar sesión",
-                                icon: "success",
-                            }).then(function() {
-                                window.location = "../html/login.php";
-                            });;
-                        }
-                        alerta();                   
-                    </script>
-                <?php
+            if($incorrecto === FALSE){
+                $query = $conexion->query("INSERT INTO administrador(nom_usuario,contrasenia,nombre,telefono,correo) VALUES ('$usuario',HEX(AES_ENCRYPT('$contrasenia','verpass')),'$nombre','$telefono','$correo')");
+                $comprobar = $conexion->query("SELECT * FROM administrador WHERE nom_usuario = '$usuario'");
+                $exito = $comprobar ->num_rows;
+                
+                if ($exito) {     
+                    ?>
+                        <script>
+                            function alerta(){
+                                swal({
+                                    title: "¡Cuenta creada con éxito!",
+                                    text: "Da click en el botón para iniciar sesión",
+                                    icon: "success",
+                                }).then(function() {
+                                    window.location = "../html/login.php";
+                                });;
+                            }
+                            alerta();                   
+                        </script>
+                    <?php
+                }
+            }else{
+?>
+                <script>
+                    function alerta(){
+                        swal({
+                            title: "Por favor, complete el formulario correctamente",
+                            text: "<?php echo $errores ?>",
+                            icon: "warning",
+                        })
+                        .then(function() {
+                            window.location = "../html/registro.php";
+                        });
+                    }
+                    alerta();                   
+                </script>
+<?php
             }
         }
     }

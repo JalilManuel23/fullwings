@@ -41,3 +41,11 @@ h2, .escribenos h2{
 .formulario, .formulario-registro{
     border-top: 50px solid #902f2f;
 }
+
+.form-elemento{
+    color: #420000;
+}
+
+.subtitulos{
+    color: #420000;
+}

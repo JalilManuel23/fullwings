@@ -13,6 +13,43 @@
     <!-- Scripts Locales -->
     <script src="../js/menu.js"></script>
 
+<!-- Validación de formularios -->
+<script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#contacto').validate({
+                rules :{
+                    name : {
+                        required : true,
+                        minlength : 3, //para validar campo con minimo 3 caracteres
+                        maxlength : 9  //para validar campo con maximo 9 caracteres
+                    },
+                    mail : {
+                        required : true
+                    },
+                    msg : {
+                        required :true
+                    }
+
+                },
+                messages : {
+                    nombre : {
+                        required : "Debe ingresar un nombre",
+                        minlength : "El nombre debe tener un minimo de 3 caracteres",
+                        maxlength : "El nombre debe tener un máximo de 9 caracteres"
+                    },
+                    mail : {
+                        required : "Debe ingresar un email"
+                    },
+                    puesto : {
+                        required : "Debe ingresar un mensaje"
+                    }
+                }
+            });    
+        });
+    </script>
+
     <!-- Normalize -->
     <link rel="stylesheet" href="../css/normalize.css">
 
@@ -61,7 +98,7 @@
         <div class="contenedor-contenido">
             <div class="escribenos">
                 <h2>ESCRÍBENOS</h2>
-                <form action="../php/mail.php" id="form-escribenos" method="post">
+                <form action="../php/mail.php" id="form-escribenos" method="post" id="contacto">
                     <input type="text" id="name" name="nombre" class="txt" placeholder="Nombre">
                     <input type="email" id="mail" name="mail" class="txt" placeholder="Email">
                     <textarea id="msg" name="mensaje" class="txt" placeholder="Mensaje"></textarea>
@@ -70,7 +107,7 @@
             </div>
             <div class="contacto-info">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2230.5681655573903!2d-104.67001935077727!3d24.011310882326388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1592496395108!5m2!1ses-419!2smx" width="100%" height="400px"
-                    frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    frameborder="0" style="border:2;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 <div class="datos">
                     <p class="icon-telephone">618 174 48 64</p>
                     <p class="icon-facebook">@fullwings</p>

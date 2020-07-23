@@ -75,16 +75,11 @@
 
     <div class="main">
         <input type="checkbox" id="boton-menu">
-        <section class="menu-sis">
-            <nav>
-                <ul>
-                    <li class="icon-picture-streamline-1" id="seleccionado-sis"><a href="cambiar_imagen.php">Cambiar Imagenes</a></li>
-                    <li class="icon-paint-brush"><a href="apariencia.php">Apariencia</a></li>
-                    <li class="icon-truck"><a href="pedidos.php">Gestionar Pedidos</a></li>
-                    <li class="icon-users"><a href="empleados.php">Gestionar Empleados</a></li>
-                </ul>
-            </nav>
-        </section>
+        <?php 
+            $opcion_seleccionada = 1;
+            $ruta = "";
+            include("ventanas_modales/menu.php");
+        ?>
         <section class="contenido-imagenes">
 
             <table class="table">

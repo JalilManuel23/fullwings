@@ -83,16 +83,11 @@
 
     <div class="main">
 		<input type="checkbox" id="boton-menu">
-		<section class="menu-sis">
-			<nav>
-				<ul>
-					<li class="icon-picture-streamline-1" id="seleccionado-sis"><a href="../../html/cambiar_imagen.php">Cambiar Imagenes</a></li>
-					<li class="icon-paint-brush"><a href="../../html/apariencia.php">Apariencia</a></li>
-					<li class="icon-truck"><a href="../../html/pedidos.php">Gestionar Pedidos</a></li>
-					<li class="icon-users"><a href="../../html/empleados.php">Gestionar Empleados</a></li>
-				</ul>
-			</nav>
-		</section>
+        <?php 
+            $opcion_seleccionada = 1;
+            $ruta = "../../html/";
+            include("../../html/ventanas_modales/menu.php")
+        ?>
 
 		<div class="contenido">
 			<h2>Cambiar Imágen</h2>

@@ -14,18 +14,18 @@
         $year = $_POST['year'];
     }
 
-    $enero = mysqli_fetch_array(mysqli_query($conexion, "SELECT COUNT(id_visita) AS resultado FROM visitas WHERE MONTH(fecha) = 1 AND YEAR(fecha) = '$year'"));
-    $febrero = mysqli_fetch_array(mysqli_query($conexion, "SELECT COUNT(id_visita) AS resultado FROM visitas WHERE MONTH(fecha) = 2 AND YEAR(fecha) = '$year'"));
-    $marzo = mysqli_fetch_array(mysqli_query($conexion, "SELECT COUNT(id_visita) AS resultado FROM visitas WHERE MONTH(fecha) = 3 AND YEAR(fecha) = '$year'"));
-    $abril = mysqli_fetch_array(mysqli_query($conexion, "SELECT COUNT(id_visita) AS resultado FROM visitas WHERE MONTH(fecha) = 4 AND YEAR(fecha) = '$year'"));
-    $mayo = mysqli_fetch_array(mysqli_query($conexion, "SELECT COUNT(id_visita) AS resultado FROM visitas WHERE MONTH(fecha) = 5 AND YEAR(fecha) = '$year'"));
-    $junio = mysqli_fetch_array(mysqli_query($conexion, "SELECT COUNT(id_visita) AS resultado FROM visitas WHERE MONTH(fecha) = 6 AND YEAR(fecha) = '$year'"));
-    $julio = mysqli_fetch_array(mysqli_query($conexion, "SELECT COUNT(id_visita) AS resultado FROM visitas WHERE MONTH(fecha) = 7 AND YEAR(fecha) = '$year'"));
-    $agosto = mysqli_fetch_array(mysqli_query($conexion, "SELECT COUNT(id_visita) AS resultado FROM visitas WHERE MONTH(fecha) = 8 AND YEAR(fecha) = '$year'"));
-    $septiembre = mysqli_fetch_array(mysqli_query($conexion, "SELECT COUNT(id_visita) AS resultado FROM visitas WHERE MONTH(fecha) = 9 AND YEAR(fecha) = '$year'"));
-    $octubre = mysqli_fetch_array(mysqli_query($conexion, "SELECT COUNT(id_visita) AS resultado FROM visitas WHERE MONTH(fecha) = 10 AND YEAR(fecha) = '$year'"));
-    $noviembre = mysqli_fetch_array(mysqli_query($conexion, "SELECT COUNT(id_visita) AS resultado FROM visitas WHERE MONTH(fecha) = 11 AND YEAR(fecha) = '$year'"));
-    $diciembre = mysqli_fetch_array(mysqli_query($conexion, "SELECT COUNT(id_visita) AS resultado FROM visitas WHERE MONTH(fecha) = 12 AND YEAR(fecha) = '$year'"));
+    $enero = mysqli_fetch_array(mysqli_query($conexion, "SELECT SUM(Total) AS resultado FROM pedido WHERE MONTH(fecha) = 1 AND YEAR(fecha) = '$year'"));
+    $febrero = mysqli_fetch_array(mysqli_query($conexion, "SELECT SUM(Total) AS resultado FROM pedido WHERE MONTH(fecha) = 2 AND YEAR(fecha) = '$year'"));
+    $marzo = mysqli_fetch_array(mysqli_query($conexion, "SELECT SUM(Total) AS resultado FROM pedido WHERE MONTH(fecha) = 3 AND YEAR(fecha) = '$year'"));
+    $abril = mysqli_fetch_array(mysqli_query($conexion, "SELECT SUM(Total) AS resultado FROM pedido WHERE MONTH(fecha) = 4 AND YEAR(fecha) = '$year'"));
+    $mayo = mysqli_fetch_array(mysqli_query($conexion, "SELECT SUM(Total) AS resultado FROM pedido WHERE MONTH(fecha) = 5 AND YEAR(fecha) = '$year'"));
+    $junio = mysqli_fetch_array(mysqli_query($conexion, "SELECT SUM(Total) AS resultado FROM pedido WHERE MONTH(fecha) = 6 AND YEAR(fecha) = '$year'"));
+    $julio = mysqli_fetch_array(mysqli_query($conexion, "SELECT SUM(Total) AS resultado FROM pedido WHERE MONTH(fecha) = 7 AND YEAR(fecha) = '$year'"));
+    $agosto = mysqli_fetch_array(mysqli_query($conexion, "SELECT SUM(Total) AS resultado FROM pedido WHERE MONTH(fecha) = 8 AND YEAR(fecha) = '$year'"));
+    $septiembre = mysqli_fetch_array(mysqli_query($conexion, "SELECT SUM(Total) AS resultado FROM pedido WHERE MONTH(fecha) = 9 AND YEAR(fecha) = '$year'"));
+    $octubre = mysqli_fetch_array(mysqli_query($conexion, "SELECT SUM(Total) AS resultado FROM pedido WHERE MONTH(fecha) = 10 AND YEAR(fecha) = '$year'"));
+    $noviembre = mysqli_fetch_array(mysqli_query($conexion, "SELECT SUM(Total) AS resultado FROM pedido WHERE MONTH(fecha) = 11 AND YEAR(fecha) = '$year'"));
+    $diciembre = mysqli_fetch_array(mysqli_query($conexion, "SELECT SUM(Total) AS resultado FROM pedido WHERE MONTH(fecha) = 12 AND YEAR(fecha) = '$year'"));
 ?>
 
 <!DOCTYPE html>
@@ -98,13 +98,13 @@
         <?php 
             $opcion_seleccionada = 5;
             $ruta = "";
-            include("ventanas_modales/menu.php");
+            include("ventanas_modales/menu.php")
         ?>
 
         <section class="contenido">
             <span class="subtitulos">
-                <h2>Visitas</h2>
-                <a href="estadisticas_ventas.php" class="no-seleccionado"><h2 class="no-seleccionado">Ventas</h2></a>
+                <a href="estadisticas.php" class="no-seleccionado"><h2 class="no-seleccionado">Visitas</h2></a>
+                <h2>Ventas</h2>
             </span>
                 <div class="con-visitas">
                     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
@@ -118,7 +118,7 @@
                         data: {
                             labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
                             datasets: [{
-                                label: 'Número de Visitas de <?php echo $year; ?>',
+                                label: 'Ventas de <?php echo $year; ?>',
                                 data: ["<?php echo $enero['resultado']; ?>",
                                         "<?php echo $febrero['resultado']; ?>",
                                         "<?php echo $marzo['resultado']; ?>",
@@ -182,7 +182,12 @@
                             <select name="year" id="year" >
                                 <?php
                                     for($k = 2020; $k <= 2030; $k+=1){
-                                        echo  "<option value='". $k . "'>" . $k . "</option>";
+                                        if($k == 2020){
+                                            echo  "<option value='". $k . "' selected>" . $k . "</option>";
+                                        }else{
+                                            echo  "<option value='". $k . "'>" . $k . "</option>";
+                                        }
+                                        
                                     }
                                 ?>
                             </select>

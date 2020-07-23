@@ -120,16 +120,11 @@
 
         <input type="checkbox" id="boton-menu">
 
-        <section class="menu-sis">
-            <nav>
-                <ul>
-                    <li class="icon-picture-streamline-1"><a href="cambiar_imagen.php">Cambiar Imagenes</a></li>
-                    <li class="icon-paint-brush"><a href="apariencia.php">Apariencia</a></li>
-                    <li class="icon-truck"><a href="pedidos.php">Gestionar Pedidos</a></li>
-                    <li class="icon-users" id="seleccionado-sis"><a href="#">Gestionar Empleados</a></li>
-                </ul>
-            </nav>
-        </section>
+        <?php 
+            $opcion_seleccionada = 4;
+            $ruta = "";
+            include("ventanas_modales/menu.php");
+        ?>
 
         <section class="contenido">
             <h2>Empleados</h2>

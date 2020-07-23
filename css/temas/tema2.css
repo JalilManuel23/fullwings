@@ -16,7 +16,7 @@
 }
 
 #seleccionado-sis{
-    background: #343a40
+    background: #343a40;
 }
 
 h2, .escribenos h2{
@@ -41,4 +41,12 @@ h2, .escribenos h2{
 
 .formulario, .formulario-registro{
     border-top: 50px solid #ca3e47;
+}
+
+.form-elemento{
+    color: #414141;
+}
+
+.subtitulos{
+    color: #343a40;
 }

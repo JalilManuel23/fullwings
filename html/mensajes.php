@@ -4,7 +4,7 @@
     if($usuario == null || $usuario = ""){
         header("Location: errores/iniciar_sesion.html");
         die();
-    }        
+    }    
 ?>
 
 <!DOCTYPE html>
@@ -13,13 +13,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Full Wings | Apariencia</title>
+    <title>Sistema Full Wings | Mensajes</title>
     <!-- Favicon -->
     <link rel="icon" href="../favicon.ico">
 
     <!-- Script y links externos -->
     <?php include("scripts_links.php"); ?>
-
+    
     <!-- Scripts Locales -->
     <script src="../js/menu.js"></script>
     <script src="../js/validar_contrasenia.js"></script>
@@ -29,12 +29,13 @@
 
     <!-- Iconos Fontastic -->
     <link rel="stylesheet" href="../css/styles.css">
-
+    
     <!-- Hoja de estilos del tema -->
     <?php
-        include("../php/tema.php");
-        echo "<link rel='stylesheet' href='../css/temas/tema" . $tema . ".css'>";
+    include("../php/tema.php");
+    echo "<link rel='stylesheet' href='../css/temas/tema" . $tema . ".css'>";
     ?>
+
     <!-- Hoja de Estilos -->
     <link rel="stylesheet" href="../css/estilos_sistema.css">
 </head>
@@ -42,7 +43,8 @@
 <body>
     <header class="header-sis">
         <div class="contenedor-header">
-        <label for="boton-menu"><img src="../img/menu.png" alt=""></label>
+            <label for="boton-menu"><img src="../img/menu.png" alt=""></label>
+
             <a href="../">
                 <img src="../img/fullwings.png" alt="">
             </a>
@@ -72,46 +74,48 @@
     </form>
 
     <div class="main">
-    <input type="checkbox" id="boton-menu">
+        <input type="checkbox" id="boton-menu">
         <?php 
-            $opcion_seleccionada = 2;
+            $opcion_seleccionada = 6;
             $ruta = "";
             include("ventanas_modales/menu.php");
         ?>
-        <section class="contenido">
-            <p>Seleccione una paleta de colores para cambiar la apariencia de la página.</p>
-            <form class="temas" method="POST" action="../php/actualizar_tema.php">
-                <div>
-                    <?php 
-                        include("../php/tema.php");
+        <section class="contenido-imagenes">
+            <h5>Mensajes</h5>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Enviado por...</th>
+                        <th>Email</th>
+                        <th>Fecha y Hora</th>
+                        <th>Mensaje</th>
+                        <th>Acciones</th>
+                    </tr>
+
+                    <?php
+                        include("../php/config.php");
+
+                        $sql = "SELECT * FROM mensajes";
+                        if($result = mysqli_query($conexion, $sql)){
+                            if(mysqli_num_rows($result) > 0){
+                                while($row = mysqli_fetch_array($result)){
+                                    echo "<tr>";
+                                        echo "<td>" . $row['nombre'] . "</td>";
+                                        echo "<td>" . $row['email'] . "</td>";
+                                        echo "<td>" . $row['fecha_hora'] . "</td>";
+                                        echo "<td>" . $row['mensaje'] . "</td>";
+                                        echo "<td>";
+                                            echo "<a href='mailto:" . $row['email'] ."' class='icon-reply'></a>";
+                                            echo "<a href='../php/confirmar.php?id=" .$row['id_mensaje']."' class='icon-trash'></a>";
+                                        echo "</td>";
+                                    echo "</tr>";
+                                }
+                            }
+                        }
                     ?>
-                    <input type="radio" name="tema" id="tema1" value=1 <?php if($tema == 1){echo "checked";}?>>
-                    <label for="tema1" class="tema">
-                            <img src="../img/tema1.png" alt="Color de tema 1">
-                    </label>
-                    
-                    <input type="radio" name="tema" id="tema2" value=2 <?php if($tema == 2){echo "checked";}?>>
-                    <label for="tema2" class="tema">
-                        <img src="../img/tema2.png" alt="Color de tema 2">
-                    </label>
-                    
-                    <input type="radio" name="tema" id="tema3" value=3 <?php if($tema == 3){echo "checked";}?>>
-                    <label for="tema3" class="tema">
-                        <img src="../img/tema3.png" alt="Color de tema 3">
-                    </label>
-                </div>
-
-                <div class="vista-previa">
-                    <img src="" alt="">
-                </div>
- 
-                <button type="submit" name="actualizar_tema" class="btn btn-danger btn_aplicar">APLICAR CAMBIOS</button>
-            </form>
-
+                </thead>
+            </table>
         </section>
     </div>
 </body>
-
-</body>
-
 </html>

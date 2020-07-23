@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Full Wings | Pedidos</title>
+    <title>Sistema Full Wings | Ventas</title>
     <!-- Favicon -->
     <link rel="icon" href="../favicon.ico">
     
@@ -106,21 +106,16 @@
 
     <div class="main">
     <input type="checkbox" id="boton-menu">
-        <section class="menu-sis">
-            <nav>
-                <ul>
-                    <li class="icon-picture-streamline-1"><a href="cambiar_imagen.php">Cambiar Imagenes</a></li>
-                    <li class="icon-paint-brush"><a href="apariencia.php">Apariencia</a></li>
-                    <li class="icon-truck" id="seleccionado-sis"><a href="#">Gestionar Pedidos</a></li>
-                    <li class="icon-users"><a href="empleados.php">Gestionar Empleados</a></li>
-                </ul>
-            </nav>
-        </section>
+        <?php 
+            $opcion_seleccionada = 3;
+            $ruta = "";
+            include("ventanas_modales/menu.php");
+        ?>
         <section class="contenido">
-            <h2>Pedidos</h2>
+            <h2>Ventas</h2>
             <div class="registro-pedidos">
                 <div class="registro">
-                    <h5>Registar Pedido</h5>
+                    <h5>Registar Venta</h5>
                     <form method="POST" class="formulario-sis" id="form-pedido" action="../php/agregar_pedido_empleado.php">
                         <div class="form-elemento">
                             <label for="empleado">Empleado</label>
@@ -162,8 +157,11 @@
                 </div>
                 <div class="historial">
                     <div class="encabezado">
-                        <h5>Historial de Pedidos</h5>
-                        <a href="../php/reporte_pedidos.php" class="print"><img src="../img/print.png" alt=""></a>
+                        <h5>Historial de Ventas</h5>
+                        <div>
+                            <a href="estadisticas_ventas.php" class="print" title="Ver Estadísticas"><img src="../img/stats.png" class="print" alt="Estadísticas"></a>
+                            <a href="../php/reporte_pedidos.php" class="print" title="Generar PDF"><img src="../img/print.png" class="print" alt="Ver PDF"></a>
+                        </div>
                     </div>
                     <div class="contenido-imagenes tablas-historial">
                     <?php
@@ -195,7 +193,7 @@
                                             echo "<td>" . $row['Total'] . "</td>";
                                             echo "<td class='acciones'>";
                                                 echo "<a href='../php/actualizar_pedido.php?no=". $row['No_orden']."' class='icon-pencil' title='Editar registro' name='actualizar'></a>";
-                                                echo "<a href='../php/borrar_pedido.php?no=". $row['No_orden']."' class='icon-trash' title='Eliminar Empleado'></a>";
+                                                echo "<a href='../php/borrar_pedido.php?no=". $row['No_orden']."' class='icon-trash' title='Eliminar Registro'></a>";
                                             echo "</td>";
                                         echo "</tr>";
                                     }
