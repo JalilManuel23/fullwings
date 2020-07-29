@@ -2,7 +2,7 @@
     session_start();
     $usuario = $_SESSION['usuario'];
     if($usuario == null || $usuario = ""){
-        header("Location: errores/iniciar_sesion.html");
+        header("Location: ../../html/errores/iniciar_sesion.html");
         die();
 	}    
 	

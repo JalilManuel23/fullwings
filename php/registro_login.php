@@ -98,7 +98,7 @@ if(isset($_POST['registrar'])){
         }
         else{
             if($incorrecto === FALSE){
-                $query = $conexion->query("INSERT INTO administrador(nom_usuario,contrasenia,nombre,telefono,correo) VALUES ('$usuario',HEX(AES_ENCRYPT('$contrasenia','verpass')),'$nombre','$telefono','$correo')");
+                $query = $conexion->query("INSERT INTO administrador(nom_usuario,privilegios,contrasenia,nombre,telefono,correo) VALUES ('$usuario','empleado',HEX(AES_ENCRYPT('$contrasenia','verpass')),'$nombre','$telefono','$correo')");
                 $comprobar = $conexion->query("SELECT * FROM administrador WHERE nom_usuario = '$usuario'");
                 $exito = $comprobar ->num_rows;
                 
@@ -144,11 +144,16 @@ if(isset($_POST['login'])){
     $pass = $_POST['contrasenia'];
 
     $validar = $conexion->query("select * from administrador where nom_usuario = '$user' and contrasenia = HEX(AES_ENCRYPT('$pass','verpass')) ");
+    $datos = $validar->fetch_assoc();
+
     $contar2 = $validar ->num_rows;
 
     if($contar2 == 1) {
         session_start();
         $_SESSION['usuario'] = $user;
+        $_SESSION['pass'] = $pass;
+        $_SESSION['privilegio'] = $datos['privilegios'];
+        
         echo "<script>location.href='../html/cambiar_imagen.php'</script>";
     } else if ($contar2 == 0){
         include("../html/login.php");

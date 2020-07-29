@@ -1,7 +1,9 @@
 <?php 
     session_start();
     $usuario = $_SESSION['usuario'];
-    if($usuario == null || $usuario = ""){
+    $privilegio = $_SESSION['privilegio'];
+
+    if($usuario == null || $usuario = "" || $privilegio == 'empleado'){
         header("Location: errores/iniciar_sesion.html");
         die();
     }       
@@ -29,7 +31,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">

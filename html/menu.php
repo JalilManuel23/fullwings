@@ -46,7 +46,7 @@
                             <a class="icon-facebook" href="https://www.facebook.com/Fullwingsdgo" target="_blank"></a>
                         </li>
                         <li >
-                            <a class="icon-whatsapp" href="https://api.whatsapp.com/send?phone=526181744864&text=Hola,%20me%20ha%20interesado%20la%20página%20de%20Fullwings%20y%20me%20gustaría%20ponerme%20en%20contacto%20para%20solicitar%20información%20de%20una%20reservación,%20pedido%20o%20precios%20y%20sucursales." target="_blank"></a>
+                            <a class="icon-whatsapp" href="https://api.whatsapp.com/send?phone=526182220862" target="_blank"></a>
                         </li>
                     </ul>
                 </nav>

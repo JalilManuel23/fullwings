@@ -2,7 +2,7 @@
     session_start();
     $usuario = $_SESSION['usuario'];
     if($usuario == null || $usuario = ""){
-        echo "<h2>Acceso no autorizado. Inicie sesión.</h2>";
+        header("Location: ../html/errores/iniciar_sesion.html");
         die();
     }     
     

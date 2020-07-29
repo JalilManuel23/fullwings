@@ -1,8 +1,10 @@
 <?php
     session_start();
     $usuario = $_SESSION['usuario'];
-    if($usuario == null || $usuario = ""){
-        echo "<h2>Acceso no autorizado. Inicie sesión.</h2>";
+    $privilegio = $_SESSION['privilegio'];
+
+    if($usuario == null || $usuario = "" || $privilegio == 'empleado'){
+        header("Location: ../html/errores/iniciar_sesion.html");
         die();
     } 
 
@@ -16,7 +18,7 @@
 ?>
  
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

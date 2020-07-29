@@ -5,7 +5,7 @@
         $no = $_POST['id'];
         $sql = "DELETE FROM pedido WHERE No_orden = '$no'";  
         $result = mysqli_query($conexion, $sql);  
-        
+
         include("../html/pedidos.php");
 
         ?>

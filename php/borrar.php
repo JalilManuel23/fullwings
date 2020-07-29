@@ -1,4 +1,13 @@
 <?php
+    session_start();
+    $usuario = $_SESSION['usuario'];
+    $privilegio = $_SESSION['privilegio'];
+    
+    if($usuario == null || $usuario == "" || $privilegio == 'empleado'){
+        header("Location: ../html/errores/iniciar_sesion.html");
+        die();
+    } 
+
     include("config.php");
 
     if(isset($_POST['borrar'])){
@@ -25,7 +34,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

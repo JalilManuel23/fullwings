@@ -14,7 +14,7 @@ if(isset($_POST['agregar-empleado'])){
     $registros = mysqli_query($conexion,$consulta);
     $admin = mysqli_fetch_row($registros);
 
-    $query = $conexion->query("INSERT INTO empleado(telefono,nombre,puesto,turno,admin) VALUES ('$telefono','$nombre','$puesto','$turno','$admin[0]')");
+    $query = $conexion->query("INSERT INTO empleado(telefono,nombre,puesto,turno,usuario) VALUES ('$telefono','$nombre','$puesto','$turno','$admin[0]')");
     $comprobar = $conexion->query("SELECT * FROM empleado WHERE nombre = '$nombre'");
     $exito = $comprobar ->num_rows;
 

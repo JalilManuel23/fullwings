@@ -1,4 +1,4 @@
-<?php
+<?php 
     include("config.php");
 
     if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
@@ -14,7 +14,6 @@
             $titulo = $_POST['titulo'];
             $imagen = $_FILES['foto']['name'];
             $texto = $_POST['texto'];
-
 
             $query = ("UPDATE imagenes SET titulo = '$titulo', imagen = '$imagen', descripcion = '$texto' WHERE no_imagen = '$id'");
             $resultado = $conexion->query($query);
