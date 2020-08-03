@@ -1,12 +1,4 @@
 <?php
-    session_start();
-    $usuario = $_SESSION['usuario'];
-    $privilegio = $_SESSION['privilegio'];
-    
-    if($usuario == null || $usuario == "" || $privilegio == 'empleado'){
-        header("Location: ../html/errores/iniciar_sesion.html");
-        die();
-    } 
 
     include("config.php");
 

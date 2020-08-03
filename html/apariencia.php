@@ -4,7 +4,20 @@
     if($usuario == null || $usuario = ""){
         header("Location: errores/iniciar_sesion.html");
         die();
-    }        
+    }     
+    
+    include("../php/config.php");
+    $correcto = FALSE;
+    if(isset($_POST['actualizar_tema'])){
+        $numero = $_POST['tema'];
+        $update = "UPDATE tema SET numero_tema = $numero";
+
+        $result = mysqli_query($conexion, $update);
+
+        if($result){
+            $correcto = TRUE;
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -80,7 +93,7 @@
         ?>
         <section class="contenido">
             <p>Seleccione una paleta de colores para cambiar la apariencia de la página.</p>
-            <form class="temas" method="POST" action="../php/actualizar_tema.php">
+            <form class="temas" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                 <div>
                     <?php 
                         include("../php/tema.php");
@@ -111,7 +124,22 @@
         </section>
     </div>
 </body>
-
-</body>
-
 </html>
+<?php
+if($correcto){
+    ?>
+    <script>
+        function alerta(){
+            swal({
+                title: "¡Tema actualizado correctamente!",
+                text: "Da click en el botón para continuar",
+                icon: "success",
+            }).then(function() {
+                window.location = "../html/apariencia.php";
+            });;
+        }
+        alerta();                   
+    </script>
+<?php
+}
+?>

@@ -10,7 +10,7 @@ if(isset($_POST['agregar-empleado'])){
     $turno = $_POST['turno'];
 
     $usuario = $_SESSION['usuario'];
-    $consulta = "SELECT * FROM administrador WHERE nom_usuario = '$usuario'";
+    $consulta = "SELECT * FROM usuario WHERE nom_usuario = '$usuario'";
     $registros = mysqli_query($conexion,$consulta);
     $admin = mysqli_fetch_row($registros);
 

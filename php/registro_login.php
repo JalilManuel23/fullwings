@@ -76,7 +76,7 @@ if(isset($_POST['registrar'])){
             </script> 
         <?php
     }else{
-        $validar = $conexion->query("select * from administrador where nom_usuario = '$usuario'");
+        $validar = $conexion->query("select * from usuario where nom_usuario = '$usuario'");
         $contar = $validar ->num_rows;
     
         if ($contar) {
@@ -98,8 +98,8 @@ if(isset($_POST['registrar'])){
         }
         else{
             if($incorrecto === FALSE){
-                $query = $conexion->query("INSERT INTO administrador(nom_usuario,privilegios,contrasenia,nombre,telefono,correo) VALUES ('$usuario','empleado',HEX(AES_ENCRYPT('$contrasenia','verpass')),'$nombre','$telefono','$correo')");
-                $comprobar = $conexion->query("SELECT * FROM administrador WHERE nom_usuario = '$usuario'");
+                $query = $conexion->query("INSERT INTO usuario(nom_usuario,privilegios,contrasenia,nombre,telefono,correo) VALUES ('$usuario','empleado',HEX(AES_ENCRYPT('$contrasenia','verpass')),'$nombre','$telefono','$correo')");
+                $comprobar = $conexion->query("SELECT * FROM usuario WHERE nom_usuario = '$usuario'");
                 $exito = $comprobar ->num_rows;
                 
                 if ($exito) {     
@@ -138,40 +138,3 @@ if(isset($_POST['registrar'])){
         }
     }
 }
-
-if(isset($_POST['login'])){    
-    $user = $_POST['usuario'];
-    $pass = $_POST['contrasenia'];
-
-    $validar = $conexion->query("select * from administrador where nom_usuario = '$user' and contrasenia = HEX(AES_ENCRYPT('$pass','verpass')) ");
-    $datos = $validar->fetch_assoc();
-
-    $contar2 = $validar ->num_rows;
-
-    if($contar2 == 1) {
-        session_start();
-        $_SESSION['usuario'] = $user;
-        $_SESSION['pass'] = $pass;
-        $_SESSION['privilegio'] = $datos['privilegios'];
-        
-        echo "<script>location.href='../html/cambiar_imagen.php'</script>";
-    } else if ($contar2 == 0){
-        include("../html/login.php");
-        ?>
-            <script>
-                function alerta(){
-                    swal({
-                        title: "Usuario o contraseña incorrectos",
-                        text: "Por favor, intenta de nuevo.",
-                        icon: "warning",
-                        dangerMode: true,
-                    }).then(function() {
-                        window.location = "../html/login.php";
-                    });;
-                }
-                alerta();                   
-            </script>
-        <?php
-    }
-}
-?>

@@ -17,7 +17,7 @@
             <?php
         }else{
             $_SESSION['usuario'] = $usuario;
-            $sql = "UPDATE administrador SET nom_usuario = '$usuario', contrasenia = HEX(AES_ENCRYPT('$contrasenia','verpass')) WHERE nom_usuario = '$usuario_old'";
+            $sql = "UPDATE usuario SET nom_usuario = '$usuario', contrasenia = HEX(AES_ENCRYPT('$contrasenia','verpass')) WHERE nom_usuario = '$usuario_old'";
             $result = mysqli_query($conexion, $sql);
                     ?>
             <script>

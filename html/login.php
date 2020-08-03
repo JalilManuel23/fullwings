@@ -1,3 +1,27 @@
+<?php
+$incorrecto = FALSE;
+
+if(isset($_POST['login'])){ 
+    include("../php/config.php");
+
+    $user = $_POST['usuario'];
+    $pass = $_POST['contrasenia'];
+
+    $validar = $conexion->query("select * from usuario where nom_usuario = '$user' and contrasenia = HEX(AES_ENCRYPT('$pass','verpass')) ");
+    $datos = $validar->fetch_assoc();
+
+    $contar2 = $validar ->num_rows;
+
+    if($contar2 == 1) {
+        session_start();
+        $_SESSION['usuario'] = $user;
+        $_SESSION['pass'] = $pass;
+        $_SESSION['privilegio'] = $datos['privilegios'];
+    } else if ($contar2 == 0){
+        $incorrecto = TRUE;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,15 +68,15 @@
     </header>
     <section class="contenedor">
             <div class="formulario">
-                <form  method="POST" action="../php/registro_login.php">
+                <form  method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                     <h3>INICIAR SESIÓN</h3>
                     <div class="input-icono">
                         <div class="icon-user icono"></div>
-                        <input type="text" name="usuario" value="" class="txt" placeholder="Usuario">
+                        <input type="text" name="usuario" class="txt" placeholder="Usuario">
                     </div>
                     <div class="input-icono">
                         <div class="icon-key"></div>
-                        <input type="password" name="contrasenia" value="" class="txt" placeholder="Contraseña">
+                        <input type="password" name="contrasenia" class="txt" placeholder="Contraseña">
                     </div>
                     <button type="submit" class="btn btn-danger" name="login">ENTRAR</button>
                     <a href="registro.php" class="espacio_abajo">Crea Cuenta</a>
@@ -61,3 +85,35 @@
     </section>
 </body>
 </html>
+<?php
+if($incorrecto){
+?>
+    <script>
+        function alerta(){
+            swal({
+                title: "Usuario o contraseña incorrectos",
+                text: "Por favor, intenta de nuevo.",
+                icon: "warning",
+                dangerMode: true,
+            })
+        }
+        alerta();                   
+    </script>
+<?php
+}else{
+?>
+<script>
+    function alerta(){
+        swal({
+            title: "¡Bienvenido <?php echo $user ?>!",
+            text: "Sesión iniciada correctamente, da click para continuar",
+            icon: "success",
+        }).then(function() {
+            window.location = "cambiar_imagen.php";
+        });;
+    }
+    alerta();                   
+</script>
+<?php
+}
+?>
