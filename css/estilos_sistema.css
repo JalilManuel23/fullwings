@@ -311,6 +311,8 @@ a:hover {
 
 .form-editar{
     width: 80%;
+    max-height: 80vh;
+    overflow-y: scroll;
 }
 
 .form-editar *{
@@ -609,4 +611,27 @@ header label:hover {
 
     color: white;
     background-color: #2542e9;
+}
+
+#ver{
+    display: none;
+}
+
+#ver:checked ~ label[for='ver']{
+    background-color: #999999;
+}
+
+.zona-pass{
+    display: flex;
+    justify-content: space-around;
+}
+
+label[for='ver']{
+    width: 30px;
+    border-radius: 5px;
+    background-color: #afadad;
+}
+
+label[for='ver']:hover{
+    cursor: pointer;
 }

@@ -141,7 +141,7 @@
                         <?php         
                             require_once "../php/config.php";
                             
-                            $sql = "SELECT * FROM usuario";
+                            $sql = "SELECT *,AES_DECRYPT(UNHEX(contrasenia),'verpass') as contrasenia FROM usuario";
                             if($result = mysqli_query($conexion, $sql)){
                                 if(mysqli_num_rows($result) > 0){
                                     echo "<table class='table'>";
@@ -150,9 +150,10 @@
                                                 echo "<th>#</th>";
                                                 echo "<th>Nombre</th>";
                                                 echo "<th>Usuario</th>";
-                                                echo "<th>Privilegios</th>";
                                                 echo "<th>Telefono</th>";
                                                 echo "<th>Correo</th>";
+                                                echo "<th>Password</th>";
+                                                echo "<th>Privilegios</th>";
                                                 echo "<th>Acciones</th>";
                                             echo "</tr>";
                                         echo "</thead>";
@@ -162,10 +163,18 @@
                                                 echo "<td>" . $row['id_usuario'] . "</td>";
                                                 echo "<td>" . $row['nombre'] . "</td>";
                                                 echo "<td>" . $row['nom_usuario'] . "</td>";
+                                                echo "<td>" . $row['telefono'] . "</td>";
+                                                echo "<td>" . $row['correo'] . "</td>";
 
                                                 $query_priv = "SELECT * FROM usuario WHERE id_usuario = '" . $row['id_usuario'] ."'";
                                                 $result_priv = mysqli_query($conexion, $query_priv);
                                                 $row_priv = mysqli_fetch_array($result_priv);
+
+                                                $fila_pass = "<td> <button class='btn btn-primary'";
+                                                $fila_pass .= "onClick=\"ver('".$row['nom_usuario']."','". $row['contrasenia'] ."');\"style='width: 100%;'>";
+                                                $fila_pass .= "Ver</button></td>";
+
+                                                echo $fila_pass;
 
                                                 $img = $row_priv['seccion_img'];
                                                 $ven = $row_priv['seccion_ventas'];
@@ -177,8 +186,6 @@
 
                                                 echo $fila;
 
-                                                echo "<td>" . $row['telefono'] . "</td>";
-                                                echo "<td>" . $row['correo'] . "</td>";
                                                 echo "<td class='acciones'>";
                                                     echo "<a href='../php/actualizar_usuario.php?no=". $row['id_usuario']."' class='icon-pencil' title='Editar registro' name='actualizar'></a>";
                                                     echo "<a href='../php/borrar_usuario.php?no=". $row['id_usuario']."' class='icon-trash' title='Eliminar Usuario'></a>";
@@ -260,7 +267,10 @@
             }
         }
 
-        
         swal("Los privilegios de "+ nombre + " son: ", sec_img + "\n" + sec_ventas + "\n" + sec_empleados);
+    }
+
+    function ver(username,pass){
+        swal("La contraseña de "+ username + " es: ", pass);
     }
 </script>

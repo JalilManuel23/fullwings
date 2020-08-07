@@ -24,7 +24,7 @@ if(isset($_POST['registrar'])){
         $nombre_in = trim($_POST['nombre']);
         if(empty($nombre_in)){
             $errores .= "Ingresa tu nombre.";$incorrecto = TRUE;
-        } elseif(!filter_var($nombre_in, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/([A-Z])\w+/")))){
+        } elseif(!filter_var($nombre_in, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\']+[\s])+([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\'])+[\s]?([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\'])?$/")))){
             $errores .= "El nombre ingresado no es válido.";$incorrecto = TRUE;
         } else{
             $nombre = $nombre_in;
@@ -41,10 +41,10 @@ if(isset($_POST['registrar'])){
         
         $contrasenia_in = trim($_POST['contrasenia']);
           if(empty($contrasenia_in)){
-          $errores .= "Ingresa una contraseña";$incorrecto = TRUE;
+          $errores .= "La contraseña debe tener minimo 8 caracteres";$incorrecto = TRUE;
           }  else{
         $contrasenia = $contrasenia_in;
-      }
+        }
 
       $correo_in = trim($_POST['correo']);
          if(empty($correo_in)){

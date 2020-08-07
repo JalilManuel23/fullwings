@@ -12,7 +12,7 @@
     
     $id = $_GET['no'];
 
-    $select= "SELECT * FROM usuario WHERE id_usuario = '$id'";
+    $select= "SELECT *,AES_DECRYPT(UNHEX(contrasenia),'verpass') as contrasenia FROM usuario WHERE id_usuario = '$id'";
     $resultado = mysqli_query($conexion, $select);
     $fila = mysqli_fetch_array($resultado);
 ?>
@@ -89,12 +89,18 @@
             <div class="editar">
                 <form class="form-editar" action="actualizar.php" method="post">
                     <div >
-                        <label>Nombre</label>
+                        <label>Nombre Completo</label>
                         <input type="text" name="nombre" class="form-control" value="<?php echo $fila['nombre']; ?>">
                     </div>
                     <div >
                         <label>Usuario</label>
                         <input type="text" name="nom_usuario" class="form-control" value="<?php echo $fila['nom_usuario']; ?>">
+                    </div>
+                    <div>
+                        <label>Contraseña</label>
+                        <div class="zona-pass"><input type="password" name="contrasenia" id="contrasenia_in" class="form-control" value="<?php echo $fila['contrasenia']; ?>">
+                        <input type="checkbox" name="ver" id="ver" onclick="ver_pass();">
+                        <label for="ver"><img src="../img/ver.png" alt="Icono de Ver"</label></div>
                     </div>
                     <div >
                         <label>Privilegios</label>
@@ -117,3 +123,15 @@
     </div>
 </body>
 </html>
+<script>
+    function ver_pass(){
+        var isChecked = document.getElementById('ver').checked;
+        var input_pass = document.getElementById('contrasenia_in');
+        
+        if(isChecked){
+            input_pass.setAttribute("type","text");
+        }else{
+            input_pass.setAttribute("type","password");
+        }
+    }
+</script>
