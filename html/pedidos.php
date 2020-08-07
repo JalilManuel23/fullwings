@@ -4,7 +4,13 @@
     if($usuario == null || $usuario = ""){
         header("Location: errores/iniciar_sesion.html");
         die();
-    }        
+    } 
+    
+    include('../php/config.php');
+    $query = "SELECT * FROM usuario WHERE nom_usuario = '" . $_SESSION['usuario'] ."'";
+    $result = mysqli_query($conexion, $query);
+    $row = mysqli_fetch_array($result);
+    $priv = $row['seccion_ventas'];
 ?>
 
 <!DOCTYPE html>
@@ -180,7 +186,7 @@
                                             echo "<th>Fecha</th>";
                                             echo "<th>Descripción</th>";
                                             echo "<th>Monto Total</th>";
-                                            echo "<th>Acciones</th>";
+                                            if($priv != 'c') echo "<th>Acciones</th>";
                                         echo "</tr>";
                                     echo "</thead>";
                                     echo "<tbody>";
@@ -192,9 +198,13 @@
                                             echo "<td>" . $row['orden'] . "</td>";
                                             echo "<td>" . $row['Total'] . "</td>";
                                             echo "<td class='acciones'>";
+                                            if($priv == 'e' || $priv == 't'){
                                                 echo "<a href='../php/actualizar_pedido.php?no=". $row['No_orden']."' class='icon-pencil' title='Editar registro' name='actualizar'></a>";
+                                            }
+                                            if($priv == 'd' || $priv == 't'){
                                                 echo "<a href='../php/borrar_pedido.php?no=". $row['No_orden']."' class='icon-trash' title='Eliminar Registro'></a>";
-                                            echo "</td>";
+                                            }
+                                                echo "</td>";
                                         echo "</tr>";
                                     }
                                     echo "</tbody>";                            

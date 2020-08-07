@@ -16,7 +16,7 @@ if(isset($_POST['login'])){
         session_start();
         $_SESSION['usuario'] = $user;
         $_SESSION['pass'] = $pass;
-        $_SESSION['privilegio'] = $datos['privilegios'];
+        $_SESSION['privilegio'] = $datos['tipo'];
     } else if ($contar2 == 0){
         $incorrecto = TRUE;
     }
@@ -78,8 +78,7 @@ if(isset($_POST['login'])){
                         <div class="icon-key"></div>
                         <input type="password" name="contrasenia" class="txt" placeholder="Contraseña">
                     </div>
-                    <button type="submit" class="btn btn-danger" name="login">ENTRAR</button>
-                    <a href="registro.php" class="espacio_abajo">Crea Cuenta</a>
+                    <button type="submit" class="btn btn-danger espacio_abajo" name="login">ENTRAR</button>
                 </form>
             </div>
     </section>

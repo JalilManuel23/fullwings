@@ -76,7 +76,7 @@
     <div class="main">
         <input type="checkbox" id="boton-menu">
         <?php 
-            $opcion_seleccionada = 6;
+            $opcion_seleccionada = 7;
             $ruta = "";
             include("ventanas_modales/menu.php");
         ?>

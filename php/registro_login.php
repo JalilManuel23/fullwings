@@ -5,61 +5,57 @@ include("config.php");
 if(isset($_POST['registrar'])){
     include("../html/registro.php");
 
-    $nombre = $_POST['nombre'];
-    $telefono = $_POST['telefono'];
-    $correo = $_POST['correo'];
-    $usuario = $_POST['usuario'];
-    $contrasenia = $_POST['contrasenia'];
     $confirm_contrasenia = $_POST['contrasenia_confirm'];
 
     $incorrecto = FALSE;
     $errores = "";
 
-    if(!empty($nombre)){
-        $nombre = trim($nombre);
-        $nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
-    }else{
-        $incorrecto = TRUE;
-        $errores .= "Ingrese un nombre. ";
-    }
+    $nombre=""; $usuario=""; $telefono=""; $contrasenia=""; $correo="";  
 
-    if(!empty($telefono)){
-        if((!is_numeric($telefono))){
-            $incorrecto = TRUE;
-            $errores .= "Telefono Invalido";
-        } 
+    $usuario_in = trim($_POST['usuario']);
+        if(empty($usuario_in)){
+            $errores .= "Ingresa un nombre de usuario.";$incorrecto = TRUE;
+        } elseif(!filter_var($usuario_in, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^(?=.{3,20}$)[a-zñA-ZÑ0-9](\s?[a-zñA-ZÑ0-9])*$/")))){
+            $errores .= "El nombre de usuario no es válido.";$incorrecto = TRUE;
+        } else{
+            $usuario = $usuario_in;
+        }   
         
-        if(strlen($telefono) != 10){
-            $incorrecto = TRUE;
-            $errores .= "El telefono debe tener 10 digitos";
+        $nombre_in = trim($_POST['nombre']);
+        if(empty($nombre_in)){
+            $errores .= "Ingresa tu nombre.";$incorrecto = TRUE;
+        } elseif(!filter_var($nombre_in, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/([A-Z])\w+/")))){
+            $errores .= "El nombre ingresado no es válido.";$incorrecto = TRUE;
+        } else{
+            $nombre = $nombre_in;
+        }  
+
+        $telefono_in = trim( $_POST['telefono']);
+        if(empty($telefono_in)){
+            $errores .= "Por favor, ingresa el número telefónico del empleado.";     $incorrecto = TRUE;
+        } elseif(!filter_var($telefono_in, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/([0-9]){10}/")))){
+            $errores .= "Por favor, ingresa un valor de número telefónico correcto (Deben ser 10 digitos)";$incorrecto = TRUE;
+        } else{
+            $telefono = $telefono_in;
         }
-    }else{
-        $incorrecto = TRUE;
-        $errores .= "Ingrese un nombre. ";
+        
+        $contrasenia_in = trim($_POST['contrasenia']);
+          if(empty($contrasenia_in)){
+          $errores .= "Ingresa una contraseña";$incorrecto = TRUE;
+          }  else{
+        $contrasenia = $contrasenia_in;
+      }
+
+      $correo_in = trim($_POST['correo']);
+         if(empty($correo_in)){
+         $errores .= "Por favor, ingresa una dirección de correo electrónico.";$incorrecto = TRUE;     
+           } elseif(!filter_var($correo_in, FILTER_VALIDATE_EMAIL)) {
+          $errores .= "El correo electrónico no es correcto";$incorrecto = TRUE;
+          } else {
+            $correo = $correo_in;
     }
 
-    if(!empty($correo)){
-        $correo = filter_var($correo, FILTER_SANITIZE_STRING);
-
-        if(!filter_var($correo, FILTER_VALIDATE_EMAIL)){
-            $incorrecto = TRUE;
-            $errores .= "Ingrese un correo electrónico valido. ";
-        }
-    }else{
-        $incorrecto = TRUE;
-        $errores .= "Ingrese un correo electrónico. ";
-    }
-
-    if(!empty($usuario)){
-        $usuario = htmlspecialchars($usuario);
-        $usuario = trim($usuario);
-        $usuario = stripslashes($usuario);
-    }else{
-        $incorrecto = TRUE;
-        $errores .= "Ingrese un usuario. ";
-    }
-
-    if($contrasenia != $confirm_contrasenia){
+    if($contrasenia_in != $confirm_contrasenia){
         ?>
             <script>
                 function alerta(){
@@ -98,7 +94,7 @@ if(isset($_POST['registrar'])){
         }
         else{
             if($incorrecto === FALSE){
-                $query = $conexion->query("INSERT INTO usuario(nom_usuario,privilegios,contrasenia,nombre,telefono,correo) VALUES ('$usuario','empleado',HEX(AES_ENCRYPT('$contrasenia','verpass')),'$nombre','$telefono','$correo')");
+                $query = $conexion->query("INSERT INTO usuario(nom_usuario,tipo,contrasenia,nombre,telefono,correo,seccion_img,seccion_ventas,seccion_empleados) VALUES ('$usuario','empleado',HEX(AES_ENCRYPT('$contrasenia','verpass')),'$nombre','$telefono','$correo','c','c','c')");
                 $comprobar = $conexion->query("SELECT * FROM usuario WHERE nom_usuario = '$usuario'");
                 $exito = $comprobar ->num_rows;
                 
@@ -107,11 +103,11 @@ if(isset($_POST['registrar'])){
                         <script>
                             function alerta(){
                                 swal({
-                                    title: "¡Cuenta creada con éxito!",
-                                    text: "Da click en el botón para iniciar sesión",
-                                    icon: "success",
+                                    title: "Selecciona los privilegios del usuario",
+                                    text: "Escoge las acciones que el usuarios podrá realizar",
+                                    icon: "info",
                                 }).then(function() {
-                                    window.location = "../html/login.php";
+                                    window.location = "../html/privilegios.php?user=<?php echo $usuario ?>";
                                 });;
                             }
                             alerta();                   
@@ -138,3 +134,49 @@ if(isset($_POST['registrar'])){
         }
     }
 }
+
+if(isset($_POST['priv'])){
+    include("../html/privilegios.php");
+
+    $img = $_POST['imagenes'];
+    $ventas = $_POST['ventas'];
+    $empleados = $_POST['empleados'];
+    $usuario = $_POST['user'];
+
+    $query = $conexion->query("UPDATE usuario SET  seccion_img = '$img', seccion_ventas = '$ventas', seccion_empleados = '$empleados' WHERE nom_usuario = '$usuario'");
+    $editar = $_POST['ed'];
+
+    if($query &&  $editar == 's'){
+        ?>
+        <script>
+            function alerta(){
+                swal({
+                    title: "¡Privilegios editados correctamente!",
+                    text: "Da click para continuar",
+                    icon: "success",
+                }).then(function() {
+                    window.location = "../html/usuarios.php";
+                });
+            }
+            alerta();                   
+        </script>
+        <?php
+    }else{
+        ?>
+        <script>
+            function alerta(){
+                swal({
+                    title: "¡Usuario agregado correctamente!",
+                    text: "Da click para continuar",
+                    icon: "success",
+                }).then(function() {
+                    window.location = "../html/usuarios.php";
+                });
+            }
+            alerta();                   
+        </script>
+        <?php
+    }
+}
+
+?>

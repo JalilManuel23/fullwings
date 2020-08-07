@@ -1,17 +1,12 @@
 <?php
     session_start();
     $usuario = $_SESSION['usuario'];
+    $privilegio = $_SESSION['privilegio'];
 
-    if($usuario == null || $usuario == ""){
+    if($usuario == null || $usuario == "" || $privilegio == 'empleado'){
         header("Location: errores/iniciar_sesion.html");
         die();
     }        
-
-    include('../php/config.php');
-    $query = "SELECT * FROM usuario WHERE nom_usuario = '" . $_SESSION['usuario'] ."'";
-    $result = mysqli_query($conexion, $query);
-    $row = mysqli_fetch_array($result);
-    $priv = $row['seccion_empleados'];
 ?>
 
 <!DOCTYPE html>
@@ -128,53 +123,25 @@
         <input type="checkbox" id="boton-menu">
 
         <?php 
-            $opcion_seleccionada = 4;
+            $opcion_seleccionada = 6;
             $ruta = "";
             include("ventanas_modales/menu.php");
         ?>
 
         <section class="contenido">
-            <h2>Empleados</h2>
-            <div class="registro-pedidos">
-                <div class="registro">
-                    <h5>Registar Empleado</h5>
-                    <form class="formulario-sis" method="POST" id="form-empleados" action="../php/agregar_pedido_empleado.php">
-                        <div class="form-elemento">
-                            <label for="nombre">Nombre del empleado</label>
-                            <input type="text" name="nombre" placeholder="Nombre" id="nombre" required>
-                        </div>
-
-                        <div class="form-elemento">
-                            <label for="telefono">Teléfono</label>
-                            <input type="text" name="telefono" placeholder="Teléfono" id="telefono" required>
-                        </div>
-
-                        <div class="form-elemento">
-                            <label for="puesto">Puesto</label>
-                            <input type="text" name="puesto" placeholder="Puesto" id="puesto" required>
-                        </div>
-
-                        <div class="form-elemento">
-                            <label for="turno">Turno</label>
-                            <select name="turno" id="turno" required>
-                                <option value="Matutino">Matutino</option>
-                                <option value="Vespertino">Vespertino</option>
-                            </select>
-                        </div>
-                        <button class="btn btn-danger" name="agregar-empleado">AGREGAR</button>
-                        <p id="mensaje"></p>
-                    </form>
-                </div>
-                <div class="historial">
+            <h2>Administrar Usuarios</h2>
+                <div class="">
                     <div class="encabezado">
-                        <h5>Empleados</h5>
-                        <a href="../php/reporte_empleados.php" class="print"><img src="../img/print.png" alt=""></a>
+                        <h5>Usuarios</h5>
+                        <div class="opciones-us">
+                            <a href="registro.php"class="boton-us">AGREGAR</a>
+                        </div>
                     </div>
-                    <div  class="contenido-imagenes tablas-historial">
+                    <div  class="contenido-imagenes tablas-historial" id="usuarios">
                         <?php         
                             require_once "../php/config.php";
                             
-                            $sql = "SELECT * FROM empleado";
+                            $sql = "SELECT * FROM usuario";
                             if($result = mysqli_query($conexion, $sql)){
                                 if(mysqli_num_rows($result) > 0){
                                     echo "<table class='table'>";
@@ -182,28 +149,40 @@
                                             echo "<tr>";
                                                 echo "<th>#</th>";
                                                 echo "<th>Nombre</th>";
-                                                echo "<th>Teléfono</th>";
-                                                echo "<th>Puesto</th>";
-                                                echo "<th>Turno</th>";
-                                                if($priv != 'c') echo "<th>Acciones</th>";
+                                                echo "<th>Usuario</th>";
+                                                echo "<th>Privilegios</th>";
+                                                echo "<th>Telefono</th>";
+                                                echo "<th>Correo</th>";
+                                                echo "<th>Acciones</th>";
                                             echo "</tr>";
                                         echo "</thead>";
                                         echo "<tbody>";
                                         while($row = mysqli_fetch_array($result)){
                                             echo "<tr>";
-                                                echo "<td>" . $row['No_Empleado'] . "</td>";
+                                                echo "<td>" . $row['id_usuario'] . "</td>";
                                                 echo "<td>" . $row['nombre'] . "</td>";
+                                                echo "<td>" . $row['nom_usuario'] . "</td>";
+
+                                                $query_priv = "SELECT * FROM usuario WHERE id_usuario = '" . $row['id_usuario'] ."'";
+                                                $result_priv = mysqli_query($conexion, $query_priv);
+                                                $row_priv = mysqli_fetch_array($result_priv);
+
+                                                $img = $row_priv['seccion_img'];
+                                                $ven = $row_priv['seccion_ventas'];
+                                                $emp = $row_priv['seccion_empleados'];
+
+                                                $fila = "<td> <button class='btn btn-primary'";
+                                                $fila .= "onClick=\"privilegios('".$row['nom_usuario']."','".$img."','".$ven."','".$emp."');\"style='width: 100%;'>";
+                                                $fila .= "Ver</button></td>";
+
+                                                echo $fila;
+
                                                 echo "<td>" . $row['telefono'] . "</td>";
-                                                echo "<td>" . $row['puesto'] . "</td>";
-                                                echo "<td>" . $row['turno'] . "</td>";
+                                                echo "<td>" . $row['correo'] . "</td>";
                                                 echo "<td class='acciones'>";
-                                                if($priv == 'e' || $priv == 't'){
-                                                    echo "<a href='../php/actualizar_empleado.php?no=". $row['No_Empleado']."' class='icon-pencil' title='Editar registro' name='actualizar'></a>";
-                                                }
-                                                if($priv == 'd' || $priv == 't'){ 
-                                                    echo "<a href='../php/borrar.php?no=". $row['No_Empleado']."' class='icon-trash' title='Eliminar Empleado'></a>";
-                                                }
-                                                    echo "</td>";
+                                                    echo "<a href='../php/actualizar_usuario.php?no=". $row['id_usuario']."' class='icon-pencil' title='Editar registro' name='actualizar'></a>";
+                                                    echo "<a href='../php/borrar_usuario.php?no=". $row['id_usuario']."' class='icon-trash' title='Eliminar Usuario'></a>";
+                                                echo "</td>";
                                             echo "</tr>";
                                         }
                                         echo "</tbody>";                            
@@ -226,3 +205,62 @@
 </body>
 
 </html>
+
+<script>
+    function privilegios(nombre, img, ventas, empleados){
+        var sec_img = "► Gestionar Imágenes: ";
+        var sec_ventas = "► Gestionar Ventas: ";
+        var sec_empleados = "► Gestionar Empleados: ";
+
+        if(img == 'c'){
+            sec_img += " Consultas";
+        }else{
+            if(img == 'e'){
+                sec_img += " Editar";
+            }else{
+                if(img == 'd'){
+                    sec_img += " Eliminar";
+                }else{
+                    if(img == 't'){
+                        sec_img += " Todos los privilegios";
+                    }
+                }
+            }
+        }
+
+        if(ventas == 'c'){
+            sec_ventas += " Consultas";
+        }else{
+            if(ventas == 'e'){
+                sec_ventas += " Editar";
+            }else{
+                if(ventas == 'd'){
+                    sec_ventas += " Eliminar";
+                }else{
+                    if(ventas == 't'){
+                        sec_ventas += " Todos los privilegios";
+                    }
+                }
+            }
+        }
+        
+        if(empleados == 'c'){
+            sec_empleados += " Consultas";
+        }else{
+            if(empleados == 'e'){
+                sec_empleados += " Editar";
+            }else{
+                if(empleados == 'd'){
+                    sec_empleados += " Eliminar";
+                }else{
+                    if(empleados == 't'){
+                        sec_empleados += " Todos los privilegios";
+                    }
+                }
+            }
+        }
+
+        
+        swal("Los privilegios de "+ nombre + " son: ", sec_img + "\n" + sec_ventas + "\n" + sec_empleados);
+    }
+</script>

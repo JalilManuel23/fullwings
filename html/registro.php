@@ -54,7 +54,7 @@
                     </div>
                     <div class="input-icono">
                         <div class="icon-phone"></div>
-                        <input type="tel" minlength="10" maxlength="10" name="telefono" class="txt" required placeholder="Telefóno">
+                        <input type="tel" minlength="10" maxlength="10" name="telefono" class="txt" required placeholder="Teléfono">
                     </div>
                     <div class="input-icono">
                         <div class="icon-envelope"></div>

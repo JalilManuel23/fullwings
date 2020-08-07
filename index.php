@@ -15,7 +15,14 @@
     <link rel="icon" href="favicon.ico">
 
     <?php include("html/scripts_links.php");?>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,600&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,600&display=swap" rel="stylesheet">     <!--Floating WhatsApp css-->
+    
+    <!-- Estilos de Floating WhatsApp -->
+    <link rel="stylesheet" href="css/floating-wpp.min.css">
+
+    <!--Floating WhatsApp javascript-->
+    <script type="text/javascript" src="js/floating-wpp.min.js"></script>
+    <script src="js/whastapp.js"></script>
 
     <!-- Scripts Locales -->
     <script src="js/menu.js"></script>
@@ -53,9 +60,6 @@
                             <a class="icon-facebook" href="https://www.facebook.com/Fullwingsdgo" target="_blank"></a>
                         </li>
                         <li >
-                            <a class="icon-whatsapp" href="https://api.whatsapp.com/send?phone=526182220862" target="_blank"></a>
-                        </li>
-                        <li >
                             <a class="icon-user" href="html/login.php"></a>
                         </li>
                     </ul>
@@ -67,7 +71,6 @@
                 <img src="img/fullwings.png" alt="logo-fullwings" id="logo">
             </div>
             <h2 id="slogan">Creando el sabor de tu vida</h2>
-            <a class="boton" href="https://api.whatsapp.com/send?phone=526182220862" target="_blank"><button class="btn btn-primary icon-whatsapp">Pedido a Domicilio</button></a>
         </div>
     </header>
     <a href="#"><img src="img/flecha_arriba.png" alt="flecha arriba" class="flecha_arriba"></a>
@@ -122,6 +125,7 @@
         </p>
         <a href="html/login.php">Administrar</a>
     </footer>
+    <div id="WAButton"></div>
 </body>
 
 </html>

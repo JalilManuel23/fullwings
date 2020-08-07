@@ -11,6 +11,13 @@
 
     <?php include("scripts_links.php"); ?>
 
+    <!-- Estilos de Floating WhatsApp -->
+    <link rel="stylesheet" href="../css/floating-wpp.min.css">
+
+    <!--Floating WhatsApp javascript-->
+    <script type="text/javascript" src="../js/floating-wpp.min.js"></script>
+    <script src="../js/whastapp-2.js"></script>
+
     <!-- Scripts Locales -->
     <script src="../js/menu.js"></script>
 
@@ -48,9 +55,6 @@
                         <li><a href="contacto.php">Contacto</a></li>
                         <li>
                             <a class="icon-facebook" href="https://www.facebook.com/Fullwingsdgo" target="_blank"></a>
-                        </li>
-                        <li >
-                            <a class="icon-whatsapp" href="https://api.whatsapp.com/send?phone=526182220862" target="_blank"></a>
                         </li>
                     </ul>
                 </nav>
@@ -94,6 +98,6 @@
             Full Wings 2020 &copy;
         </p>
     </footer>
+    <div id="WAButton"></div>
 </body>
-
 </html>

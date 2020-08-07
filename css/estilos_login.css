@@ -191,3 +191,11 @@ form button {
 .dd2{
     display: block;
 }
+
+.visible{
+    display: block;
+}
+
+.no-visible{
+    display: none;
+}

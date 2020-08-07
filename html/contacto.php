@@ -49,7 +49,12 @@
             });    
         });
     </script>
+   <!-- Estilos de Floating WhatsApp -->
+   <link rel="stylesheet" href="../css/floating-wpp.min.css">
 
+    <!--Floating WhatsApp javascript-->
+    <script type="text/javascript" src="../js/floating-wpp.min.js"></script>
+    <script src="../js/whastapp-2.js"></script>
     <!-- Normalize -->
     <link rel="stylesheet" href="../css/normalize.css">
 
@@ -85,9 +90,6 @@
                         <li>
                             <a class="icon-facebook" href="https://www.facebook.com/Fullwingsdgo" target="_blank"></a>
                         </li>
-                        <li >
-                            <a class="icon-whatsapp" href="https://api.whatsapp.com/send?phone=526182220862" target="_blank"></a>
-                        </li>
                     </ul>
                 </nav>
             </div>
@@ -109,7 +111,7 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2230.5681655573903!2d-104.67001935077727!3d24.011310882326388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1592496395108!5m2!1ses-419!2smx" width="100%" height="400px"
                     frameborder="0" style="border:2;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 <div class="datos">
-                    <p class="icon-telephone">618 174 48 64</p>
+                    <p class="icon-telephone">618 222 08 62</p>
                     <p class="icon-facebook">@fullwings</p>
                 </div>
             </div>
@@ -121,6 +123,6 @@
             Full Wings 2020 &copy;
         </p>
     </footer>
+    <div id="WAButton"></div>
 </body>
-
 </html>

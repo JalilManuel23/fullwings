@@ -41,7 +41,7 @@
         include("../html/contacto.php");
         if($incorrecto === FALSE){
             $enviar_msg = $conexion->query("INSERT INTO mensajes VALUES (null, '$nombre', '$mail', NOW() ,'$mensaje')");
-
+            mail('fullwings@gmail.com', "Mensaje de: $mail", $mensaje);
 ?>
             <script>
                 function alerta(){

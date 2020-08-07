@@ -589,3 +589,24 @@ header label:hover {
         font-size: 4vmin;
     }
 }
+
+#usuarios{
+    width: 100%;
+    height: 70vh;
+}
+
+.opciones-us a{
+    color: white;
+    font-size: 15px;
+}
+
+.opciones-us a img{
+    width: 30px;
+}
+
+.boton-us{
+    padding: 8px;
+
+    color: white;
+    background-color: #2542e9;
+}

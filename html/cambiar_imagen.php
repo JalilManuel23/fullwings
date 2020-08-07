@@ -5,6 +5,12 @@
         header("Location: errores/iniciar_sesion.html");
         die();
     }    
+
+    include('../php/config.php');
+    $query = "SELECT * FROM usuario WHERE nom_usuario = '" . $_SESSION['usuario'] ."'";
+    $result = mysqli_query($conexion, $query);
+    $row = mysqli_fetch_array($result);
+    $priv = $row['seccion_img'];
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +95,7 @@
                         <th>Sección</th>
                         <th>Descripción</th>
                         <th>Imagen</th>
-                        <th>Acciones</th>
+                        <?php if($priv != 'c') echo "<th>Acciones</th>"; ?>
                     </tr>
 
                     <?php
@@ -114,9 +120,14 @@
                                 echo "<td>" . $seccion . "</td>";
                                 echo "<td>". $fotos['descripcion'] . "</td>";
                                 echo "<td> <img src='../img/". $fotos['imagen'] . "'></td>";
+                                
                                 echo "<td>";
-                                    echo "<a href='../php/imagenes/subir.php?id=" .$con."' class='icon-pencil'></a>";
-                                    echo "<a href='../php/cambiar_img_default.php?id= " .$con."' class='icon-trash'></a>";
+                                    if($priv == 'e' || $priv == 't'){
+                                        echo "<a href='../php/imagenes/subir.php?id=" .$con."' class='icon-pencil'></a>";
+                                    }
+                                    if($priv == 'd' || $priv == 't'){
+                                        echo "<a href='../php/cambiar_img_default.php?id= " .$con."' class='icon-trash'></a>";
+                                    }
                                 echo "</td>";
                             echo "</tr>";
 
