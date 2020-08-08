@@ -77,11 +77,8 @@
 
                 $i = 13;
                 while($i <= 15){
-                    echo "<a class='imgs-sucursal'  data-toggle='modal' data-target='#ver-producto-$i'>";
-                        $fotos = show($i,$Conserver,$Conuser,$Conpass,$Condb);
-                        echo "<img src='img/". $fotos['imagen'] . "' alt='Imagen de sucursal'>"; 
-                    echo "</a>";
-                    include("html/ventanas_modales/productos.php");
+                        $fotos_suc = show($i,$Conserver,$Conuser,$Conpass,$Condb);
+                        echo "<img src='img/". $fotos_suc['imagen'] . "' alt='Imagen de sucursal'>"; 
                     $i++;
                 }
             ?>
@@ -115,9 +112,7 @@
     <section class="banner animacion">
         <h2>LOS FAVS</h2>
         <div class="imgs">
-            <?php
-                include("php/config.php");
-                include("php/imagenes/mostrar.php");    
+            <?php   
 
                 $i = 10;
                 while($i <= 12){

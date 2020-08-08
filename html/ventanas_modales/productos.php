@@ -14,7 +14,7 @@
 				?>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-success" data-dismiss="modal">Aceptar</a>
+                <a href="#" class="btn btn-success" data-dismiss="modal" style="height: 40px;">Aceptar</a>
             </div>
         </div>
     </div>

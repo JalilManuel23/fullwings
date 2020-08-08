@@ -104,13 +104,15 @@
                         include("../php/config.php");
                         include("../php/imagenes/mostrar.php");
 
-                        while($con < 13){
+                        while($con < 16){
 
                             $seccion = "";
 
                             if($con >= 1 && $con <= 9){
                                 $seccion = "Menú";
                             }elseif($con >= 10 && $con <= 12){
+                                $seccion = "Inicio";
+                            }elseif($con >= 13 && $con <= 15){
                                 $seccion = "Inicio";
                             }
 

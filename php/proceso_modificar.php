@@ -2,8 +2,7 @@
     include("config.php");
 
     if($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)){
-        	$check = @getimagesize($_FILES['foto']['tmp_name']);
-    
+        $check = @getimagesize($_FILES['foto']['tmp_name']);
         $id = $_REQUEST['id'];
 
         if($check !== false){
@@ -14,7 +13,7 @@
             $titulo = $_POST['titulo'];
             $imagen = $_FILES['foto']['name'];
             $texto = $_POST['texto'];
-
+            
             $query = ("UPDATE imagenes SET titulo = '$titulo', imagen = '$imagen', descripcion = '$texto' WHERE no_imagen = '$id'");
             $resultado = $conexion->query($query);
 
@@ -33,7 +32,24 @@
                 }
                 alerta();                   
             </script>
-        <?php
+            <?php
+        }else{
+            include('../html/cambiar_imagen.php');
+            ?>
+            <script>
+                function alerta(){
+                    swal({
+                        title: "¡Opps, solo se pueden subir imágenes!",
+                        text: "Por favor, intenta de nuevo.",
+                        icon: "warning",
+                        dangerMode: true,
+                    }).then(function() {
+                        window.location = "../html/cambiar_imagen.php";
+                    });
+                }
+                alerta();                   
+            </script>
+            <?php
         }
     }
 ?>
