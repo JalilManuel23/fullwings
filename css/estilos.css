@@ -4,18 +4,17 @@ header {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-.contenedor-menu {
-    max-width: 1280px;
-    width: 50%;
-    margin: auto;
-    height: 10vh;
-}
-
 .menu {
     height: 10vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+
+.menu2{
+   position: fixed;
+   width: 100%;
+   z-index: 1;
 }
 
 .menu img {
@@ -197,7 +196,7 @@ body{
 
 .header-menu {
     height: 100vh;
-    background-image: url("../img/Fondo_menu.jpg");
+    background-image: url("../img/slide1.jpg");
     background-size: cover;
 }
 
@@ -212,15 +211,21 @@ body{
 }
 
 .contenedor-titulo-menu h2 {
-    font-size: 8vmin;
+    font-size: 4vmin;
     color: white;
     text-align: center;
+    font-family: 'Dancing Script', cursive;
 }
 
-.contenedor-titulo-menu button {
+.contenedor-titulo-menu a {
     background-color: #ee3333;
     border: 0px;
     font-size: 3.5vmin;
+    margin-top: 20px;
+}
+
+#img-2{
+    display: none;
 }
 
 .productos {
@@ -335,16 +340,22 @@ header label:hover {
 }
 
 @media screen and (max-width: 768px) {
+    #img-1{
+        display: none;
+    }
+
+    #img-2{
+        display: block;
+        height: 300px;
+    }
+
     header label {
         display: block;
     }
 
     header{
         height: 90px;
-    }
-
-    .contenedor-menu{
-        width: 100%;
+        margin-top: -30px;
     }
 
     .menu {
@@ -352,7 +363,6 @@ header label:hover {
         justify-content: space-between;
         margin-left: -60%;
         transition: 0.5s;
-        margin-top: -90px;
     }
 
     .menu img{
@@ -523,4 +533,11 @@ header label:hover {
 .animacion{
     opacity: 0;
     transition: all 2s;
+}
+
+.flecha_arriba{
+    position: sticky;
+    top: 90vh;
+    width: 50px;
+    z-index: 1;
 }

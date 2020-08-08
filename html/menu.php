@@ -31,7 +31,7 @@
 
 <body>
     <header class="header-menu">
-        <div class="contenedor-menu">
+        <div>
             <div class="log">
                 <img src="../img/fullwings.png" alt="">
             </div>
@@ -53,11 +53,13 @@
             </div>
         </div>
         <div class="contenedor-titulo-menu">
-            <h2>EN FULL WINGS TENEMOS LAS MEJORES ALITAS</h2>
+            <h2>MENÚ</h2>
+            <img src="../img/menu1.jpg" alt="Menú" id="img-1">
+            <img src="../img/fullwings_00.png " alt="Menú" id="img-2">
             <a class="btn btn-danger" href="../pdf/menu.pdf" download="Menú Fullwings">Descargar Menú</a>
         </div>
     </header>
-
+    <a href="#"><img src="../img/flecha_arriba.png" alt="flecha arriba" class="flecha_arriba"></a>
     <section class="contenido">
         <div class="contenedor-contenido-menu">
             <div class="productos animacion">
@@ -147,3 +149,6 @@
 <!--Floating WhatsApp javascript-->
 <script type="text/javascript" src="../js/floating-wpp.min.js"></script>
 <script src="../js/whastapp-2.js"></script>
+
+<!-- Scripts Locales -->
+<script src="../js/menu.js"></script>
