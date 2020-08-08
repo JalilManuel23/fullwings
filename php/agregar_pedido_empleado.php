@@ -56,12 +56,28 @@ if(isset($_POST['agregar-empleado'])){
                             icon: "success",
                         }).then(function() {
                             window.location = "../html/empleados.php";
-                        });;
+                        });
                     }
                     alerta();                   
                 </script>
             <?php
         }
+    }else{
+        ?>
+        <script>
+            function alerta(){
+                swal({
+                    title: "Por favor, complete correctamente el formulario",
+                    text: "<?php echo $errores; ?>",
+                    icon: "warning",
+                    dangerMode: true,
+                }).then(function() {
+                        window.location = "../html/empleados.php";
+                });
+            }
+            alerta();                   
+        </script>
+    <?php
     }
 }
 

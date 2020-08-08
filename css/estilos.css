@@ -15,6 +15,7 @@ header {
    position: fixed;
    width: 100%;
    z-index: 1;
+   box-shadow: 10px 6px 16px rgba(0, 0, 0, 0.25), 0 3px 6px rgba(0, 0, 0, 0.25);
 }
 
 .menu img {
@@ -75,8 +76,6 @@ header {
     width: 70%;
     max-width: 1280px;
     margin: auto;
-    /*CAMBIO*/
-    /* Estilos Agregados */
     display: flex;
     margin-top: 50px;
     margin-bottom: 50PX;
@@ -220,8 +219,8 @@ body{
 .contenedor-titulo-menu a {
     background-color: #ee3333;
     border: 0px;
-    font-size: 3.5vmin;
-    margin-top: 20px;
+    font-size: 3vmin;
+    margin-top: 10px;
 }
 
 #img-2{
@@ -363,6 +362,7 @@ header label:hover {
         justify-content: space-between;
         margin-left: -60%;
         transition: 0.5s;
+        margin-top: -300px;
     }
 
     .menu img{

@@ -28,7 +28,7 @@
             $puesto = $puesto_in;
         }  
 
-        $telefono_in = trim( $_POST['telefono']);
+        $telefono_in = trim($_POST['telefono']);
         if(empty($telefono_in)){
             $errores .= "Por favor, ingresa el número telefónico del empleado.";     $incorrecto = TRUE;
         } elseif(!filter_var($telefono_in, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/([0-9]){10}/")))){
@@ -39,7 +39,7 @@
 
         if($incorrecto == FALSE){
             include("../html/empleados.php");
-
+            echo $telefono;
             $sql = "UPDATE empleado SET nombre = '$nombre', telefono = '$telefono', puesto = '$puesto', turno = '$turno' WHERE No_Empleado = '$id'";
             $result = mysqli_query($conexion, $sql);
         ?>

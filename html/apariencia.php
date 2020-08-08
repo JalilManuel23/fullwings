@@ -113,11 +113,6 @@
                         <img src="../img/tema3.png" alt="Color de tema 3">
                     </label>
                 </div>
-
-                <div class="vista-previa">
-                    <img src="" alt="">
-                </div>
- 
                 <button type="submit" name="actualizar_tema" class="btn btn-danger btn_aplicar">APLICAR CAMBIOS</button>
             </form>
 

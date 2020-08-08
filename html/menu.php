@@ -33,10 +33,10 @@
     <header class="header-menu">
         <div>
             <div class="log">
-                <img src="../img/fullwings.png" alt="">
+                <img src="../img/fullwings.png" alt="logo">
             </div>
             <input type="checkbox" id="boton-menu">
-            <label for="boton-menu"><img src="../img/menu.png" alt=""></label>
+            <label for="boton-menu"><img src="../img/menu.png" alt="boton-menu"></label>
             <div class="menu">
                 <a href="../"><img src="../img/fullwings.png" alt="logo_fullwings"></a>
                 <nav>

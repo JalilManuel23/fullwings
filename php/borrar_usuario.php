@@ -7,30 +7,16 @@
         header("Location: ../html/errores/iniciar_sesion.html");
         die();
     } 
+
     include("config.php");
+
+    $correcto = FALSE;
 
     if(isset($_POST['borrar'])){
         $no = $_POST['id'];
         $sql = "DELETE FROM usuario WHERE id_usuario = '$no'";  
         $result = mysqli_query($conexion, $sql);  
-
-        include("../html/usuarios.php");
-
-        ?>
-            <script>
-                function alerta(){
-                    swal({
-                        title: "¡Usuario eliminado exitosamente!",
-                        text: "Da click en el botón para continuar",
-                        icon: "success",
-                    }).then(function() {
-                        window.location = "../html/usuarios.php";
-                    });;
-                }
-                alerta();                   
-            </script>
-        <?php
-
+        $correcto = TRUE;
     }
 ?>
 
@@ -42,6 +28,8 @@
     <title>Borrar Pedido</title>
         <!-- Favicon -->
         <link rel="icon" href="../favicon.ico">
+            <!-- Script y links externos -->
+    <?php include("../html/scripts_links.php"); ?>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         .wrapper{
@@ -80,3 +68,21 @@
     </div>
 </body>
 </html>
+<?php 
+if($correcto){
+    ?>
+    <script>
+        function alerta(){
+            swal({
+                title: "¡Usuario eliminado exitosamente!",
+                text: "Da click en el botón para continuar",
+                icon: "success",
+            }).then(function() {
+                window.location = "../html/usuarios.php";
+            });
+        }
+        alerta();                   
+    </script>
+<?php
+}
+?>

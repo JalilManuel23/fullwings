@@ -275,6 +275,10 @@ a:hover {
 
 .vista-previa {
     margin-top: 50px;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
 }
 
 .btn_aplicar {
