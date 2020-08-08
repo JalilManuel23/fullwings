@@ -1,12 +1,17 @@
 <?php
     session_start();
+
+    include('config.php');
+    $query = "SELECT * FROM usuario WHERE nom_usuario = '" . $_SESSION['usuario'] ."'";
+    $result = mysqli_query($conexion, $query);
+    $row = mysqli_fetch_array($result);
+    $priv = $row['seccion_ventas'];
+
     $usuario = $_SESSION['usuario'];
-    if($usuario == null || $usuario = ""){
+    if($usuario == null || $usuario = "" || $priv == 'c' || $priv == 'd'){
         header("Location: ../html/errores/iniciar_sesion.html");
         die();
     } 
-
-    include("config.php");
     
     $id = $_GET['no'];
 
@@ -27,6 +32,40 @@
     <!-- Script y links externos -->
     <?php include("../html/scripts_links.php"); ?>
 
+     <!-- Validación de formularios -->
+     <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#editar-pedido').validate({
+                rules : {
+                    total : {
+                        required : true,
+                        number : true
+                    },
+                    fecha : {
+                        required : true
+                    },
+                    orden : {
+                        required : true
+                    }
+                },
+                messages : {
+                    total : {
+                        required : "Por favor introduzca el monto total del pedido",
+                        number :  "Por favor ingrese una cantidad valida"
+                    },
+                    fecha : {
+                        required : "Por favor introduzca la fecha del pedido"
+                    },
+                    orden : {
+                        required : "Por favor introduzca una descripción del pedido"
+                    }
+                }
+            });    
+        });
+    </script>
+    
     <!-- Scripts Locales -->
     <script src="../js/menu.js"></script>
 
@@ -86,7 +125,7 @@
         <section class="contenido">
             <h2>Editar Registro de Pedidos</h2>
             <div class="editar">
-            <form class="form-editar" action="actualizar.php" method="post">
+            <form id="editar-pedido" class="form-editar" action="actualizar.php" method="post">
                 <div >
                     <label>Empleado</label>
                     <select name="empleado" id="empleado" >

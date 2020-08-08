@@ -1,16 +1,18 @@
 <?php
     session_start();
-    $usuario = $_SESSION['usuario'];
-    $privilegio = $_SESSION['privilegio'];
+    include('config.php');
+    $query = "SELECT * FROM usuario WHERE nom_usuario = '" . $_SESSION['usuario'] ."'";
+    $result = mysqli_query($conexion, $query);
+    $row = mysqli_fetch_array($result);
+    $priv = $row['seccion_empleados'];
 
-    if($usuario == null || $usuario = "" || $privilegio == 'empleado'){
+    $usuario = $_SESSION['usuario'];
+    if($usuario == null || $usuario = "" || $priv == 'c' || $priv == 'd'){
         header("Location: ../html/errores/iniciar_sesion.html");
         die();
     } 
-
-    include("config.php");
     
-    $id = $_GET['no'];
+    $id = (isset($_GET['no'])) ? $_GET['no'] : "";
 
     $select= "SELECT * FROM empleado WHERE No_Empleado = '$id'";
     $resultado = mysqli_query($conexion, $select);
@@ -27,6 +29,46 @@
 
     <!-- Script y links externos -->
     <?php include("../html/scripts_links.php"); ?>
+
+     <!-- Validación de formularios -->
+     <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#editar-empleado').validate({
+                rules : {
+                    nombre : {
+                        required : true
+                    },
+                    telefono : {
+                        required : true,
+                        number : true,   //para validar campo solo numeros
+                        minlength : 10, //para validar campo con minimo 3 caracteres
+                        maxlength : 10  //para validar campo con maximo 9 caracteres
+                    },
+                    puesto : {
+                        required : true
+                    }
+                },
+                messages : {
+                    nombre : {
+                        required : "Debe ingresar un nombre",
+                        minlength : "El nombre debe tener un minimo de 3 caracteres",
+                        maxlength : "El nombre debe tener un máximo de 9 caracteres"
+                    },
+                    telefono : {
+                        required : "Debe ingresar un número de teléfono",
+                        number : "Solo se aceptan números",
+                        minlength : "El número de teléfono debe ser de 10 digitos",
+                        maxlength : "El número de teléfono debe ser de 10 digitos"
+                    },
+                    puesto : {
+                        required : "Debe ingresar un puesto"
+                    }
+                }
+            });    
+        });
+    </script>
 
     <!-- Scripts Locales -->
     <script src="../js/menu.js"></script>
@@ -87,9 +129,9 @@
         <section class="contenido">
             <h2>Editar Registro de Empleado</h2>
             <div class="editar">
-            <form class="form-editar" action="actualizar.php" method="post">
+            <form id="editar-empleado" class="form-editar" action="actualizar.php" method="post">
                 <div >
-                    <label>Nombre</label>
+                    <label>Nombre Completo</label>
                     <input type="text" name="nombre" class="form-control" value="<?php echo $fila['nombre']; ?>">
                 </div>
                 <div >

@@ -11,7 +11,8 @@ body {
 /*  Aplicar estilos al header */
 
 header {
-    background: url("../img/fondo.jpeg");
+    background: url("../img/slide1.jpg");
+
     height: 100vh;
     background-size: cover;
 }
@@ -67,8 +68,30 @@ li:hover {
 }
 
 #logo {
-    width: 30%;
+    width: 50%;
 }
+
+.imgs-sucursal{
+    display: flex;
+    justify-content: space-around;
+}
+
+.imgs-sucursal img{
+    width: 30%;
+    max-height: 220px;
+    outline:5px solid rgba(255,255,255,0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.imgs-sucursal img:hover{
+    cursor: pointer;
+    box-shadow: 10px 6px 16px rgba(0, 0, 0, 0.25), 0 3px 6px rgba(0, 0, 0, 0.25);
+    transform: scale(1.03);
+    -webkit-filter: blur(3px);
+    filter: brightness(0.9);
+    transition: 0.5s
+}
+
 
 #slogan {
     color: white;
@@ -101,8 +124,6 @@ li:hover {
     margin: auto;
     display: flex;
     align-items: center;
-    animation-duration: 3s;
-    animation-name: slidein;
 }
 
 [class^="info-"] img {
@@ -262,6 +283,10 @@ header label:hover {
         display: block;
     }
 
+    header{
+        height: 100%;
+    }
+
     .menu {
         position: absolute;
         justify-content: space-between;
@@ -311,7 +336,19 @@ header label:hover {
     }
 
     #logo{
-        width: 50%;
+        width: 100%;
+    }
+
+    .imgs-sucursal{
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .imgs-sucursal img{
+        margin-top: 30px;
+        margin-bottom: 15px;
+        width: 80%;
     }
 
     .menu2{
@@ -390,4 +427,9 @@ header label:hover {
 
 .icon-whatsapp:hover::before{
     color: #5ed37b;
+}
+
+.animacion{
+    opacity: 0;
+    transition: all 2s;
 }

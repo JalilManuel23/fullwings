@@ -129,14 +129,14 @@ form button {
     color: rgb(241, 54, 54);
 }
 
-.error {
+/* .error {
     background-color: #a22;
     color: white;
     text-align: center;
     padding: 12px;
     border-radius: 10px;
     margin-top: 10px;
-}
+} */
 
 .correcto {
     background-color: green;

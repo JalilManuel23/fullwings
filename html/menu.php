@@ -13,10 +13,6 @@
     <!-- Estilos de Floating WhatsApp -->
     <link rel="stylesheet" href="../css/floating-wpp.min.css">
 
-    <!--Floating WhatsApp javascript-->
-    <script type="text/javascript" src="../js/floating-wpp.min.js"></script>
-    <script src="../js/whastapp-2.js"></script>
-
     <!-- Normalize -->
     <link rel="stylesheet" href="../css/normalize.css">
 
@@ -64,22 +60,22 @@
 
     <section class="contenido">
         <div class="contenedor-contenido-menu">
-            <div class="productos">
+            <div class="productos animacion">
                 <a href="#alitas">
-                    <img src="../img/alitas.svg" alt="">
+                    <img src="../img/alitas.svg" alt="alitas">
                     <p>Alitas</p>
                 </a>
                 <a href="#bebidas">
-                    <img src="../img/soda.png" alt="">
+                    <img src="../img/soda.png" alt="bebidas">
                     <p>Bebidas</p>
                 </a>
                 <a href="#snacks">
-                    <img src="../img/snacks.png" alt="">
+                    <img src="../img/snacks.png" alt="snacks">
                     <p>Snacks</p>
                 </a>
             </div>
 
-            <div id="wings" class="opcion">
+            <div id="wings" class="opcion animacion">
                 <h2>ALITAS</h2>
                 <div class="imgs">
  
@@ -101,7 +97,7 @@
                 </div>
             </div>
 
-            <div id="bebidas" class="opcion">
+            <div id="bebidas" class="opcion animacion">
                 <h2>BEBIDAS</h2>
                 <div class="imgs">
                     <?php
@@ -119,7 +115,7 @@
                 </div>
             </div>
 
-            <div id="snacks" class="opcion">
+            <div id="snacks" class="opcion animacion">
                 <h2>SNACKS</h2>
                 <div class="imgs">
                     <?php
@@ -147,3 +143,7 @@
     <div id="WAButton"></div>
 </body>
 </html>
+<script src="../js/scroll.js"></script>
+<!--Floating WhatsApp javascript-->
+<script type="text/javascript" src="../js/floating-wpp.min.js"></script>
+<script src="../js/whastapp-2.js"></script>

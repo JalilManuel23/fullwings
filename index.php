@@ -68,15 +68,30 @@
         </div>
         <div class="contenedor">
             <div class="logo">
-                <img src="img/fullwings.png" alt="logo-fullwings" id="logo">
+                <img src="img/fullwings_00.png" alt="logo-fullwings" id="logo">
             </div>
-            <h2 id="slogan">Creando el sabor de tu vida</h2>
+            <div class="imgs-sucursal">
+            <?php
+                include("php/config.php");
+                include("php/imagenes/mostrar.php");    
+
+                $i = 13;
+                while($i <= 15){
+                    echo "<a class='imgs-sucursal'  data-toggle='modal' data-target='#ver-producto-$i'>";
+                        $fotos = show($i,$Conserver,$Conuser,$Conpass,$Condb);
+                        echo "<img src='img/". $fotos['imagen'] . "' alt='Imagen de sucursal'>"; 
+                    echo "</a>";
+                    include("html/ventanas_modales/productos.php");
+                    $i++;
+                }
+            ?>
+            </div>
         </div>
     </header>
     <a href="#"><img src="img/flecha_arriba.png" alt="flecha arriba" class="flecha_arriba"></a>
 
     <section id="info">
-        <div class="contenedor-info">
+        <div class="contenedor-info animacion">
             <div class="info-1">
                 <img src="img/hamburguesa.png" alt="atencion-cliente">
                 <p>
@@ -97,7 +112,7 @@
             </div>
         </div>
     </section>
-    <section class="banner">
+    <section class="banner animacion">
         <h2>LOS FAVS</h2>
         <div class="imgs">
             <?php
@@ -115,7 +130,6 @@
                     $i++;
                 }
             ?>
-
         </div>
     </section>
 
@@ -127,5 +141,5 @@
     </footer>
     <div id="WAButton"></div>
 </body>
-
 </html>
+<script src="js/scroll.js"></script>

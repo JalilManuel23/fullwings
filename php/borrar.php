@@ -1,6 +1,18 @@
 <?php
 
-    include("config.php");
+    session_start();
+
+    include('config.php');
+    $query = "SELECT * FROM usuario WHERE nom_usuario = '" . $_SESSION['usuario'] ."'";
+    $result = mysqli_query($conexion, $query);
+    $row = mysqli_fetch_array($result);
+    $priv = $row['seccion_empleados'];
+
+    $usuario = $_SESSION['usuario'];
+    if($usuario == null || $usuario = "" || $priv == 'c' || $priv == 'e'){
+        header("Location: ../html/errores/iniciar_sesion.html");
+        die();
+    } 
 
     if(isset($_POST['borrar'])){
         $no = $_POST['id'];

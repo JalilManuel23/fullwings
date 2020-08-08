@@ -1,4 +1,12 @@
 <?php
+    session_start();
+    $usuario = $_SESSION['usuario'];
+    $privilegio = $_SESSION['privilegio'];
+
+    if($usuario == null || $usuario = "" || $privilegio == 'empleado'){
+        header("Location: ../html/errores/iniciar_sesion.html");
+        die();
+    } 
     include("config.php");
 
     if(isset($_POST['borrar'])){
@@ -62,7 +70,7 @@
                             <p>Está seguro que deseas borrar el registro</p><br>
                             <p>
                                 <input type="submit" value="Si" class="btn btn-danger" name="borrar">
-                                <a href="../html/usuario.php" class="btn btn-default">No</a>
+                                <a href="../html/usuarios.php" class="btn btn-default">No</a>
                             </p>
                         </div>
                     </form>

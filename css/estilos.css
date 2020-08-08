@@ -519,3 +519,8 @@ header label:hover {
         width: 90%;
     }
 }
+
+.animacion{
+    opacity: 0;
+    transition: all 2s;
+}

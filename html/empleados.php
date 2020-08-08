@@ -41,7 +41,7 @@
                     nombre : {
                         required : true,
                         minlength : 3, //para validar campo con minimo 3 caracteres
-                        maxlength : 9  //para validar campo con maximo 9 caracteres
+                        maxlength : 50  //para validar campo con maximo 9 caracteres
                     },
                     telefono : {
                         required : true,

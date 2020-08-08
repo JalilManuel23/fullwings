@@ -50,7 +50,7 @@
                     <h3>REGISTRO</h3>
                     <div class="input-icono">
                         <div class="icon-user icono"></div>
-                        <input type="text" name="nombre"  class="txt" required placeholder="Nombre" autofocus>
+                        <input type="text" name="nombre"  class="txt" required placeholder="Nombre Completo" autofocus>
                     </div>
                     <div class="input-icono">
                         <div class="icon-phone"></div>

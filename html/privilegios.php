@@ -47,7 +47,7 @@
 
             <div id="formulario-registro" class="formulario">
                 <form id="priv" action="../php/registro_login.php" method="POST">
-                    <h3>Selecciona los privilegios del usuarios</h3>
+                    <h3>Selecciona los privilegios del usuario</h3>
                     <div class="input-icono icon-picture-streamline-1">
                         <label class="icono">Gestionar Imágenes</label>
                         <select name="imagenes" id="imagenes">

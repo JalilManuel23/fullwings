@@ -2,14 +2,46 @@
     include("config.php");
 
     if(isset($_POST['actualizar'])){
-        $nombre = $_POST['nombre'];
-        $telefono = $_POST['telefono'];
-        $puesto = $_POST['puesto'];
+        $incorrecto = FALSE;
         $turno = $_POST['turno'];
         $id = $_POST['id'];
-        $sql = "UPDATE empleado SET nombre = '$nombre', telefono = '$telefono', puesto = '$puesto', turno = '$turno' WHERE No_Empleado = '$id'";
-        $result = mysqli_query($conexion, $sql);
-        include("../html/empleados.php");
+        $errores = "";
+
+        $nombre=""; $telefono=""; $puesto="";  
+        
+        $nombre_in = trim($_POST['nombre']);
+        if(empty($nombre_in)){
+            $errores .= "Ingresa tu nombre.";$incorrecto = TRUE;
+        } elseif(!filter_var($nombre_in, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\']+[\s])+([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\'])+[\s]?([A-Za-zÁÉÍÓÚñáéíóúÑ]{0}?[A-Za-zÁÉÍÓÚñáéíóúÑ\'])?$/")))){
+            $errores .= "El nombre ingresado no es válido.";$incorrecto = TRUE;
+        } else{
+            $nombre = $nombre_in;
+        }  
+
+
+        $puesto_in = trim($_POST['puesto']);
+        if(empty($puesto_in)){
+            $errores .= "Ingresa un puesto.";$incorrecto = TRUE;
+        } elseif(!filter_var($puesto_in, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^(?=.{3,20}$)[a-zñA-ZÑ](\s?[a-zñA-ZÑ])*$/")))){
+            $errores .= "El puesto ingresado no es válido.";$incorrecto = TRUE;
+        } else{
+            $puesto = $puesto_in;
+        }  
+
+        $telefono_in = trim( $_POST['telefono']);
+        if(empty($telefono_in)){
+            $errores .= "Por favor, ingresa el número telefónico del empleado.";     $incorrecto = TRUE;
+        } elseif(!filter_var($telefono_in, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/([0-9]){10}/")))){
+            $errores .= "Por favor, ingresa un valor de número telefónico correcto (Deben ser 10 digitos)";$incorrecto = TRUE;
+        } else{
+            $telefono = $telefono_in;
+        }
+
+        if($incorrecto == FALSE){
+            include("../html/empleados.php");
+
+            $sql = "UPDATE empleado SET nombre = '$nombre', telefono = '$telefono', puesto = '$puesto', turno = '$turno' WHERE No_Empleado = '$id'";
+            $result = mysqli_query($conexion, $sql);
         ?>
             <script>
                 function alerta(){
@@ -19,11 +51,28 @@
                         icon: "success",
                     }).then(function() {
                         window.location = "../html/empleados.php";
-                    });;
+                    });
                 }
                 alerta();                   
             </script>
         <?php
+        }else{
+            include("../html/empleados.php");
+        ?>
+            <script>
+                function alerta(){
+                    swal({
+                        title: "Por favor, complete el formulario correctamente",
+                        text: "<?php echo $errores ?>",
+                        icon: "warning",
+                    }).then(function() {
+                        window.location = "../html/empleados.php";
+                    });
+                }
+                alerta();                   
+            </script>
+        <?php
+        }
         
     }
 
@@ -46,7 +95,7 @@
                     icon: "success",
                 }).then(function() {
                     window.location = "../html/pedidos.php";
-                });;
+                });
             }
             alerta();                   
         </script>
