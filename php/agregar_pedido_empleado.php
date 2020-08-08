@@ -16,7 +16,7 @@ if(isset($_POST['agregar-empleado'])){
         $nombre = $nombre_in;
     }  
 
-    $telefono_in = trim( $_POST['telefono']);
+    $telefono_in = trim($_POST['telefono']);
     if(empty($telefono_in)){
         $errores .= "Por favor, ingresa el número telefónico del empleado.";     $incorrecto = TRUE;
     } elseif(!filter_var($telefono_in, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/([0-9]){10}/")))){

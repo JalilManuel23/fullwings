@@ -1,17 +1,17 @@
 <?php
 // /* CONEXIÓN LOCAL HOST*/
 
-$Conserver="localhost";
-$Conuser="root";
-$Conpass="Jml14";
-$Condb="fullwings";
+// $Conserver="localhost";
+// $Conuser="root";
+// $Conpass="Jml14";
+// $Condb="fullwings";
 
 /*CONEXIÓN AL SERVIDOR DEL PROFE ISAAC*/
 
-// $Conserver="10.209.81.2";
-// $Conuser="1006416_eh53322";
-// $Conpass="Utd_2020";
-// $Condb="1006416-55";
+$Conserver="10.209.81.2";
+$Conuser="1006416_eh53322";
+$Conpass="Utd_2020";
+$Condb="1006416-55";
 
 /*CONEXIÓN A SERVIDOR DE EPIZY */
 

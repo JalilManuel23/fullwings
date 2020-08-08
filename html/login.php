@@ -85,34 +85,36 @@ if(isset($_POST['login'])){
 </body>
 </html>
 <?php
-if($incorrecto){
-?>
+if(isset($_POST['login'])){
+    if($incorrecto){
+    ?>
+        <script>
+            function alerta(){
+                swal({
+                    title: "Usuario o contraseña incorrectos",
+                    text: "Por favor, intenta de nuevo.",
+                    icon: "warning",
+                    dangerMode: true,
+                })
+            }
+            alerta();                   
+        </script>
+    <?php
+    }elseif($incorrecto == FALSE){
+    ?>
     <script>
         function alerta(){
             swal({
-                title: "Usuario o contraseña incorrectos",
-                text: "Por favor, intenta de nuevo.",
-                icon: "warning",
-                dangerMode: true,
-            })
+                title: "¡Bienvenido <?php echo $user ?>!",
+                text: "Sesión iniciada correctamente, da click para continuar",
+                icon: "success",
+            }).then(function() {
+                window.location = "cambiar_imagen.php";
+            });;
         }
         alerta();                   
     </script>
-<?php
-}else{
-?>
-<script>
-    function alerta(){
-        swal({
-            title: "¡Bienvenido <?php echo $user ?>!",
-            text: "Sesión iniciada correctamente, da click para continuar",
-            icon: "success",
-        }).then(function() {
-            window.location = "cambiar_imagen.php";
-        });;
+    <?php
     }
-    alerta();                   
-</script>
-<?php
 }
 ?>
