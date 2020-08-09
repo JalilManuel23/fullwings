@@ -18,6 +18,10 @@ header {
    box-shadow: 10px 6px 16px rgba(0, 0, 0, 0.25), 0 3px 6px rgba(0, 0, 0, 0.25);
 }
 
+.body-nos{
+    overflow-y: hidden;
+}
+
 .menu img {
     width: 80px;
 }
@@ -79,7 +83,7 @@ header {
     display: flex;
     margin-top: 50px;
     margin-bottom: 50PX;
-    height: 70vh;
+    height: 100%;
 }
 
 .escribenos {
@@ -335,6 +339,10 @@ header label:hover {
 @media screen and (max-width: 1000px){
     .datos{
         flex-direction: column;
+    }
+
+    .body-nos{
+        overflow-y: scroll;
     }
 }
 

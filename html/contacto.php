@@ -71,7 +71,7 @@
     ?>
 </head>
 
-<body>
+<body class="body-nos">
     <header class="header-nos-con">
         <div class="log">
             <a href="../"><img src="../img/fullwings.png" alt="logo_fullwings"></a>
