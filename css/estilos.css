@@ -342,6 +342,17 @@ header label:hover {
         flex-direction: column;
     }
 
+    .imgs {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .imgs-menu{
+        width: 60%;
+        margin-top: 30px;
+    }
+
     .body-nos{
         overflow-y: scroll;
     }
@@ -435,10 +446,6 @@ header label:hover {
         margin: auto;
         margin-top: 30px;
     }
-
-    .imgs{
-        width: 98%;
-    }
 /* 
     .imgs-menu img{
         width: 150px;
@@ -463,6 +470,10 @@ header label:hover {
 
     .datos{
         flex-direction: column;
+    }
+
+    .imgs-menu{
+        width: 100%;
     }
 }
 
@@ -504,15 +515,6 @@ header label:hover {
     .opcion h2{
         font-size: 8vmin;
     }
-
-    .imgs{
-        flex-direction: column;
-    }
-
-    .imgs-menu{
-        width: 100%;
-    }
-
     .imgs-menu p{
         font-size: 5vmin;
     }
