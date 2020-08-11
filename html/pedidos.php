@@ -11,6 +11,12 @@
     $result = mysqli_query($conexion, $query);
     $row = mysqli_fetch_array($result);
     $priv = $row['seccion_ventas'];
+
+    if(isset($_GET['id']) && isset($_GET['b'])){
+        $id = $_GET['id'];
+
+        $eliminar_msg =  $conexion->query("DELETE FROM pedido WHERE No_orden = '$id'"); 
+    }
 ?>
 
 <!DOCTYPE html>
@@ -202,7 +208,7 @@
                                                 echo "<a href='../php/actualizar_pedido.php?no=". $row['No_orden']."' class='icon-pencil' title='Editar registro' name='actualizar'></a>";
                                             }
                                             if($priv == 'd' || $priv == 't'){
-                                                echo "<a href='../php/borrar_pedido.php?no=". $row['No_orden']."' class='icon-trash' title='Eliminar Registro'></a>";
+                                                echo "<a href='../php/confirmar-pedidos.php?id=". $row['No_orden']."' class='icon-trash' title='Eliminar Registro'></a>";
                                             }
                                                 echo "</td>";
                                         echo "</tr>";

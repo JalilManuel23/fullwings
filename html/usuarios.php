@@ -6,7 +6,14 @@
     if($usuario == null || $usuario == "" || $privilegio == 'empleado'){
         header("Location: errores/iniciar_sesion.html");
         die();
-    }        
+    }     
+    
+    if(isset($_GET['id']) && isset($_GET['b'])){
+        $id = $_GET['id'];
+
+        include("../php/config.php");
+        $eliminar_msg =  $conexion->query("DELETE FROM usuario WHERE id_usuario = '$id'"); 
+    }
 ?>
 
 <!DOCTYPE html>
@@ -188,7 +195,7 @@
 
                                                 echo "<td class='acciones'>";
                                                     echo "<a href='../php/actualizar_usuario.php?no=". $row['id_usuario']."' class='icon-pencil' title='Editar registro' name='actualizar'></a>";
-                                                    echo "<a href='../php/borrar_usuario.php?no=". $row['id_usuario']."' class='icon-trash' title='Eliminar Usuario'></a>";
+                                                    echo "<a href='../php/confirmar-usuarios.php?id=". $row['id_usuario']."' class='icon-trash' title='Eliminar Usuario'></a>";
                                                 echo "</td>";
                                             echo "</tr>";
                                         }

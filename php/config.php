@@ -8,17 +8,10 @@ $Condb="fullwings";
 
 /*CONEXIÓN AL SERVIDOR DEL PROFE ISAAC*/
 
-// $Conserver="10.209.81.2";
-// $Conuser="1006416_eh53322";
-// $Conpass="Utd_2020";
-// $Condb="1006416-55";
-
-/*CONEXIÓN A SERVIDOR DE EPIZY */
-
-// $Conserver="sql200.epizy.com";
-// $Conuser="epiz_26161579";
-// $Conpass="4coUyGPKqiYh4";
-// $Condb="epiz_26161579_fullwings";
+// $Conserver="162.241.61.200";
+// $Conuser="fullwing_admin";
+// $Conpass="Jml14";
+// $Condb="fullwing_fullwings";
 
 $conexion= @mysqli_connect($Conserver,$Conuser,$Conpass,$Condb);
 

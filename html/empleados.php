@@ -12,6 +12,12 @@
     $result = mysqli_query($conexion, $query);
     $row = mysqli_fetch_array($result);
     $priv = $row['seccion_empleados'];
+
+    if(isset($_GET['id']) && isset($_GET['b'])){
+        $id = $_GET['id'];
+
+        $eliminar_msg =  $conexion->query("DELETE FROM empleado WHERE No_empleado = '$id'"); 
+    }
 ?>
 
 <!DOCTYPE html>
@@ -201,7 +207,7 @@
                                                     echo "<a href='../php/actualizar_empleado.php?no=". $row['No_Empleado']."' class='icon-pencil' title='Editar registro' name='actualizar'></a>";
                                                 }
                                                 if($priv == 'd' || $priv == 't'){ 
-                                                    echo "<a href='../php/borrar.php?no=". $row['No_Empleado']."' class='icon-trash' title='Eliminar Empleado'></a>";
+                                                    echo "<a href='../php/confirmar-empleados.php?id=". $row['No_Empleado']."' class='icon-trash' title='Eliminar Empleado'></a>";
                                                 }
                                                     echo "</td>";
                                             echo "</tr>";
