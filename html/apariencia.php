@@ -5,7 +5,7 @@
         header("Location: errores/iniciar_sesion.html");
         die();
     }     
-    
+    include("cerrar_sesion.php");
     include("../php/config.php");
     $correcto = FALSE;
     if(isset($_POST['actualizar_tema'])){

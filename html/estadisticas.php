@@ -7,7 +7,7 @@
         header("Location: errores/iniciar_sesion.html");
         die();
     }       
-
+    include("cerrar_sesion.php");
     include("../php/config.php");
 
     $year = '2020';

@@ -7,7 +7,7 @@
         header("Location: ../html/errores/iniciar_sesion.html");
         die();
     } 
-
+    include("../html/cerrar_sesion.php");
     include("config.php");
     
     $id = $_GET['no'];

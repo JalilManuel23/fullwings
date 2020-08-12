@@ -6,12 +6,13 @@
     $result = mysqli_query($conexion, $query);
     $row = mysqli_fetch_array($result);
     $priv = $row['seccion_ventas'];
-
+ 
     $usuario = $_SESSION['usuario'];
     if($usuario == null || $usuario = "" || $priv == 'c' || $priv == 'd'){
         header("Location: ../html/errores/iniciar_sesion.html");
         die();
     } 
+    include("../html/cerrar_sesion.php");
     
     $id = $_GET['no'];
 

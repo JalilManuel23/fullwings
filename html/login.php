@@ -101,6 +101,9 @@ if(isset($_POST['login'])){
         </script>
     <?php
     }elseif($incorrecto == FALSE){
+        $_SESSION['start'] = time(); // Taking now logged in time.
+            // Ending a session in 30 minutes from the starting time.
+            $_SESSION['expire'] = $_SESSION['start'] + (10 * 60);
     ?>
     <script>
         function alerta(){
@@ -110,7 +113,7 @@ if(isset($_POST['login'])){
                 icon: "success",
             }).then(function() {
                 window.location = "cambiar_imagen.php";
-            });;
+            });
         }
         alerta();                   
     </script>

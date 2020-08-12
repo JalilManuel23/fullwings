@@ -3,7 +3,7 @@
     $usuario = $_SESSION['usuario'];
     $privilegio = $_SESSION['privilegio'];
     
-    if($usuario == null || $usuario == "" || $privilegio == 'empleado'){
+    if($usuario == null || $usuario == "" ){
         header("Location: ../html/errores/iniciar_sesion.html");
         die();
     } 

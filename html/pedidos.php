@@ -5,7 +5,8 @@
         header("Location: errores/iniciar_sesion.html");
         die();
     } 
-    
+
+include("cerrar_sesion.php");
     include('../php/config.php');
     $query = "SELECT * FROM usuario WHERE nom_usuario = '" . $_SESSION['usuario'] ."'";
     $result = mysqli_query($conexion, $query);

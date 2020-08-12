@@ -7,7 +7,7 @@
         header("Location: errores/iniciar_sesion.html");
         die();
     }     
-    
+    include("cerrar_sesion.php");
     if(isset($_GET['id']) && isset($_GET['b'])){
         $id = $_GET['id'];
 

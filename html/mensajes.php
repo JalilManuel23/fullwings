@@ -5,6 +5,7 @@
         header("Location: errores/iniciar_sesion.html");
         die();
     }    
+    include("cerrar_sesion.php");
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +41,7 @@
     <link rel="stylesheet" href="../css/estilos_sistema.css">
 </head>
 
-<body>
+<body >
     <header class="header-sis">
         <div class="contenedor-header">
             <label for="boton-menu"><img src="../img/menu.png" alt=""></label>
