@@ -12,10 +12,13 @@
     $row = mysqli_fetch_array($result);
     $priv = $row['seccion_ventas'];
 
+    $borrar = FALSE;
+
     if(isset($_GET['id']) && isset($_GET['b'])){
         $id = $_GET['id'];
 
-        $eliminar_msg =  $conexion->query("DELETE FROM pedido WHERE No_orden = '$id'"); 
+        $eliminar_msg =  $conexion->query("DELETE FROM pedido WHERE No_orden = '$id'");
+        $borrar = TRUE; 
     }
 ?>
 
@@ -218,7 +221,7 @@
                                 // Free result set
                                 mysqli_free_result($result);
                             } else{
-                                echo "<p class='lead'><em>LA BASE DE DATOS SE ENCUENTRA NULL</em></p>";
+                                echo "<p class='lead'><em>NO HAY REGISTROS DE VENTAS</em></p>";
                             }
                         } else{
                             echo "ERROR: Could not able to execute $sql. " . mysqli_error($conexion);
@@ -235,5 +238,19 @@
 </body>
 
 </body>
-
 </html>
+<?php
+    if($borrar){
+        ?>
+        <script>
+    function borrar(){
+        swal("¡La venta ha sido eliminada!", {
+            icon: "success",
+        });
+    }
+    borrar();
+</script>
+
+    <?php
+    }
+?>

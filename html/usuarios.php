@@ -7,10 +7,10 @@
         header("Location: errores/iniciar_sesion.html");
         die();
     }     
-    
+    $borrar = FALSE;
     if(isset($_GET['id']) && isset($_GET['b'])){
         $id = $_GET['id'];
-
+        $borrar = TRUE;
         include("../php/config.php");
         $eliminar_msg =  $conexion->query("DELETE FROM usuario WHERE id_usuario = '$id'"); 
     }
@@ -281,3 +281,18 @@
         swal("La contraseña de "+ username + " es: ", pass);
     }
 </script>
+<?php
+    if($borrar){
+        ?>
+        <script>
+    function borrar(){
+        swal("¡La usuario ha sido eliminado!", {
+            icon: "success",
+        });
+    }
+    borrar();
+</script>
+
+    <?php
+    }
+?>

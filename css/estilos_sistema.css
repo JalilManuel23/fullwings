@@ -15,6 +15,10 @@ header {
     justify-content: space-between;
 }
 
+textarea{
+    resize: none;
+}
+
 .contenedor-header a {
     width: 10vh;
 }

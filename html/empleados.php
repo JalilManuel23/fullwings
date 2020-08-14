@@ -13,9 +13,10 @@
     $row = mysqli_fetch_array($result);
     $priv = $row['seccion_empleados'];
 
+    $borrar = FALSE;
     if(isset($_GET['id']) && isset($_GET['b'])){
         $id = $_GET['id'];
-
+        $borrar = TRUE;
         $eliminar_msg =  $conexion->query("DELETE FROM empleado WHERE No_empleado = '$id'"); 
     }
 ?>
@@ -216,7 +217,7 @@
                                     echo "</table>";
                                     
                                 } else{
-                                    echo "<p class='lead'><em>LA BASE DE DATOS SE ENCUENTRA VACIA</em></p>";
+                                    echo "<p class='lead'><em>NO HAY REGISTROS DE EMPLEADOS</em></p>";
                                 }
                             } else{
                                 echo "ERROR: $sql. " . mysqli_error($conexion);
@@ -232,3 +233,18 @@
 </body>
 
 </html>
+<?php
+    if($borrar){
+        ?>
+        <script>
+    function borrar(){
+        swal("¡El empleado ha sido eliminado!", {
+            icon: "success",
+        });
+    }
+    borrar();
+</script>
+
+    <?php
+    }
+?>
