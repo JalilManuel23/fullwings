@@ -5,8 +5,7 @@
         header("Location: errores/iniciar_sesion.html");
         die();
     } 
-
-include("cerrar_sesion.php");
+    
     include('../php/config.php');
     $query = "SELECT * FROM usuario WHERE nom_usuario = '" . $_SESSION['usuario'] ."'";
     $result = mysqli_query($conexion, $query);
@@ -125,7 +124,7 @@ include("cerrar_sesion.php");
             include("ventanas_modales/menu.php");
         ?>
         <section class="contenido">
-            <h2>Ventas</h2>
+            <h3>Ventas</h3>
             <div class="registro-pedidos">
                 <div class="registro">
                     <h5>Registar Venta</h5>
@@ -163,7 +162,7 @@ include("cerrar_sesion.php");
                         </div>
                         <div class="form-elemento">
                             <label for="total">Total</label>
-                            <input name="total" type="text" placeholder="Monto Total $" id="total">
+                            <input name="total" type="number" placeholder="Monto Total $" id="total">
                         </div>
                         <button class="btn btn-danger" name="agregar-pedido">AGREGAR</button>                     
                     </form>

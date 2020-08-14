@@ -51,6 +51,13 @@ header {
     display: flex;
 }
 
+.contt{
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
 
 /* Estilos Menú */
 
@@ -115,6 +122,7 @@ th {
 .table td,
 .table th {
     padding: 0.5em;
+    font-size: 1.8vmin;
     text-align: left;
 }
 
@@ -384,10 +392,6 @@ form {
     margin: 0 auto;
 }
 
-h2{
-    font-size: 3vmin;
-}
-
 .con-visitas{
     display: flex;
     flex-direction: column;
@@ -442,15 +446,17 @@ h2{
     .content {
         padding: 1.8em;
     }
-    img {
-        /* width: 30%; */
-    }
 }
 
 @media (min-height:550px) {
     .content {
         height: 500px;
     }
+
+    .table td,
+.table th {
+    font-size: 1.8vmin;
+}
 }
 
 .dropdown-item:active {
@@ -500,6 +506,9 @@ header label:hover {
 }
 
 @media screen and (max-width: 768px) {
+    .contt{
+        width: 100%;
+    }
     header label {
         display: block;
     }
@@ -586,6 +595,10 @@ header label:hover {
     }
     .tema{
         width: 60%;
+    }
+    .table td,
+    .table th {
+        font-size: 3vmin;
     }
 }
 @media screen and (max-width: 360px) {

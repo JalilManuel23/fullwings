@@ -1,14 +1,3 @@
-<?php session_start();
-    $usuario = $_SESSION['usuario'];
-    $privilegio = $_SESSION['privilegio'];
-
-    if($usuario == null || $usuario == "" || $privilegio == 'empleado'){
-        header("Location: errores/iniciar_sesion.html");
-        die();
-    }  
-include("cerrar_sesion.php"); 
-
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -65,7 +54,7 @@ include("cerrar_sesion.php");
                     </div>
                     <div class="input-icono">
                         <div class="icon-phone"></div>
-                        <input type="tel" minlength="10" maxlength="10" name="telefono" class="txt" required placeholder="Teléfono">
+                        <input type="number" minlength="10" maxlength="10" name="telefono" class="txt" required placeholder="Teléfono">
                     </div>
                     <div class="input-icono">
                         <div class="icon-envelope"></div>

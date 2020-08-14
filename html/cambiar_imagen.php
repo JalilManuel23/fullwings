@@ -5,7 +5,7 @@
         header("Location: errores/iniciar_sesion.html");
         die();
     }    
-    include("cerrar_sesion.php");
+
     include('../php/config.php');
     $query = "SELECT * FROM usuario WHERE nom_usuario = '" . $_SESSION['usuario'] ."'";
     $result = mysqli_query($conexion, $query);
@@ -86,59 +86,60 @@
             $ruta = "";
             include("ventanas_modales/menu.php");
         ?>
+        <div class="contt"><h3 style='margin-top: 10px;'>Gestionar Imágenes</h3>
         <section class="contenido-imagenes">
-
             <table class="table">
-                <thead>
-                    <tr>
-                        <th>Título</th>
-                        <th>Sección</th>
-                        <th>Descripción</th>
-                        <th>Imagen</th>
-                        <?php if($priv != 'c') echo "<th>Acciones</th>"; ?>
-                    </tr>
-
-                    <?php
-                        $con = 1;
-
-                        include("../php/config.php");
-                        include("../php/imagenes/mostrar.php");
-
-                        while($con < 16){
-
-                            $seccion = "";
-
-                            if($con >= 1 && $con <= 9){
-                                $seccion = "Menú";
-                            }elseif($con >= 10 && $con <= 12){
-                                $seccion = "Inicio";
-                            }elseif($con >= 13 && $con <= 15){
-                                $seccion = "Inicio";
-                            }
-
-                            $fotos = show($con,$Conserver,$Conuser,$Conpass,$Condb);
-                            echo "<tr>";
-                                echo "<td> ". $fotos['titulo'] . "</td>";
-                                echo "<td>" . $seccion . "</td>";
-                                echo "<td>". $fotos['descripcion'] . "</td>";
-                                echo "<td> <img src='../img/". $fotos['imagen'] . "'></td>";
-                                
-                                echo "<td>";
-                                    if($priv == 'e' || $priv == 't'){
-                                        echo "<a href='../php/imagenes/subir.php?id=" .$con."' class='icon-pencil'></a>";
-                                    }
-                                    if($priv == 'd' || $priv == 't'){
-                                        echo "<a href='../php/cambiar_img_default.php?id= " .$con."' class='icon-trash'></a>";
-                                    }
-                                echo "</td>";
-                            echo "</tr>";
-
-                            $con++;
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Sección</th>
+                    <th>Descripción</th>
+                    <th>Imagen</th>
+                    <?php if($priv != 'c') echo "<th>Acciones</th>"; ?>
+                </tr>
+                
+                <?php
+                $con = 1;
+                
+                include("../php/config.php");
+                include("../php/imagenes/mostrar.php");
+                
+                while($con < 16){
+                    
+                    $seccion = "";
+                    
+                    if($con >= 1 && $con <= 9){
+                        $seccion = "Menú";
+                    }elseif($con >= 10 && $con <= 12){
+                        $seccion = "Inicio";
+                    }elseif($con >= 13 && $con <= 15){
+                        $seccion = "Inicio";
+                    }
+                    
+                    $fotos = show($con,$Conserver,$Conuser,$Conpass,$Condb);
+                    echo "<tr>";
+                        echo "<td> ". $fotos['titulo'] . "</td>";
+                        echo "<td>" . $seccion . "</td>";
+                        echo "<td>". $fotos['descripcion'] . "</td>";
+                        echo "<td> <img src='../img/". $fotos['imagen'] . "'></td>";
+                        
+                        echo "<td>";
+                        if($priv == 'e' || $priv == 't'){
+                        echo "<a href='../php/imagenes/subir.php?id=" .$con."' class='icon-pencil'></a>";
                         }
-                    ?>
+                        if($priv == 'd' || $priv == 't'){
+                        echo "<a href='../php/cambiar_img_default.php?id= " .$con."' class='icon-trash'></a>";
+                        }
+                        echo "</td>";
+                    echo "</tr>";
+                    
+                    $con++;
+                }
+                ?>
                 </thead>
             </table>
         </section>
+        </div>
     </div>
 </body>
 </html>

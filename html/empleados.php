@@ -152,7 +152,7 @@
 
                         <div class="form-elemento">
                             <label for="telefono">Teléfono</label>
-                            <input type="text" name="telefono" placeholder="Teléfono" id="telefono" required>
+                            <input type="number" name="telefono" placeholder="Teléfono" id="telefono" required>
                         </div>
 
                         <div class="form-elemento">

@@ -48,13 +48,16 @@
                         <li>
                             <a class="icon-facebook" href="https://www.facebook.com/Fullwingsdgo" target="_blank"></a>
                         </li>
+                        <li >
+                            <a class="icon-user" href="login.php"></a>
+                        </li>
                     </ul>
                 </nav>
             </div>
         </div>
         <div class="contenedor-titulo-menu">
             <h2>MENÚ</h2>
-            <img src="../img/menu1.jpg" alt="Menú" id="img-1">
+            <img src="../img/menu1.jpeg" alt="Menú" id="img-1">
             <img src="../img/fullwings_00.png " alt="Menú" id="img-2">
             <a class="btn btn-danger" href="../pdf/menu.pdf" download="Menú Fullwings">Descargar Menú</a>
         </div>

@@ -77,8 +77,10 @@
 
                 $i = 13;
                 while($i <= 15){
-                        $fotos_suc = show($i,$Conserver,$Conuser,$Conpass,$Condb);
-                        echo "<img src='img/". $fotos_suc['imagen'] . "' alt='Imagen de sucursal'>"; 
+                    $fotos = show($i,$Conserver,$Conuser,$Conpass,$Condb);
+                    $fotos_suc = show($i,$Conserver,$Conuser,$Conpass,$Condb);
+                    echo "<img src='img/". $fotos_suc['imagen'] . "' alt='Imagen de sucursal' data-toggle='modal' data-target='#ver-producto-$i' class='pointer'>"; 
+                    include("html/ventanas_modales/productos.php");
                     $i++;
                 }
             ?>

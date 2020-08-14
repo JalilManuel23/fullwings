@@ -1,6 +1,6 @@
 <?php
     include("../html/usuarios.php");
-    include("php/config.php");
+
     $id = $_GET['id'];
 
     ?>

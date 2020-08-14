@@ -5,7 +5,7 @@
         header("Location: errores/iniciar_sesion.html");
         die();
     }     
-    include("cerrar_sesion.php");
+    
     include("../php/config.php");
     $correcto = FALSE;
     if(isset($_POST['actualizar_tema'])){
@@ -92,6 +92,7 @@
             include("ventanas_modales/menu.php");
         ?>
         <section class="contenido">
+            <h3>Apariencia</h3>
             <p>Seleccione una paleta de colores para cambiar la apariencia de la página.</p>
             <form class="temas" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                 <div>

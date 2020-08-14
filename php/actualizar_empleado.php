@@ -11,7 +11,7 @@
         header("Location: ../html/errores/iniciar_sesion.html");
         die();
     } 
-    include("../html/cerrar_sesion.php");
+    
     $id = (isset($_GET['no'])) ? $_GET['no'] : "";
 
     $select= "SELECT * FROM empleado WHERE No_Empleado = '$id'";
@@ -122,7 +122,7 @@
     <div class="main">
         <input type="checkbox" id="boton-menu">
         <?php 
-            $opcion_seleccionada = 4;
+            $opcion_seleccionada = 3;
             $ruta = "../html/";
             include("../html/ventanas_modales/menu.php");
         ?>
@@ -136,7 +136,7 @@
                 </div>
                 <div >
                     <label>Teléfono</label>
-                    <input type="text" name="telefono" class="form-control" value="<?php echo $fila['telefono']; ?>">
+                    <input type="number" name="telefono" class="form-control" value="<?php echo $fila['telefono']; ?>">
                 </div>
                 <div >
                     <label>Puesto</label>

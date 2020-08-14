@@ -5,7 +5,6 @@
         header("Location: errores/iniciar_sesion.html");
         die();
     }    
-    include("cerrar_sesion.php");
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +40,7 @@
     <link rel="stylesheet" href="../css/estilos_sistema.css">
 </head>
 
-<body >
+<body>
     <header class="header-sis">
         <div class="contenedor-header">
             <label for="boton-menu"><img src="../img/menu.png" alt=""></label>
@@ -81,9 +80,10 @@
             $ruta = "";
             include("ventanas_modales/menu.php");
         ?>
-        <section class="contenido-imagenes">
-            <h5>Mensajes</h5>
-            <table class="table">
+        <div class="contt">
+            <h3>Mensajes</h3>
+            <section class="contenido-imagenes">
+                <table class="table">
                 <thead>
                     <tr>
                         <th>Enviado por...</th>
@@ -92,31 +92,32 @@
                         <th>Mensaje</th>
                         <th>Acciones</th>
                     </tr>
-
+                    
                     <?php
-                        include("../php/config.php");
-
-                        $sql = "SELECT * FROM mensajes";
-                        if($result = mysqli_query($conexion, $sql)){
-                            if(mysqli_num_rows($result) > 0){
-                                while($row = mysqli_fetch_array($result)){
-                                    echo "<tr>";
-                                        echo "<td>" . $row['nombre'] . "</td>";
-                                        echo "<td>" . $row['email'] . "</td>";
-                                        echo "<td>" . $row['fecha_hora'] . "</td>";
-                                        echo "<td>" . $row['mensaje'] . "</td>";
-                                        echo "<td>";
-                                            echo "<a href='mailto:" . $row['email'] ."' class='icon-reply'></a>";
-                                            echo "<a href='../php/confirmar.php?id=" .$row['id_mensaje']."' class='icon-trash'></a>";
-                                        echo "</td>";
-                                    echo "</tr>";
-                                }
-                            }
-                        }
+                    include("../php/config.php");
+                    
+                    $sql = "SELECT * FROM mensajes";
+                    if($result = mysqli_query($conexion, $sql)){
+                    if(mysqli_num_rows($result) > 0){
+                    while($row = mysqli_fetch_array($result)){
+                    echo "<tr>";
+                        echo "<td>" . $row['nombre'] . "</td>";
+                        echo "<td>" . $row['email'] . "</td>";
+                        echo "<td>" . $row['fecha_hora'] . "</td>";
+                        echo "<td>" . $row['mensaje'] . "</td>";
+                        echo "<td>";
+                        echo "<a href='mailto:" . $row['email'] ."' class='icon-reply'></a>";
+                        echo "<a href='../php/confirmar.php?id=" .$row['id_mensaje']."' class='icon-trash'></a>";
+                        echo "</td>";
+                    echo "</tr>";
+                    }
+                    }
+                    }
                     ?>
                 </thead>
-            </table>
-        </section>
+                </table>
+            </section>
+        </div>
     </div>
 </body>
 </html>

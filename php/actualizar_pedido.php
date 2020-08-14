@@ -6,13 +6,12 @@
     $result = mysqli_query($conexion, $query);
     $row = mysqli_fetch_array($result);
     $priv = $row['seccion_ventas'];
- 
+
     $usuario = $_SESSION['usuario'];
     if($usuario == null || $usuario = "" || $priv == 'c' || $priv == 'd'){
         header("Location: ../html/errores/iniciar_sesion.html");
         die();
     } 
-    include("../html/cerrar_sesion.php");
     
     $id = $_GET['no'];
 
@@ -164,7 +163,7 @@
                 </div>
                 <div >
                     <label>Total</label>
-                    <input type="text" name="total" class="form-control" value="<?php echo $fila['Total']; ?>">
+                    <input type="number" name="total" class="form-control" value="<?php echo $fila['Total']; ?>">
                 </div>
                 <input type="hidden" name="id" value="<?php echo $id; ?>"/>
                 <input type="submit" class="btn btn-primary" value="Actualizar" name="actualizar-pedido">

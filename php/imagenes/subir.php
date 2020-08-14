@@ -8,12 +8,11 @@
     $priv = $row['seccion_img'];
 
     $usuario = $_SESSION['usuario'];
-    if($usuario == null || $usuario = "" || $priv == 'c' || $priv == 'e'){
+    if($usuario == null || $usuario = "" || $priv == 'c'){
         header("Location: ../../html/errores/iniciar_sesion.html");
         die();
 	}    
-    include("../../html/cerrar_sesion.php");
-    
+	
 	include("../config.php");
 
 	$id = $_REQUEST['id'];

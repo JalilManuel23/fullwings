@@ -7,7 +7,7 @@
         header("Location: ../html/errores/iniciar_sesion.html");
         die();
     } 
-    include("../html/cerrar_sesion.php");
+
     include("config.php");
     
     $id = $_GET['no'];
@@ -107,8 +107,8 @@
                         <a href="../html/privilegios.php?ed=s&user=<?php echo $fila['nom_usuario'];?>" class='icon-pencil'>Editar Privilegios</a>
                     </div>
                     <div >
-                        <label>Telefono</label>
-                        <input type="text" name="tel" class="form-control" value="<?php echo $fila['telefono']; ?>">
+                        <label>Teléfono</label>
+                        <input type="number" name="tel" class="form-control" value="<?php echo $fila['telefono']; ?>">
                     </div>
                     <div >
                         <label>Correo</label>

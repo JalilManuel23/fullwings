@@ -8,9 +8,16 @@ $Condb="fullwings";
 
 /*CONEXIÓN AL SERVIDOR DEL PROFE ISAAC*/
 
-// $Conserver="162.241.61.200";
+// $Conserver="10.209.81.2";
+// $Conuser="1006416_eh53322";
+// $Conpass="Utd_2020";
+// $Condb="1006416-55";
+
+/*CONEXIÓN AL SERVIDOR DE HOSTGATOR*/
+
+// $Conserver="localhost:3306";
 // $Conuser="fullwing_admin";
-// $Conpass="Jml14";
+// $Conpass="Jalilkm2";
 // $Condb="fullwing_fullwings";
 
 $conexion= @mysqli_connect($Conserver,$Conuser,$Conpass,$Condb);

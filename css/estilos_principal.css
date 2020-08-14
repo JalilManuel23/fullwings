@@ -274,6 +274,11 @@ header label:hover {
     font-size: 2.5vmin;
     font-family: 'Nunito', sans-serif;
 }
+
+.pointer{
+    cursor: pointer;
+}
+
 /* Fin de Menú responsivo */
 
 @media screen and (max-width: 768px) {
