@@ -15,19 +15,21 @@ class PDF extends FPDF
 function Header()
 {
     // Arial bold 15
-    $this->SetFont('Arial','B',18);
+    $this->SetFont('Arial','B',14);
     // Movernos a la derecha
     $this->Cell(60);
     // Título
-    $this->Cell(70,10,'Reporte de Pedidos',0,0,'C');
+    $this->Image('../img/fullwings_color.png' ,95 ,4, 20 , 20,'PNG');
+    $this->Cell(70,40,'Reporte de Ventas',0,0,'C');
     // Salto de línea
-    $this->Ln(20);
+    $this->Ln(30);
 
     $this->Cell(10, 10, utf8_decode('#'), 1, 0, 'C', 0);
     $this->Cell(30, 10, utf8_decode('Empleado'), 1, 0, 'C', 0);
     $this->Cell(30, 10, utf8_decode('Fecha'), 1, 0, 'C', 0);
     $this->Cell(100, 10, utf8_decode('Descripción'), 1, 0, 'C', 0);
     $this->Cell(20, 10, utf8_decode('Total'), 1, 1, 'C', 0);
+
 }
 
 // Pie de página
@@ -43,7 +45,7 @@ function Footer()
 }
 
 require('config.php');
-$consulta = "SELECT * FROM pedido";
+$consulta = "SELECT * FROM pedido ORDER BY fecha DESC";
 $resultado = $conexion->query($consulta);
 
 
@@ -58,7 +60,7 @@ while($row = $resultado->fetch_assoc()){
     $pdf->Cell(30, 10, utf8_decode($row['Empleado']), 1, 0, 'C', 0);
     $pdf->Cell(30, 10, utf8_decode($row['fecha']), 1, 0, 'C', 0);
     $pdf->Cell(100, 10, utf8_decode($row['orden']), 1, 0, 'C', 0);
-    $pdf->Cell(20, 10, utf8_decode($row['Total']), 1, 1, 'C', 0);
+    $pdf->Cell(20, 10, utf8_decode("$". $row['Total']), 1, 1, 'C', 0);
 }
 
 $pdf->Output();

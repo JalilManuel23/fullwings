@@ -16,13 +16,14 @@
         function Header()
         {
             // Arial bold 15
-            $this->SetFont('Arial','B',18);
+            $this->SetFont('Arial','B',15);
             // Movernos a la derecha
             $this->Cell(60);
             // Título
-            $this->Cell(70,10,'Reporte de Empleados',0,0,'C');
+            $this->Image('../img/fullwings_color.png' ,95 ,4, 20 , 20,'PNG');
+            $this->Cell(70,40,'Reporte de Empleados',0,0,'C');
             // Salto de línea
-            $this->Ln(20);
+            $this->Ln(30);
 
             $this->Cell(20, 10, utf8_decode('#'), 1, 0, 'C', 0);
             $this->Cell(45, 10, utf8_decode('Nombre'), 1, 0, 'C', 0);

@@ -144,7 +144,7 @@
                                             }
                                             mysqli_free_result($result);
                                         } else{
-                                            echo "<p class='lead'><em>NO HAY EMPLEADOS REGISTRADOS</em></p>";
+                                            echo "<option>No hay Empleados registrados</option>";
                                         }
                                     } else{
                                         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conexion);
@@ -181,7 +181,7 @@
                         require_once "../php/config.php";
                         
                         // Attempt select query execution
-                        $sql = "SELECT * FROM pedido";
+                        $sql = "SELECT * FROM pedido ORDER BY fecha DESC";
                         if($result = mysqli_query($conexion, $sql)){
                             if(mysqli_num_rows($result) > 0){
                                 echo "<table class='table'>";
@@ -202,7 +202,7 @@
                                             echo "<td>" . $row['Empleado'] . "</td>";
                                             echo "<td>" . $row['fecha'] . "</td>";
                                             echo "<td>" . $row['orden'] . "</td>";
-                                            echo "<td>" . $row['Total'] . "</td>";
+                                            echo "<td>$ " . $row['Total'] . "</td>";
                                             echo "<td class='acciones'>";
                                             if($priv == 'e' || $priv == 't'){
                                                 echo "<a href='../php/actualizar_pedido.php?no=". $row['No_orden']."' class='icon-pencil' title='Editar registro' name='actualizar'></a>";
