@@ -96,7 +96,7 @@
                     <?php
                     include("../php/config.php");
                     
-                    $sql = "SELECT * FROM mensajes";
+                    $sql = "SELECT * FROM mensajes ORDER BY fecha_hora DESC";
                     if($result = mysqli_query($conexion, $sql)){
                     if(mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_array($result)){
