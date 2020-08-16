@@ -8,7 +8,7 @@
     $priv = $row['seccion_img'];
 
     $usuario = $_SESSION['usuario'];
-    if($usuario == null || $usuario = "" || $priv == 'c'){
+    if($usuario == null || $usuario = "" || $priv == 'c' || $priv == 'd'){
         header("Location: ../../html/errores/iniciar_sesion.html");
         die();
 	}    

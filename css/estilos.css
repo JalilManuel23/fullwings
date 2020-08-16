@@ -222,7 +222,6 @@ body{
 }
 
 .contenedor-titulo-menu a {
-    background-color: #ee3333;
     border: 0px;
     font-size: 3vmin;
     margin-top: 10px;
@@ -337,6 +336,11 @@ header label:hover {
     cursor: pointer;
 }
 
+#carouselExampleIndicators button{
+    color: black;
+    background: rgba(5, 66, 196, 0.16);
+}
+
 @media screen and (max-width: 1000px){
     .datos{
         flex-direction: column;
@@ -359,7 +363,7 @@ header label:hover {
 }
 
 @media screen and (max-width: 768px) {
-    #img-1{
+    #carouselExampleIndicators{
         display: none;
     }
 

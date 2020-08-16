@@ -1,3 +1,7 @@
+<?php
+    include("../php/config.php");
+    include("../php/imagenes/mostrar.php");  
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -57,8 +61,50 @@
         </div>
         <div class="contenedor-titulo-menu">
             <h2>MENÚ</h2>
-            <img src="../img/menu1.jpeg" alt="Menú" id="img-1">
+            <!-- <img src="../img/menu1.jpeg" alt="Menú" id="img-1"> -->
             <img src="../img/fullwings_00.png " alt="Menú" id="img-2">
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <?php
+                            $i = 16;
+                            while($i <= 18){
+                                if($i == 16){
+                                    echo "<div class='carousel-item active'>";  
+                                }else{
+                                    echo "<div class='carousel-item'>";
+                                }
+                                    $fotos = show($i,$Conserver,$Conuser,$Conpass,$Condb);
+                                    echo "<img src='../img/". $fotos['imagen'] . "' class='d-block w-100' alt='Menú'>"; 
+                                echo "</div>";
+                                $i++;
+                            }
+                    ?>
+                    <!-- <div class="carousel-item active">
+                    <img src="../img/menu1.jpeg" class="d-block w-100" alt="Menú 1">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="../img/menu2.jpeg" class="d-block w-100" alt="Menú 2">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="../img/menu3.jpg" class="d-block w-100" alt="Menú 3">
+                    </div> -->
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
             <a class="btn btn-danger" href="../pdf/menu.pdf" download="Menú Fullwings">Descargar Menú</a>
         </div>
     </header>
@@ -84,10 +130,7 @@
                 <h2>ALITAS</h2>
                 <div class="imgs">
  
-                        <?php
-                            include("../php/config.php");
-                            include("../php/imagenes/mostrar.php");  
-                                            
+                        <?php               
                             $i = 1;
                             while($i <= 3){
                                 echo "<a class='imgs-menu'  data-toggle='modal' data-target='#ver-producto-$i'>";
